@@ -2,84 +2,84 @@
   publish = "dist"
   command = "npm run build"
 
-# Redirect root to presentations dashboard
+# Backwards compatibility: redirect any legacy /presentations/ links to root
 [[redirects]]
-  from = "/"
-  to = "/presentations/"
+  from = "/presentations/*"
+  to = "/:splat"
   status = 301
 
-# Clean short URLs redirects to presentations/
+# Clean short URLs
 [[redirects]]
   from = "/basic_html"
-  to = "/presentations/web_essentials/basic_html/dutch.html"
+  to = "/web_essentials/basic_html/dutch.html"
   status = 200
 
 [[redirects]]
   from = "/basic_html_en"
-  to = "/presentations/web_essentials/basic_html/english.html"
+  to = "/web_essentials/basic_html/english.html"
   status = 200
 
 [[redirects]]
   from = "/basic_css"
-  to = "/presentations/web_essentials/basic_css/dutch.html"
+  to = "/web_essentials/basic_css/dutch.html"
   status = 200
 
 [[redirects]]
   from = "/basic_css_en"
-  to = "/presentations/web_essentials/basic_css/english.html"
+  to = "/web_essentials/basic_css/english.html"
   status = 200
 
 [[redirects]]
   from = "/bootstrap_grid"
-  to = "/presentations/web_essentials/bootstrap_grid/dutch.html"
+  to = "/web_essentials/bootstrap_grid/dutch.html"
   status = 200
 
 [[redirects]]
   from = "/bootstrap_grid_en"
-  to = "/presentations/web_essentials/bootstrap_grid/english.html"
+  to = "/web_essentials/bootstrap_grid/english.html"
   status = 200
 
 [[redirects]]
   from = "/bootstrap_grid_fr"
-  to = "/presentations/web_essentials/bootstrap_grid/french.html"
+  to = "/web_essentials/bootstrap_grid/french.html"
   status = 200
 
 [[redirects]]
   from = "/tailwindcss"
-  to = "/presentations/web_development/tailwindcss/dutch.html"
+  to = "/web_development/tailwindcss/dutch.html"
   status = 200
 
 [[redirects]]
   from = "/tailwindcss_en"
-  to = "/presentations/web_development/tailwindcss/english.html"
+  to = "/web_development/tailwindcss/english.html"
   status = 200
 
 [[redirects]]
   from = "/alpinejs"
-  to = "/presentations/web_development/alpinejs/dutch.html"
+  to = "/web_development/alpinejs/dutch.html"
   status = 200
 
 [[redirects]]
   from = "/alpinejs_en"
-  to = "/presentations/web_development/alpinejs/english.html"
+  to = "/web_development/alpinejs/english.html"
   status = 200
 
 [[redirects]]
   from = "/livewire"
-  to = "/presentations/web_development/livewire/dutch.html"
+  to = "/web_development/livewire/dutch.html"
   status = 200
 
 [[redirects]]
   from = "/livewire_en"
-  to = "/presentations/web_development/livewire/english.html"
+  to = "/web_development/livewire/english.html"
   status = 200
 
 [[redirects]]
   from = "/fluxui"
-  to = "/presentations/web_development/fluxui/dutch.html"
+  to = "/web_development/fluxui/dutch.html"
   status = 200
 
 [[redirects]]
   from = "/fluxui_en"
-  to = "/presentations/web_development/fluxui/english.html"
+  to = "/web_development/fluxui/english.html"
   status = 200

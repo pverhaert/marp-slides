@@ -5,9 +5,8 @@ const { execSync } = require('child_process');
 const rootDir = path.join(__dirname, '../..');
 const presentationsDir = path.join(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
-const distPresDir = path.join(distDir, 'presentations');
 
-console.log('\n\x1b[36m[Build]\x1b[0m Start productie-build voor Netlify...');
+console.log('\n\x1b[36m[Build]\x1b[0m Start productie-build voor Netlify (dist root)...');
 
 // 1. Dist map schoonmaken
 if (fs.existsSync(distDir)) {
@@ -20,22 +19,22 @@ if (fs.existsSync(distDir)) {
     // Bestanden overschrijven indien locked
   }
 }
-fs.mkdirSync(distPresDir, { recursive: true });
+fs.mkdirSync(distDir, { recursive: true });
 
 // 2. Marp compilatie van alle markdown bestanden
-console.log('\x1b[36m[Build]\x1b[0m 1/4 Compileren van alle presentaties met Marp...');
+console.log('\x1b[36m[Build]\x1b[0m 1/3 Compileren van alle presentaties met Marp...');
 execSync('npx @marp-team/marp-cli --no-stdin "presentations/**/*.md" --html', {
   cwd: rootDir,
   stdio: 'inherit'
 });
 
 // 3. Inject scripts in gegenereerde HTML
-console.log('\x1b[36m[Build]\x1b[0m 2/4 Injecteren van scripts.js in alle slides...');
+console.log('\x1b[36m[Build]\x1b[0m 2/3 Injecteren van scripts.js in alle slides...');
 const injectPath = path.join(__dirname, 'inject-scripts.js');
 delete require.cache[require.resolve(injectPath)];
 require(injectPath);
 
-// 4. Filteren en selectief kopiëren naar dist (EXCLUSIEF .md en build-scripts)
+// 4. Filteren en selectief kopiëren direct naar dist root (EXCLUSIEF .md en build-scripts)
 function copyFiltered(srcDir, destDir) {
   if (!fs.existsSync(destDir)) {
     fs.mkdirSync(destDir, { recursive: true });
@@ -68,30 +67,12 @@ function copyFiltered(srcDir, destDir) {
   }
 }
 
-console.log('\x1b[36m[Build]\x1b[0m 3/4 Kopiëren van HTML presentaties, stijlen en assets (geen .md)...');
-copyFiltered(presentationsDir, distPresDir);
+console.log('\x1b[36m[Build]\x1b[0m 3/3 Kopiëren naar dist/ (portaal index, stijlen en presentaties)...');
+copyFiltered(presentationsDir, distDir);
 
-// Client-side js kopiëren (enkel scripts.js)
-const distJsDir = path.join(distPresDir, 'js');
+// Client-side js kopiëren (enkel scripts.js naar dist/js/scripts.js)
+const distJsDir = path.join(distDir, 'js');
 fs.mkdirSync(distJsDir, { recursive: true });
 fs.copyFileSync(path.join(presentationsDir, 'js', 'scripts.js'), path.join(distJsDir, 'scripts.js'));
 
-// Root redirect pagina in dist/index.html
-console.log('\x1b[36m[Build]\x1b[0m 4/4 Aanmaken van root portaal redirect...');
-const rootIndexHtml = `<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/presentations/assets/favicon.svg">
-  <meta http-equiv="refresh" content="0; url=/presentations/">
-  <title>Thomas More ITF Presentaties</title>
-  <script>window.location.href = '/presentations/';</script>
-</head>
-<body style="background:#0f141c;color:#e6edf3;font-family:sans-serif;padding:40px;">
-  <p>Doorsturen naar <a href="/presentations/" style="color:#009cab;">Presentaties portaal</a>...</p>
-</body>
-</html>
-`;
-fs.writeFileSync(path.join(distDir, 'index.html'), rootIndexHtml, 'utf8');
-
-console.log('\x1b[32m[Build ✓]\x1b[0m Productie-build succesvol afgerond in dist/.\n');
+console.log('\x1b[32m[Build ✓]\x1b[0m Productie-build succesvol afgerond direct in dist/.\n');
