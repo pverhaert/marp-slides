@@ -1,0 +1,563 @@
+/* ==========================================================================
+   Marp Presentation Settings Modal Stylesheet
+   ========================================================================== */
+
+.marp-settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 12, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.marp-settings-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.marp-settings-dialog {
+  background: #0f141c;
+  border: 1px solid #2c3647;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  font-family: 'Outfit', -apple-system, sans-serif;
+  color: #e6edf3;
+  transform: translateY(12px);
+  transition: transform 0.2s ease;
+}
+
+.marp-settings-overlay.active .marp-settings-dialog {
+  transform: translateY(0);
+}
+
+.marp-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #2c3647;
+  padding-bottom: 12px;
+}
+
+.marp-settings-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.marp-settings-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #8b949e;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.marp-settings-close:hover {
+  color: #ffffff;
+}
+
+.marp-settings-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.marp-theme-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.marp-theme-btn {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #2c3647;
+  background: #181f2a;
+  color: #e6edf3;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.marp-theme-btn:hover {
+  border-color: #ff753a;
+  color: #ffffff;
+}
+
+.marp-theme-btn.active {
+  background: #e84e10 !important;
+  border-color: #e84e10 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 14px rgba(232, 78, 16, 0.4);
+}
+
+.marp-language-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.marp-lang-btn {
+  flex: 1;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: 1px solid #2c3647;
+  background: #181f2a;
+  color: #e6edf3;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.marp-lang-btn .lang-code {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.marp-lang-btn .lang-label {
+  font-size: 11px;
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.marp-lang-btn:hover:not(:disabled) {
+  border-color: #ff753a;
+  color: #ffffff;
+}
+
+.marp-lang-btn:hover:not(:disabled) .lang-label {
+  color: #e6edf3;
+}
+
+.marp-lang-btn.active {
+  background: #e84e10 !important;
+  border-color: #e84e10 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 14px rgba(232, 78, 16, 0.4);
+}
+
+.marp-lang-btn.active .lang-label {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.marp-lang-btn:disabled,
+.marp-lang-btn.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.marp-settings-footer {
+  font-size: 12px;
+  color: #64748b;
+  text-align: center;
+  border-top: 1px solid #1f2735;
+  padding-top: 14px;
+}
+
+/* Light mode for the dialog itself */
+body.theme-light .marp-settings-dialog {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+body.theme-light .marp-settings-title {
+  color: #0a0f1d;
+}
+
+body.theme-light .marp-settings-header {
+  border-bottom-color: #e2e8f0;
+}
+
+body.theme-light .marp-theme-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+body.theme-light .marp-theme-btn.active {
+  background: #e84e10 !important;
+  border-color: #e84e10 !important;
+  color: #ffffff !important;
+}
+
+body.theme-light .marp-lang-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+body.theme-light .marp-lang-btn .lang-label {
+  color: #64748b;
+}
+
+body.theme-light .marp-lang-btn:hover:not(:disabled) {
+  border-color: #e84e10;
+}
+
+body.theme-light .marp-lang-btn.active {
+  background: #e84e10 !important;
+  border-color: #e84e10 !important;
+  color: #ffffff !important;
+}
+
+body.theme-light .marp-lang-btn.active .lang-label {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   Table of Contents (TOC) Side Drawer
+   ========================================================================== */
+
+.marp-toc-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 12, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999990;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.marp-toc-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.marp-toc-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 85vw;
+  background: #0f141c;
+  border-right: 1px solid #2c3647;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.65);
+  z-index: 999995;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Outfit', -apple-system, sans-serif;
+  color: #e6edf3;
+}
+
+.marp-toc-drawer.active {
+  transform: translateX(0);
+}
+
+.marp-toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid #2c3647;
+}
+
+.marp-toc-title-area {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.marp-toc-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.marp-toc-title::before {
+  content: '//';
+  color: #e84e10;
+  font-family: 'Fira Code', monospace;
+  font-weight: 800;
+}
+
+.marp-toc-count {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.marp-toc-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #8b949e;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.marp-toc-close:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.marp-toc-filter-box {
+  padding: 12px 18px;
+  border-bottom: 1px solid #1f2735;
+}
+
+.marp-toc-filter-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #2c3647;
+  background: #181f2a;
+  color: #e6edf3;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.marp-toc-filter-input:focus {
+  border-color: #e84e10;
+}
+
+.marp-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.marp-toc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #c9d1d9;
+  font-size: 13.5px;
+  line-height: 1.35;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.marp-toc-item:hover {
+  background-color: rgba(232, 78, 16, 0.12);
+  color: #ffffff;
+}
+
+.marp-toc-item.is-lead {
+  font-weight: 700;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.marp-toc-item.is-current {
+  background-color: rgba(232, 78, 16, 0.18);
+  border-left-color: #e84e10;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.marp-toc-item.is-current .marp-toc-badge {
+  background: #e84e10;
+  color: #ffffff;
+}
+
+.marp-toc-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  background: #1c2331;
+  color: #8b949e;
+  padding: 2px 6px;
+  border-radius: 4px;
+  min-width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.marp-toc-item-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.marp-toc-footer {
+  padding: 10px 18px;
+  border-top: 1px solid #1f2735;
+  font-size: 11px;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Light mode for the TOC Drawer */
+body.theme-light .marp-toc-drawer {
+  background: #ffffff;
+  border-right-color: #cbd5e1;
+  color: #0f172a;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.12);
+}
+
+body.theme-light .marp-toc-header {
+  border-bottom-color: #e2e8f0;
+}
+
+body.theme-light .marp-toc-title {
+  color: #0a0f1d;
+}
+
+body.theme-light .marp-toc-close {
+  color: #64748b;
+}
+
+body.theme-light .marp-toc-close:hover {
+  color: #0a0f1d;
+  background-color: #f1f5f9;
+}
+
+body.theme-light .marp-toc-filter-box {
+  border-bottom-color: #f1f5f9;
+}
+
+body.theme-light .marp-toc-filter-input {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+body.theme-light .marp-toc-item {
+  color: #334155;
+}
+
+body.theme-light .marp-toc-item:hover {
+  background-color: #fff2eb;
+  color: #0f172a;
+}
+
+body.theme-light .marp-toc-item.is-lead {
+  color: #0a0f1d;
+  background-color: #f8fafc;
+}
+
+body.theme-light .marp-toc-item.is-current {
+  background-color: #fff0eb;
+  border-left-color: #e84e10;
+  color: #0a0f1d;
+}
+
+body.theme-light .marp-toc-badge {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+body.theme-light .marp-toc-footer {
+  border-top-color: #e2e8f0;
+}
+
+/* ==========================================================================
+   Slide Transitions & Initial Load Flash Prevention
+   ========================================================================== */
+
+/* 1. Eliminate any transition or flash during opening and refreshing */
+html.marp-preload-no-transition *,
+html.marp-preload-no-transition::view-transition-group(*),
+html.marp-preload-no-transition::view-transition-old(*),
+html.marp-preload-no-transition::view-transition-new(*),
+html.marp-preload-no-transition svg.bespoke-marp-slide {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+}
+
+/* 2. Soft, modern cross-fade transition between slides during presentation */
+::view-transition-old(root) {
+  animation: 0.2s cubic-bezier(0.2, 0, 0, 1) both marp-slide-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.22s cubic-bezier(0.2, 0, 0, 1) both marp-slide-fade-in;
+}
+
+@keyframes marp-slide-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes marp-slide-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fallback smooth slide transition for browsers without View Transitions */
+svg.bespoke-marp-slide {
+  transition: opacity 0.22s cubic-bezier(0.2, 0, 0, 1) !important;
+}
+
+@media print {
+  .marp-home-btn,
+  .marp-gear-btn,
+  .marp-toc-btn,
+  .marp-slide-controls,
+  .marp-settings-overlay,
+  .marp-toc-drawer,
+  .marp-toc-backdrop {
+    display: none !important;
+  }
+}
+

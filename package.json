@@ -1,0 +1,13 @@
+{
+  "name": "thomasmore-marp-presentations",
+  "version": "1.0.0",
+  "description": "Interactive Marp Presentations for Thomas More courses",
+  "author": "Patrick Verhaert",
+  "scripts": {
+    "build": "node presentations/js/build.js",
+    "watch": "node presentations/js/watch.js"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.1.2"
+  }
+}

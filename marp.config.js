@@ -1,0 +1,12 @@
+module.exports = {
+  themeSet: [
+    './presentations/css/thomasmore.css',
+    './presentations/css/tech.css',
+    './presentations/css/business.css',
+    './presentations/css/dark.css',
+    './presentations/css/gradient.css',
+    './presentations/css/colorful.css',
+    './presentations/css/minimal.css'
+  ],
+  html: true
+};
