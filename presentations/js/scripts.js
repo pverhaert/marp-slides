@@ -533,6 +533,10 @@ function initSettingsModal() {
 
     // Language switcher handling (Feature 06)
     function getCurrentLanguage() {
+      const metaCur = document.querySelector('meta[name="marp-current-lang"]');
+      if (metaCur && metaCur.content) {
+        return metaCur.content.toLowerCase().trim();
+      }
       const p = (window.location.pathname || '').toLowerCase();
       if (p.includes('english')) return 'english';
       if (p.includes('french')) return 'french';
@@ -553,7 +557,7 @@ function initSettingsModal() {
       const langSection = overlay.querySelector('.marp-language-options');
       const langTitle = langSection ? langSection.previousElementSibling : null;
 
-      // 1. Check if meta tag defines available languages (instant, 0ms latency)
+      // 1. Check if meta tag defines available languages (instant, 0ms latency, 100% reliable on Netlify)
       const metaLangs = document.querySelector('meta[name="marp-languages"]');
       let knownAvailable = null;
       if (metaLangs && metaLangs.content) {
@@ -578,18 +582,16 @@ function initSettingsModal() {
         }
 
         // 2. Fallback: check via HEAD request if file exists
-        const targetPath = currentPath.replace(new RegExp(currLang + '\\.html$', 'i'), lang + '.html');
+        const targetPath = currentPath.replace(new RegExp(currLang + '(\\.html)?$', 'i'), lang + '.html');
         try {
           const resp = await fetch(targetPath, { method: 'HEAD' });
           if (resp.ok) {
             btn.style.display = 'flex';
             visibleCount++;
           } else {
-            // Language does not exist: hide completely
             btn.style.display = 'none';
           }
         } catch {
-          // If offline / file:// protocol, check if button should be visible
           btn.style.display = 'none';
         }
       }
@@ -610,9 +612,25 @@ function initSettingsModal() {
         const currLang = getCurrentLanguage();
         if (targetLang === currLang || btn.style.display === 'none') return;
 
-        const currentPath = window.location.pathname;
-        const newPath = currentPath.replace(new RegExp(currLang + '\\.html$', 'i'), targetLang + '.html');
         const hash = window.location.hash || '';
+        const metaModule = document.querySelector('meta[name="marp-module"]')?.content;
+        const currentPath = window.location.pathname;
+
+        let newPath;
+        if (metaModule) {
+          const idx = currentPath.indexOf(metaModule);
+          if (idx !== -1) {
+            const prefix = currentPath.slice(0, idx + metaModule.length);
+            newPath = `${prefix}/${targetLang}.html`;
+          } else {
+            // Netlify clean short URL (e.g. /basic_html) -> navigate to module path
+            newPath = `/${metaModule}/${targetLang}.html`;
+          }
+        } else {
+          // Fallback: replace language token with or without .html
+          newPath = currentPath.replace(/(dutch|english|french)(\.html)?$/i, targetLang + '.html');
+        }
+
         window.location.href = newPath + hash;
       });
     });

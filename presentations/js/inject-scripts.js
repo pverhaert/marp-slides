@@ -26,21 +26,23 @@ if (fs.existsSync(presentationsDir)) {
     let content = fs.readFileSync(filePath, 'utf8');
     let modified = false;
 
-    // Detect available language siblings in the same module folder
-    const folderFiles = fs.readdirSync(path.dirname(filePath));
+    // Detect module info and language siblings
+    const moduleDir = path.dirname(filePath);
+    const folderFiles = fs.readdirSync(moduleDir);
+    const relModuleDir = path.relative(presentationsDir, moduleDir).replace(/\\/g, '/');
+    const currentLang = path.basename(filePath, '.html').toLowerCase();
+
     const availableLangs = [];
     if (folderFiles.some(f => f.startsWith('dutch.'))) availableLangs.push('dutch');
     if (folderFiles.some(f => f.startsWith('english.'))) availableLangs.push('english');
     if (folderFiles.some(f => f.startsWith('french.'))) availableLangs.push('french');
 
-    const metaTag = `<meta name="marp-languages" content="${availableLangs.join(',')}">`;
-    if (!content.includes('name="marp-languages"')) {
-      if (content.includes('</head>')) {
-        content = content.replace('</head>', `  ${metaTag}\n</head>`);
-        modified = true;
-      }
-    } else {
-      content = content.replace(/<meta name="marp-languages"[^>]*>/, metaTag);
+    const metaTags = `  <meta name="marp-module" content="${relModuleDir}">\n  <meta name="marp-current-lang" content="${currentLang}">\n  <meta name="marp-languages" content="${availableLangs.join(',')}">`;
+
+    // Remove any previous tags if present to replace cleanly
+    content = content.replace(/<meta name="marp-(module|current-lang|languages)"[^>]*>\n?/g, '');
+    if (content.includes('</head>')) {
+      content = content.replace('</head>', `${metaTags}\n</head>`);
       modified = true;
     }
 
