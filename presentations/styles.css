@@ -111,7 +111,6 @@ h1 span.highlight {
 .card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left: 5px solid var(--color-accent);
   border-radius: 8px;
   padding: 28px;
   display: flex;
@@ -180,31 +179,38 @@ h1 span.highlight {
 
 .button-group {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .card-button {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  flex: 1;
+  gap: 2px;
+  flex: 1 1 0;
+  min-width: 85px;
   background-color: var(--color-accent);
   color: #ffffff;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 12px 14px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 9px 8px;
   border-radius: 6px;
   text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-button:hover {
   background-color: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 78, 16, 0.35);
 }
 
 .card-button.secondary {
-  background-color: #242f40;
+  background-color: #1c2433;
   border: 1px solid var(--color-border);
   color: var(--color-foreground);
 }
@@ -213,6 +219,33 @@ h1 span.highlight {
   background-color: var(--color-secondary);
   color: #ffffff;
   border-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 156, 171, 0.35);
+}
+
+.card-button .lang-code {
+  font-family: var(--font-code);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.card-button .lang-label {
+  font-family: var(--font-main);
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.85;
+  line-height: 1.2;
+}
+
+.card-button.secondary .lang-label {
+  color: var(--color-muted);
+}
+
+.card-button.secondary:hover .lang-label {
+  color: #ffffff;
+  opacity: 0.95;
 }
 
 footer {

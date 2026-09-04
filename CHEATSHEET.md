@@ -1,87 +1,87 @@
-# Cheatsheet: Marp & Thomas More Thema
+# Cheatsheet: Marp & Thomas More Theme
 
-Dit document biedt een compleet overzicht van alle beschikbare CSS classes uit [thomasmore.css](file:///d:/Sites_Marp/presentations/css/thomasmore.css), alsook alle Marp Markdown syntax om presentaties handmatig op te stellen of aan te passen.
+This document provides a comprehensive overview of all available CSS classes from [thomasmore.css](file:///d:/Sites_Marp/presentations/css/thomasmore.css), along with all Marp Markdown syntax to author and customize presentations manually.
 
 ---
 
-## 1. Beschikbare CSS Classes in `thomasmore.css`
+## 1. Available CSS Classes in `thomasmore.css`
 
-Het Thomas More thema bevat kant en klare utility classes en componenten voor een professionele presentatie.
+The Thomas More theme includes ready-to-use utility classes and layout components for creating professional presentations.
 
 ### 1.1 Slide Layouts & Covers
 
-| Klasse | Beschrijving | Voorbeeld |
-|---|---|---|
-| `section.lead` | Hero slide layout met oranje/cyaan radiale gradiënt achtergrond. Headers en footers worden hierop automatisch verborgen. | `<!-- _class: lead -->` |
-| `p.subtitle` | Subtitel onder de hoofdtitel op een cover slide (Fira Code lettertype in lichter oranje). | `<p class="subtitle">Web Essentials - Academiejaar 2024-2025</p>` |
-| `.meta-box` | Frosted glass infoblok met oranje linkeraccent voor vak en docentinformatie. | `<div class="meta-box">ITF Web Development</div>` |
+| Class | Description | Example |
+| --- | --- | --- |
+| `section.lead` | Hero cover slide layout with orange/cyan radial gradient background. Headers and footers are automatically hidden. | `<!-- _class: lead -->` |
+| `p.subtitle` | Subtitle beneath the main title on a cover slide (Fira Code font in light orange). | `<p class="subtitle">Web Essentials - Academic Year 2024-2025</p>` |
+| `.meta-box` | Frosted glass info box with an orange left accent border for course and instructor metadata. | `<div class="meta-box">ITF Web Development</div>` |
 
 ```html
 <!-- _class: lead -->
 
 # Vue.js Fundamentals
-<p class="subtitle">Single Page Applications bouwen met Vue 3</p>
+<p class="subtitle">Building Single Page Applications with Vue 3</p>
 
 <div class="meta-box">
-  Thomas More Hogeschool - Toegepaste Informatica (ITF)<br>
-  Vak: Front-end Development | Docent: ITF Team
+  Thomas More Hogeschool - Applied Computer Science (ITF)<br>
+  Course: Front-end Development | Instructor: ITF Team
 </div>
 ```
 
 ---
 
-### 1.2 Kaarten Systeem (`.card`)
+### 1.2 Card System (`.card`)
 
-Kaarten groeperen gerelateerde informatie in donkere containers met subtiele randen en schaduwen:
+Cards group related information inside dark containers with subtle borders and shadows:
 
-| Klasse | Beschrijving |
-|---|---|
-| `.card` | Standaard donkere kaart met rand en schaduw. |
-| `.card.card-accent` | Kaart met 3px Thomas More oranje top-border en oranje achtergrondgloed. |
-| `.card.card-cyan` | Kaart met 3px ITF cyaan top-border en cyaan achtergrondgloed. |
-| `.card.card-glass` | Frosted glass kaart met `-webkit-backdrop-filter` / `backdrop-filter: blur(12px)` en oranje getinte rand. |
+| Class | Description |
+| --- | --- |
+| `.card` | Standard dark container card with border and shadow. |
+| `.card.card-accent` | Card with a 3px Thomas More orange top border and subtle orange background glow. |
+| `.card.card-cyan` | Card with a 3px ITF cyan top border and subtle cyan background glow. |
+| `.card.card-glass` | Frosted glass card with `-webkit-backdrop-filter` / `backdrop-filter: blur(12px)` and orange tinted border. |
 
 ```html
 <div class="grid-2">
   <div class="card card-accent">
-    <h4>Oranje Accent</h4>
-    <p>Belangrijkste kernconcept of definitie.</p>
+    <h4>Orange Accent</h4>
+    <p>Primary core concept or definition.</p>
   </div>
   <div class="card card-cyan">
-    <h4>Cyaan Accent</h4>
-    <p>Aanvullende technische toelichting of tip.</p>
+    <h4>Cyan Accent</h4>
+    <p>Supplementary technical explanation or tip.</p>
   </div>
 </div>
 ```
 
 ---
 
-### 1.3 Kolommen & Grid Layouts
+### 1.3 Columns & Grid Layouts
 
-Verdeel de slide overzichtelijk in kolommen:
+Split the slide cleanly into multi-column layouts:
 
-| Klasse | Indeling | Toepassing |
-|---|---|---|
-| `.grid-2` of `.split-2` | 50% / 50% | Twee gelijke kolommen |
-| `.grid-3` of `.split-3` | 33% / 33% / 33% | Drie gelijke kolommen |
-| `.split-1-2` | 33% links / 67% rechts | Smalle zijbalk of afbeelding links, brede uitleg rechts |
-| `.split-2-1` | 67% links / 33% rechts | Brede code links, toelichting rechts |
-| `.split-1-3` | 25% links / 75% rechts | Compacte visual links, uitgebreide content rechts |
-| `.split-3-1` | 75% links / 25% rechts | Uitgebreide content links, compacte visual rechts |
-| `.split-left` | Flexbox links | Horizontale uitlijning van elementen |
-| `.split-right` | Flexbox omgekeerd | Horizontale uitlijning in omgekeerde volgorde |
+| Class | Distribution | Best Used For |
+| --- | --- | --- |
+| `.grid-2` or `.split-2` | 50% / 50% | Two equal columns |
+| `.grid-3` or `.split-3` | 33% / 33% / 33% | Three equal columns |
+| `.split-1-2` | 33% left / 67% right | Narrow sidebar or image on the left, broad explanation on the right |
+| `.split-2-1` | 67% left / 33% right | Wide code snippet on the left, explanation on the right |
+| `.split-1-3` | 25% left / 75% right | Compact visual on the left, detailed content on the right |
+| `.split-3-1` | 75% left / 25% right | Detailed content on the left, compact visual on the right |
+| `.split-left` | Flexbox align left | Horizontal alignment of elements |
+| `.split-right` | Flexbox align right | Horizontal alignment in reverse order |
 
 ```html
 <div class="split-1-2">
   <div class="img-box">
-    <img src="./images/architectuur.png" class="img-glow" alt="Architectuur">
-    <p class="caption">Figuur 1: MVC Architectuur</p>
+    <img src="./images/architecture.png" class="img-glow" alt="Architecture Diagram">
+    <p class="caption">Figure 1: MVC Architecture</p>
   </div>
   <div class="card card-glass">
-    <h4>Belangrijke Eigenschappen</h4>
+    <h4>Key Characteristics</h4>
     <ul>
-      <li>Duidelijke scheiding van logica en weergave.</li>
-      <li>Herbruikbaarheid van controllers en models.</li>
+      <li>Clear separation of concerns between business logic and presentation.</li>
+      <li>High reusability of controllers and data models.</li>
     </ul>
   </div>
 </div>
@@ -89,27 +89,27 @@ Verdeel de slide overzichtelijk in kolommen:
 
 ---
 
-### 1.4 Media Cards & Afbeelding Helpers
+### 1.4 Media Cards & Image Helpers
 
-Voor het stijlvol presenteren van screenshots, schema's en diagrammen:
+Designed for presenting screenshots, diagrams, and technical schematics cleanly:
 
-| Klasse | Beschrijving |
-|---|---|
-| `.media-card` | Raster met afbeelding links en tekst rechts binnen een donkere kaart. |
-| `.media-card.media-card-right` | Raster met tekst links en afbeelding rechts binnen een donkere kaart. |
-| `.img-glow` | Voegt een Thomas More oranje gloed toe rond een afbeelding. |
-| `.img-glow-cyan` | Voegt een ITF cyaan gloed toe rond een afbeelding. |
-| `.img-frame` | Plaatst een donkere kader met padding rond een screenshot of icoon. |
-| `.img-center` | Centreert een afbeelding horizontaal op de slide. |
-| `.img-box` of `.figure-box` | Flex container voor afbeelding en bijschrift gecentreerd onder elkaar. |
-| `.caption` | Monospaced gedimd onderschrift voor een afbeelding. |
+| Class | Description |
+| --- | --- |
+| `.media-card` | Grid layout with image on the left and text on the right within a dark card container. |
+| `.media-card.media-card-right` | Grid layout with text on the left and image on the right within a dark card container. |
+| `.img-glow` | Adds a Thomas More orange glow around an image. |
+| `.img-glow-cyan` | Adds an ITF cyan glow around an image. |
+| `.img-frame` | Wraps a screenshot or icon in a padded dark border frame. |
+| `.img-center` | Centers an image horizontally across the slide. |
+| `.img-box` or `.figure-box` | Flex container for stacking an image and its caption centered vertically. |
+| `.caption` | Monospaced muted caption label below an image. |
 
 ```html
 <div class="media-card">
   <img src="./images/terminal.png" class="img-frame" alt="Terminal Output">
   <div>
-    <h4>CLI Installatie</h4>
-    <p>Voer het installatiecommando uit in je terminal om het project te initialiseren.</p>
+    <h4>CLI Installation</h4>
+    <p>Run the installation command in your terminal to initialize the project structure.</p>
   </div>
 </div>
 ```
@@ -118,28 +118,28 @@ Voor het stijlvol presenteren van screenshots, schema's en diagrammen:
 
 ### 1.5 Badges (`.badge`)
 
-Compacte tags om status, labels of versies aan te duiden:
+Compact tags for displaying statuses, labels, tags, or version numbers:
 
-| Klasse | Uitstraling | Code |
-|---|---|---|
-| `.badge` | Vol oranje achtergrond, witte tekst | `<span class="badge">Belangrijk</span>` |
-| `.badge.badge-cyan` | Vol cyaan achtergrond, witte tekst | `<span class="badge badge-cyan">Vue 3</span>` |
-| `.badge.badge-outline` | Transparant met oranje rand en lichte tekst | `<span class="badge badge-outline">Optioneel</span>` |
-| `.badge.badge-outline-cyan` | Transparant met cyaan rand en cyaan tekst | `<span class="badge badge-outline-cyan">TypeScript</span>` |
+| Class | Appearance | Code Snippet |
+| --- | --- | --- |
+| `.badge` | Solid orange background with white text | `<span class="badge">Important</span>` |
+| `.badge.badge-cyan` | Solid cyan background with white text | `<span class="badge badge-cyan">Vue 3</span>` |
+| `.badge.badge-outline` | Transparent background with orange border and light text | `<span class="badge badge-outline">Optional</span>` |
+| `.badge.badge-outline-cyan` | Transparent background with cyan border and cyan text | `<span class="badge badge-outline-cyan">TypeScript</span>` |
 
 ```html
-<h3>Component Lifecycle <span class="badge badge-cyan">v4.0</span> <span class="badge">Nieuw</span></h3>
+<h3>Component Lifecycle <span class="badge badge-cyan">v4.0</span> <span class="badge">New</span></h3>
 ```
 
 ---
 
 ## 2. Marp Markdown Syntax & Directives
 
-Marp breidt standaard Markdown uit met presentatie specifieke directives en features.
+Marp extends standard Markdown with presentation-specific directives and slide formatting capabilities.
 
-### 2.1 Frontmatter (Globale Documentinstellingen)
+### 2.1 Frontmatter (Global Document Settings)
 
-Bovenaan elk `.md` bestand plaats je de frontmatter met YAML configuratie:
+Place the frontmatter YAML block at the very top of each `.md` file:
 
 ```markdown
 ---
@@ -151,38 +151,38 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 ---
 ```
 
-| Directive | Type | Beschrijving |
-|---|---|---|
-| `marp: true` | Boolean | Verplicht. Activeert Marp rendering. |
-| `theme: thomasmore` | String | Selecteert het Thomas More CSS thema. |
-| `paginate: true` | Boolean | Toont paginanummers rechtsonder. |
-| `header: 'Tekst'` | String | Vaste header bovenaan elke slide. |
-| `footer: 'Tekst'` | String | Vaste footer onderaan elke slide. |
-| `size: 16:9` | String | Formaat van de slides (`16:9`, `4:3`, `A4`). Standaard is `16:9`. |
+| Directive | Type | Description |
+| --- | --- | --- |
+| `marp: true` | Boolean | Required. Enables Marp presentation processing. |
+| `theme: thomasmore` | String | Selects the active CSS theme. |
+| `paginate: true` | Boolean | Displays slide page numbers in the bottom right corner. |
+| `header: 'Text'` | String | Fixed header rendered at the top of each slide. |
+| `footer: 'Text'` | String | Fixed footer rendered at the bottom of each slide. |
+| `size: 16:9` | String | Slide aspect ratio (`16:9`, `4:3`, `A4`). Default is `16:9`. |
 
 ---
 
-### 2.2 Slide Splits (`---`)
+### 2.2 Slide Separators (`---`)
 
-Nieuwe slides worden gemaakt met drie koppeltekens op een aparte regel:
+Create new slides using three hyphens on an isolated line:
 
 ```markdown
 # Slide 1
 
-Inhoud van slide 1...
+Content for slide 1...
 
 ---
 
 # Slide 2
 
-Inhoud van slide 2...
+Content for slide 2...
 ```
 
 ---
 
-### 2.3 Slide-Specifieke Directives (Scoped Directives)
+### 2.3 Slide-Specific Directives (Scoped Directives)
 
-Gebruik HTML commentaar met een underscore (`_`) om een instelling **enkel voor de huidige slide** aan te passen:
+Use HTML comments prefixed with an underscore (`_`) to change a setting **for the current slide only**:
 
 ```markdown
 <!-- _class: lead -->
@@ -192,74 +192,79 @@ Gebruik HTML commentaar met een underscore (`_`) om een instelling **enkel voor 
 <!-- _backgroundColor: #0f141c -->
 <!-- _color: #ffffff -->
 
-# Titel Slide Zonder Header/Footer
+# Title Slide Without Header or Footer
 ```
 
-> **Belangrijke regel:** 
-> - Met underscore (`<!-- _class: lead -->`): geldt **alleen** voor de huidige slide.
-> - Zonder underscore (`<!-- class: invert -->`): geldt voor de huidige en **alle volgende slides**.
+> **Scoped Directive Rules:**
+>
+> - With an underscore (`<!-- _class: lead -->`): applies **only** to the current slide.
+> - Without an underscore (`<!-- class: invert -->`): applies to the current slide and **all subsequent slides**.
 
 ---
 
-### 2.4 Paginanummering Beheren
+### 2.4 Managing Slide Numbers
 
-Paginanummering tijdelijk uitschakelen of herstarten:
+Temporarily suppress or restart slide numbering:
 
 ```markdown
 <!-- _paginate: false -->
-Deze slide heeft geen paginanummer.
+This slide will not display a slide number.
 
 ---
 
 <!-- paginate: true -->
-Paginanummering weer inschakelen vanaf hier.
+Slide numbering resumes starting from here.
 ```
 
 ---
 
-### 2.5 Marp Image Syntax & Achtergronden
+### 2.5 Marp Image Syntax & Backgrounds
 
-Marpit biedt geavanceerde opties om afbeeldingen direct via Markdown te positioneren:
+Marpit offers extended syntax to position and format images directly in Markdown:
 
-#### A. Afmetingen opgeven
+#### A. Specifying Image Dimensions
+
 ```markdown
-![w:400px](afbeelding.png)
-![h:250px](afbeelding.png)
-![w:500px h:300px](afbeelding.png)
+![w:400px](image.png)
+![h:250px](image.png)
+![w:500px h:300px](image.png)
 ```
 
-#### B. Split Backgrounds (Afbeelding Naast Tekst)
-Plaats een afbeelding links of rechts van de tekst met automatische kolomverdeling:
+#### B. Split Backgrounds (Image Alongside Text)
+
+Place an image on the left or right side of the slide with automatic column splitting:
 
 ```markdown
 ## Flexbox Model
 
 ![bg right:40%](images/flexbox.png)
 
-- `display: flex` maakt van het element een flex container.
-- `justify-content` regelt de uitlijning op de hoofd-as.
-- `align-items` regelt de uitlijning op de kruis-as.
+- `display: flex` turns the container into a flex context.
+- `justify-content` controls alignment along the main axis.
+- `align-items` controls alignment along the cross axis.
 ```
 
 ```markdown
-## Grid Systeem
+## Grid System
 
 ![bg left:35%](images/grid.png)
 
-- Tekst staat nu aan de rechterkant (65% breedte).
-- Afbeelding vult de linkerkant (35% breedte).
+- Text content is positioned on the right side (65% width).
+- Image occupies the left side (35% width).
 ```
 
-#### C. Volledige Achtergrondafbeelding & Filters
+#### C. Full Slide Background Image & Filters
+
 ```markdown
-<!-- Achtergrondafbeelding over de hele slide met donkere overlay filter -->
+<!-- Full background image across the entire slide with dark overlay filters -->
 ![bg cover brightness:0.4 blur:2px](images/wallpaper.jpg)
 
-# Duidelijk Leesbare Tekst op Achtergrond
+# Crisp Readable Text Over Background Image
 ```
 
-Beschikbare filters:
-- `brightness:0.5` (donkerder) of `brightness:1.5` (helderder)
+Available image filters:
+
+- `brightness:0.5` (darker) or `brightness:1.5` (brighter)
 - `contrast:1.2`
 - `blur:4px`
 - `grayscale:1`
@@ -269,30 +274,30 @@ Beschikbare filters:
 
 ---
 
-### 2.6 Fragmented Lists (Stapsgewijze Animatie)
+### 2.6 Fragmented Lists (Step-by-Step Reveal)
 
-Om lijstitems een voor een te laten verschijnen tijdens een presentatie:
+To reveal bullet points one by one during a presentation:
 
 ```markdown
-## Stapsgewijs verschijnen
+## Progressive Delivery
 
-* Eerste punt (direct zichtbaar)
-* Tweede punt (verschijnt bij volgende klik)
-* Derde punt (verschijnt bij nog een klik)
+* First point (visible immediately)
+* Second point (appears on next click or key press)
+* Third point (appears on subsequent click)
 ```
 
-Gebruik sterretjes (`*`) in plaats van mintekens (`-`) voor stapsgewijze fragment animaties.
+Use asterisks (`*`) instead of hyphens (`-`) for step-by-step fragment animations.
 
 ---
 
-### 2.7 Wiskundige Formules (MathJax / KaTeX)
+### 2.7 Mathematical Formulas (MathJax / KaTeX)
 
-Marp ondersteunt KaTeX formules out of the box:
+Marp supports KaTeX mathematical formatting out of the box:
 
 ```markdown
-Inline formule: $E = mc^2$
+Inline equation: $E = mc^2$
 
-Blokformule:
+Block equation:
 $$
 \sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}
 $$
@@ -300,27 +305,27 @@ $$
 
 ---
 
-### 2.8 Sprekersnotities (Presenter Notes)
+### 2.8 Presenter Notes
 
-Notities toevoegen die enkel zichtbaar zijn in de Marp Presenter Mode (toets `P` in de browser):
+Add notes that are visible only in Marp Presenter Mode (press key `P` in the browser):
 
 ```markdown
-## Slide Onderwerp
+## Slide Topic
 
-Inhoud voor de studenten op het scherm...
+Visible content displayed to students on screen...
 
 <!--
-Dit is een sprekersnotitie.
-- Vertel hier het praktijkvoorbeeld over database indexen.
-- Vraag naar eerdere ervaring met SQL joins.
+Presenter Note:
+- Mention the real-world case study regarding database indexing.
+- Ask students about their previous experience with SQL joins.
 -->
 ```
 
 ---
 
-### 2.9 Lokale Stijlen Overschrijven (`<style scoped>`)
+### 2.9 Local Style Overrides (`<style scoped>`)
 
-Wil je op een specifieke slide uitzonderlijk de layout of kleuren aanpassen:
+When you need to adjust styling for a specific slide without affecting the global theme:
 
 ```markdown
 <style scoped>
@@ -333,23 +338,23 @@ h2 {
 }
 </style>
 
-## Aangepaste Slide Stijl
-Tekst met specifieke stijlen enkel voor deze slide.
+## Customized Slide Style
+Text styled specifically for this individual slide only.
 ```
 
 ---
 
-## 3. Code Highlighting Richtlijnen
+## 3. Code Highlighting Guidelines
 
-Het thema ondersteunt syntax highlighting via Highlight.js:
+The theme enforces dark high-contrast syntax highlighting via Highlight.js:
 
-- Gebruik erkende talen zoals `html`, `css`, `javascript`, `typescript`, `php`, `bash`, `json`, `sql`, `python`.
-- **Belangrijk:** Gebruik **nooit `blade`**, omdat Highlight.js geen Blade definitie heeft. Gebruik voor Blade views altijd `html` of `php`.
+- Always specify supported language identifiers: `html`, `css`, `javascript`, `typescript`, `php`, `bash`, `json`, `sql`, `python`, `yaml`.
+- **Important:** **Never use `blade`**, as Highlight.js does not have a native Blade definition. Always use `html` or `php` for Blade views and Flux UI components.
 
 ````markdown
 ```html
 <div class="card card-accent">
-  <h4>Livewire Teller</h4>
+  <h4>Livewire Counter</h4>
   <button wire:click="increment">+</button>
 </div>
 ```
@@ -357,35 +362,34 @@ Het thema ondersteunt syntax highlighting via Highlight.js:
 
 ---
 
-## 4. Handige Marp CLI Export Commando's
+## 4. Marp CLI Export Commands
 
-Om presentaties te compileren via de terminal:
+To compile slides manually from the terminal:
 
 ```bash
-# Automatisch herladen bij wijzigingen (Watch Mode)
-npm run watch
+# Start local watch mode with live reload
+npm run dev
 
-# Exporteren naar HTML
-npx -y @marp-team/marp-cli@latest --no-stdin presentations/mijn_presentatie.md --html -o presentations/mijn_presentatie.html
+# Export to standalone HTML file
+npx -y @marp-team/marp-cli@latest --no-stdin presentations/my_deck.md --html -o presentations/my_deck.html
 
-# Exporteren naar PDF
-npx -y @marp-team/marp-cli@latest --no-stdin presentations/mijn_presentatie.md --pdf -o presentations/mijn_presentatie.pdf
+# Export to PDF
+npx -y @marp-team/marp-cli@latest --no-stdin presentations/my_deck.md --pdf -o presentations/my_deck.pdf
 ```
 
 ---
 
-## 5. Beschikbare Thema's
+## 5. Available Themes
 
-In de frontmatter (`theme: <naam>`) kun je kiezen uit de volgende geactiveerde thema's:
+In your frontmatter (`theme: <name>`), choose from the registered themes:
 
-| Thema | Bestand | Stijl & Doelgroep |
-|---|---|---|
-| `thomasmore` | [thomasmore.css](file:///d:/Sites_Marp/presentations/css/thomasmore.css) | Standaard Thomas More ITF huisstijl (oranje/cyaan, dark slate achtergrond met ambient gradient). |
-| `tech` | [tech.css](file:///d:/Sites_Marp/presentations/css/tech.css) | Donkere developerstijl met syntax highlight styling, monospaced details en terminal accenten. |
-| `business` | [business.css](file:///d:/Sites_Marp/presentations/css/business.css) | Professionele lichte zakelijke stijl met blauwe accenten en strakke typografie. |
-| `dark` | [dark.css](file:///d:/Sites_Marp/presentations/css/dark.css) | Strak modern donker thema met cyaan/paarse accenten. |
-| `gradient` | [gradient.css](file:///d:/Sites_Marp/presentations/css/gradient.css) | Kleurrijke paars-roze gradient achtergrond voor creatieve presentaties. |
-| `colorful` | [colorful.css](file:///d:/Sites_Marp/presentations/css/colorful.css) | Speels, licht en kleurrijk thema met vrolijke pastelaccenten. |
-| `minimal` | [minimal.css](file:///d:/Sites_Marp/presentations/css/minimal.css) | Rustige, afleidingsvrije typografische stijl in zwart-wit. |
-| `default` / `gaia` / `uncover` | *(ingebouwd in Marp)* | De officiële standaardthema's van de Marp engine. |
-
+| Theme | Stylesheet | Style & Target Audience |
+| --- | --- | --- |
+| `thomasmore` | [thomasmore.css](file:///d:/Sites_Marp/presentations/css/thomasmore.css) | Default Thomas More ITF brand identity (orange/cyan accents, dark slate background with ambient gradient). |
+| `tech` | [tech.css](file:///d:/Sites_Marp/presentations/css/tech.css) | Dark developer aesthetic with syntax highlighting focus, monospaced accents, and terminal cues. |
+| `business` | [business.css](file:///d:/Sites_Marp/presentations/css/business.css) | Professional light corporate look with blue accents and clean typography. |
+| `dark` | [dark.css](file:///d:/Sites_Marp/presentations/css/dark.css) | Sleek modern dark theme with cyan and purple highlights. |
+| `gradient` | [gradient.css](file:///d:/Sites_Marp/presentations/css/gradient.css) | Vibrant purple-pink gradient background suited for creative decks. |
+| `colorful` | [colorful.css](file:///d:/Sites_Marp/presentations/css/colorful.css) | Playful, bright theme with energetic pastel accents. |
+| `minimal` | [minimal.css](file:///d:/Sites_Marp/presentations/css/minimal.css) | Calm, distraction-free monochrome typographic presentation. |
+| `default` / `gaia` / `uncover` | *(built into Marp)* | Official standard themes shipped with the core Marp engine. |

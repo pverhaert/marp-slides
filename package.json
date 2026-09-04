@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "Interactive Marp Presentations for Thomas More courses",
   "author": "Patrick Verhaert",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pverhaert/marp-slides"
+  },
+  "homepage": "https://pv-slides.netlify.app/",
+  "hosting": "https://pv-slides.netlify.app/",
   "scripts": {
     "build": "node presentations/js/build.js",
-    "watch": "node presentations/js/watch.js"
+    "dev": "npm run watch",
+    "watch": "node presentations/js/watch.js --port=4040"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.1.2"

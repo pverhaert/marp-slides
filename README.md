@@ -1,139 +1,320 @@
-# Thomas More - ITF Cursus Presentaties
+# Interactive Marp Slide Presentation Platform
 
-Interactieve Marp-presentaties voor de IT-opleidingen aan de Thomas More Hogeschool (Toegepaste Informatica).
+A turnkey, modern presentation deck generator and interactive slide platform built with [Marp](https://marp.app/). Designed for higher education, corporate training, and technical documentation with multi-language support, custom branding, high-contrast dark themes, live reload development, and automated static publishing.
 
----
-
-## 1. Beschikbare Presentaties per Vak (NL & EN)
-
-### Vak: Web Essentials
-
-#### HTML5 Essentials
-- **Nederlands (NL):** `presentations/basic_html.md` -> `basic_html.html`
-- **English (EN):** `presentations/basic_html_en.md` -> `basic_html_en.html`
-- **Onderwerpen:**
-  - Inleiding & W3C standaarden
-  - Document outline & metadata
-  - Semantische structuurtags
-  - Afbeeldingen (met nadruk op **WebP** & `<picture>` fallback)
-  - Hyperlinks & speciale tekens (entities)
-  - Lijsten & semantische tabellen
-  - Op weg naar CSS
-
-#### CSS3 Essentials
-- **Nederlands (NL):** `presentations/basic_css.md` -> `basic_css.html`
-- **English (EN):** `presentations/basic_css_en.md` -> `basic_css_en.html`
-- **Onderwerpen:**
-  - Syntaxis, selectoren, cascade & specificiteit
-  - Typografie, Web Fonts & Eenheden (PX vs EM vs REM)
-  - Kleurenmodellen & interactieve pseudo-classes (LVHA)
-  - Het CSS Box Model & `box-sizing: border-box`
-  - Display eigenschappen, gestylde navigatielijsten & zebra tabellen
-  - Achtergronden, gradients, `object-fit` & filters
-  - Float, positionering (`sticky`/`fixed`), z-index & Media Queries
-  - Moderne 1D Flexbox & 2D CSS Grid (12-kolommen layouts)
-  - 2D/3D transformaties, transitions & `@keyframes` animaties
+- **Repository:** <https://github.com/pverhaert/marp-slides>
+- **Live Demo / Hosting:** <https://pv-slides.netlify.app/>
 
 ---
 
-### Vak: Web Development
+## Key Features
 
-#### Tailwind CSS v4
-- **Nederlands (NL):** `presentations/tailwindcss_v4.md` -> `tailwindcss_v4.html`
-- **English (EN):** `presentations/tailwindcss_v4_en.md` -> `tailwindcss_v4_en.html`
-- **Onderwerpen:**
-  - Utility-First CSS filosofie vs traditioneel CSS
-  - Starten met Tailwind v4 (`@import "tailwindcss";`)
-  - Interactief oefenen via **Tailwind Play** (`play.tailwindcss.com`)
-  - Basis utilities: Spacing (4px schaal), Sizing, Typografie & Kleurenpalet
-  - Box Model, Borders, Shadows & Rings
-  - Flexbox & CSS Grid layouts
-  - State modifiers (`hover:`, `focus:`, `active:`, `group-hover:`, `peer:`)
-  - Mobile-First responsive design (`sm:`, `md:`, `lg:`) & Dark Mode (`dark:`)
-  - Arbitrary values (`w-[350px]`) & de `!` Important modifier
-  - **Customisatie in v4:** Merkkleuren toevoegen via `@theme`, breakpoints wijzigen/toevoegen & eigen klassen via `@apply` en `@utility`
-  - Praktijkvoorbeeld (Thomas More Course Card)
-  - **Nieuw in Tailwind v4:** Rust Oxide engine, CSS-first configuratie (`@theme`), automatische content detectie, native P3 / Container Queries & migratie via upgrade tool
-
-#### Alpine.js Fundamentals
-- **Nederlands (NL):** `presentations/alpinejs.md` -> `alpinejs.html`
-- **English (EN):** `presentations/alpinejs_en.md` -> `alpinejs_en.html`
-- **Onderwerpen:**
-  - Declaratieve JavaScript filosofie ("Tailwind for JS")
-  - Installatie via CDN (`defer`) en modern bundelen met NPM/Vite
-  - Core Directives: `x-data`, `x-text`, `x-html`, `x-show` vs `x-if`
-  - Attributen (`x-bind` / `:`) en events (`x-on` / `@`) met modifiers (`.prevent`, `.stop`, `.outside`, `.debounce`, `.window`)
-  - Two-way data binding (`x-model`) en iteraties (`x-for` met `<template>` en `:key`)
-  - Vloeiende CSS overgangen via `x-transition`
-  - FOUC voorkomen met `x-cloak` en DOM referenties via `x-ref` / `$refs`
-  - Magische eigenschappen: `$el`, `$event`, `$dispatch`, `$watch`, `$nextTick`, `$store`
-  - Herbruikbare componenten (`Alpine.data()`) en globale stores (`Alpine.store()`)
-  - Praktijkvoorbeelden: Toegankelijke Modal Dialog, Live Cursus Zoekfilter & Winkelmand badge
-  - Architectuur: Alpine.js vs React vs Vue vs Vanilla JS
-
-#### Livewire v4 Fundamentals
-- **Nederlands (NL):** `presentations/livewire_v4.md` -> `livewire_v4.html`
-- **English (EN):** `presentations/livewire_v4_en.md` -> `livewire_v4_en.html`
-- **Onderwerpen:**
-  - Full-stack reactiviteit in Laravel met pure PHP en Blade
-  - Hoe Livewire werkt onder de motorkap (AJAX payloads en DOM morphing)
-  - Single-File Components (`.blade.php`) vs traditionele componentklassen
-  - Data binding via `wire:model`, `.live`, `.blur` en `.debounce`
-  - Actions, parameters en event modifiers (`wire:click`, `wire:submit`)
-  - Loading states & feedback (`wire:loading`, `wire:target`, `wire:loading.class`)
-  - Realtime validatie met `#[Validate]` en enterprise Form Objects
-  - Single Page Application (SPA) navigatie via `wire:navigate` en `wire:navigate.hover`
-  - Hybride interacties met Alpine.js via het `$wire` object
-  - Wat is nieuw in v4: Single-file standaard, snelle morphing engine & `#[Modelable]`
-  - Praktijkvoorbeeld: Realtime Data Table met live filtering en paginering
-
-#### Flux UI Componenten (Laravel 13)
-- **Nederlands (NL):** `presentations/fluxui.md` -> `fluxui.html`
-- **English (EN):** `presentations/fluxui_en.md` -> `fluxui_en.html`
-- **Onderwerpen:**
-  - Waarom Flux UI: Ingebouwde a11y, automatische foutafhandeling en 80-90% minder Blade code
-  - Vergelijking: Flux component vs 18 regels handmatige Tailwind formuliercode
-  - Gratis componentenset: `flux:input`, `flux:textarea`, `flux:select`, `flux:checkbox`, `flux:radio`, `flux:switch`
-  - Knoppen & interacties: `flux:button` met automatische loading state bij `wire:click`
-  - Overlays & dialogen: `flux:modal` met focus trapping en backdrop blur
-  - Data weergave: `flux:badge`, `flux:card` en `flux:table`
-  - Customizen: Varianten, Tailwind class overrides, accentkleuren en `<flux:field>` slots
-  - Praktijkvoorbeeld: Compleet registratieformulier in Laravel 13
+- **Standardized Multi-Theme Engine:** Includes customized themes (`thomasmore`, `tech`, `business`, `dark`, `gradient`, `colorful`, `minimal`) configured via `marp.config.js`.
+- **Interactive Slide Viewer:** Injected client-side utilities (`scripts.js`) providing theme toggling (dark/light), language switching modal, presentation progress, keyboard shortcuts, speaker notes, and fullscreen mode.
+- **Local Dev Server with Live Reload:** Built-in Node.js server (`presentations/js/watch.js`) with Server-Sent Events (SSE) for instant browser reloading whenever Markdown or CSS files are updated.
+- **Responsive Portal Page:** A dark slate dashboard (`index.html`) displaying courses, modules, tags, and multi-language launch badges (NL, EN, FR).
+- **Automated Production Build:** Bundling script (`presentations/js/build.js`) that compiles all slides to HTML, injects viewer scripts, filters out raw Markdown, and outputs a ready-to-deploy static site to `dist/`.
+- **AI-Powered Authoring Workflow:** Built-in `AGENTS.md` and `.agents/skills/marp-slide/` instructions allowing AI assistants to generate pedogogically structured slides adhering to your institutional style.
 
 ---
 
-## 2. Huisstijl & Thema
+## Quick Start
 
-De presentaties maken gebruik van het op maat gemaakte **Thomas More Tech** thema:
-- **Achtergrond:** Dark Slate (`#0f141c`) en Card Surface (`#181f2a`)
-- **Primaire Accentkleur:** Thomas More Oranje (`#e84e10` / `#ff753a`)
-- **Secundair Accent:** ITF Cyaan (`#009cab`)
-- **Typografie:** Google Fonts (`Outfit` voor headings/body, `Fira Code` voor code)
-- **High-Contrast Code:** Geoptimaliseerde syntax highlighting voor donkere achtergronden
-- **Donkere Tabellen:** Zebra striping en contrasterende koppen
+### Prerequisites
 
----
+- Node.js (version 18 or higher recommended)
+- npm (installed with Node.js)
 
-## 3. Lokaal Ontwikkelen & Compileren
+### Installation
 
-### Vereisten
-- Node.js geïnstalleerd
+1. Clone the repository:
 
-### HTML Presentaties Genereren via Marp CLI
+   ```bash
+   git clone https://github.com/pverhaert/marp-slides.git
+   cd marp-slides
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Local Development
+
+Start the development server with live reload:
+
 ```bash
-# Alle presentaties in één keer compileren
-npx @marp-team/marp-cli --no-stdin presentations/*.md --html
+npm run dev
+```
 
-# Of individueel per bestand
-npx @marp-team/marp-cli --no-stdin presentations/tailwindcss_v4.md --html -o presentations/tailwindcss_v4.html
-npx @marp-team/marp-cli --no-stdin presentations/tailwindcss_v4_en.md --html -o presentations/tailwindcss_v4_en.html
+This starts the server on port `4040` (or `3000` by default):
+
+- Portal / Dashboard: `http://localhost:4040/` (or `http://localhost:4040/presentations/`)
+- Any presentation can be accessed directly through the portal or via its path.
+- When you edit any `.md` or `.css` file, the slides recompile and connected browser windows refresh automatically.
+
+To specify a custom port in package.json scripts:
+
+```bash
+"watch": "node presentations/js/watch.js --port=5000"
+```
+
+### Production Build
+
+To compile all presentations for production deployment:
+
+```bash
+npm run build
+```
+
+This performs a 4-step build:
+
+1. Cleans the `dist/` directory.
+2. Compiles all `.md` presentations recursively using Marp CLI.
+3. Injects interactive viewer scripts (`scripts.js`, settings, navigation) into each generated HTML file.
+4. Copies static assets (CSS, images, icons, index portal) into `dist/`, excluding raw Markdown files.
+
+---
+
+## Project Structure
+
+```
+.
+|-- .agents/
+|   `-- skills/
+|       `-- marp-slide/
+|           |-- SKILL.md                 # Agent skill instructions and rules
+|           |-- assets/                  # Starter templates for each theme
+|           `-- references/              # Syntax, layouts, and image patterns
+|-- .vscode/
+|   `-- settings.json                    # VS Code settings
+|-- presentations/
+|   |-- css/
+|   |   |-- thomasmore.css               # Primary brand stylesheet and utility classes
+|   |   |-- settings.css                 # Interactive slide menu and viewer styles
+|   |   `-- tech.css, dark.css, ...      # Alternative Marp theme stylesheets
+|   |-- js/
+|   |   |-- build.js                     # Static production build pipeline
+|   |   |-- inject-scripts.js            # Script injection utility
+|   |   |-- scripts.js                   # Client-side presentation enhancements
+|   |   `-- watch.js                     # Development server with live reload (SSE)
+|   |-- [course_name]/                   # Course directory (e.g. web_development)
+|   |   `-- [module_name]/               # Module directory (e.g. css_layout)
+|   |       |-- dutch.md                 # Dutch version of slides
+|   |       |-- english.md               # English version of slides
+|   |       |-- french.md                # French version of slides
+|   |       `-- assets/                  # Module-specific images and diagrams
+|   |-- index.html                       # Dashboard portal homepage
+|   `-- styles.css                       # Dashboard portal stylesheet
+|-- dist/                                # Production output folder (created on build)
+|-- AGENTS.md                            # AI persona, brand rules, and generation guidelines
+|-- CHEATSHEET.md                        # Quick reference for CSS utility classes
+|-- marp.config.js                       # Marp CLI configuration and theme registration
+`-- package.json                         # Dependencies and npm scripts
 ```
 
 ---
 
-## 4. Hosting op Netlify
+## Customizing for Your Domain or Institution
 
-Deze repository is geconfigureerd voor automatische deployment via Netlify:
-- Bij elke `git push` naar de `main` branch bouwt Netlify automatisch alle `.md` bestanden naar de `dist` publicatiemap.
-- De ruwe `.md` bronbestanden en de `.agents` map worden **niet** openbaar gepubliceerd.
-- De hoofdpagina `index.html` dient als centrale landingspagina met taalkeuzeknoppen (NL & EN).
+You can easily adapt this repository for another university, company, school, or subject matter.
+
+### 1. Update the AI Agent Persona (`AGENTS.md`)
+
+The `AGENTS.md` file defines how AI coding assistants generate presentations in this workspace:
+
+- **Agent Persona:** Update the identity, institution name, department, and subject expertise.
+- **Brand Colors:** Replace the color variables with your institution's palette:
+
+  ```css
+  --color-background: #0f141c;
+  --color-foreground: #e6edf3;
+  --color-accent: #e84e10;       /* Your primary brand color */
+  --color-secondary: #009cab;    /* Your secondary accent color */
+  ```
+
+- **Language Requirements:** Define which languages your institution requires (e.g. Dutch, English, French, German).
+- **Didactic Rules:** Update pedagogical constraints, forbidden patterns (e.g. em-dashes, emojis), or code block requirements for your curriculum.
+
+### 2. Customize Themes and Branding (`presentations/css/`)
+
+- The active default theme is `thomasmore` defined in `presentations/css/thomasmore.css`.
+- You can edit `thomasmore.css` directly or create a new file (e.g. `mytheme.css`) and register it in `marp.config.js`:
+
+  ```javascript
+  module.exports = {
+    themeSet: [
+      './presentations/css/mytheme.css',
+      './presentations/css/tech.css',
+      './presentations/css/business.css'
+    ],
+    html: true
+  };
+  ```
+
+- **Never put `<style>` tags directly into Markdown files.** Keep all styling centralized in your theme CSS to ensure uniform compilation across all decks.
+
+### 3. Customize the Portal Page (`presentations/index.html`)
+
+Modify `presentations/index.html` to showcase your own courses:
+
+- Update header titles, institution badge, and subtitle.
+- Create course sections (`<section>`) and module cards (`<div class="card">`).
+- Use the two-part badge style for multi-language buttons:
+
+  ```html
+  <div class="button-group">
+    <a href="course/module/dutch.html" class="card-button">
+      <span class="lang-code">NL</span>
+      <span class="lang-label">Nederlands</span>
+    </a>
+    <a href="course/module/english.html" class="card-button secondary">
+      <span class="lang-code">EN</span>
+      <span class="lang-label">English</span>
+    </a>
+    <a href="course/module/french.html" class="card-button secondary">
+      <span class="lang-code">FR</span>
+      <span class="lang-label">Français</span>
+    </a>
+  </div>
+  ```
+
+- Adjust card border, surface colors, and hover effects in `presentations/styles.css`.
+
+### 4. Leverage AI Skills (`.agents/skills/marp-slide/`)
+
+When using AI assistants, the skill system provides modular guidelines:
+
+- `SKILL.md`: Main entry point for presentation workflows.
+- `assets/template-*.md`: Ready-to-use slide templates for each theme.
+- `references/marp-syntax.md`: Overview of Marp-specific Markdown features (directives, pagination, headers/footers).
+- `references/image-patterns.md`: Guidelines for Marpit image syntax (background images, split slides, sizing filters).
+- `references/advanced-features.md`: Advanced elements such as math formulas, tables, and media formatting.
+- `references/best-practices.md`: Slide readability guidelines (text density, contrast, typography hierarchy).
+
+---
+
+## Slide Creation Workflow
+
+When adding a new presentation module, follow this standard pattern:
+
+### Step 1: Directory Structure
+
+Organize files by course and module using lowercase with underscores:
+
+```
+presentations/
+  computer_networks/
+    routing_protocols/
+      dutch.md
+      english.md
+      assets/
+        network-topology.webp
+```
+
+### Step 2: Frontmatter
+
+Every `.md` file must begin with standard Marp frontmatter:
+
+```markdown
+---
+marp: true
+theme: thomasmore
+paginate: true
+header: 'Department | Course - Module'
+footer: 'Course Name - Institution'
+---
+```
+
+### Step 3: Slide Syntax and Layout Utilities
+
+Use the CSS classes documented in `CHEATSHEET.md`:
+
+- **Title Slide:**
+
+  ```markdown
+  <!-- _class: lead -->
+  # Module Title
+  <p class="subtitle">Module Subtitle or Description</p>
+  ```
+
+- **Two-Column Layout:**
+
+  ```markdown
+  <div class="grid-2">
+  <div>
+
+  ### Left Column
+  - Point A
+  - Point B
+
+  </div>
+  <div>
+
+  ### Right Column
+  - Point C
+  - Point D
+
+  </div>
+  </div>
+  ```
+
+- **Cards and Badges:**
+
+  ```markdown
+  <div class="card card-accent">
+    <span class="badge">Important</span>
+    <p>Key concept summary goes here.</p>
+  </div>
+  ```
+
+### Step 4: Code Blocks
+
+Always specify a supported Highlight.js language identifier:
+
+- Supported: `html`, `css`, `javascript`, `typescript`, `php`, `bash`, `json`, `sql`, `python`, `yaml`.
+- Note: For Blade templates or Laravel Flux components, use `html` or `php` because Highlight.js does not have a native Blade syntax definition.
+
+---
+
+## Hosting and Deployment
+
+### Netlify Deployment
+
+This repository is optimized for deployment on Netlify:
+
+- **Build Command:** `npm run build`
+- **Publish Directory:** `dist`
+- **Node Version:** 18 or higher
+
+Configuration can be handled via `netlify.toml` in the project root:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+```
+
+On every `git push` to your repository, Netlify will run `npm run build`, compile all presentation files, and deploy the updated static portal. Raw Markdown files and AI agent folders are never exposed publicly.
+
+### Alternative Hosts
+
+Because `npm run build` generates a completely static bundle in `dist/`, the output can be deployed to:
+
+- **GitHub Pages:** Point GitHub Pages to the `dist` branch or upload the artifact via GitHub Actions.
+- **Vercel:** Set Output Directory to `dist` and Build Command to `npm run build`.
+- **Cloudflare Pages:** Set Build output directory to `dist`.
+- **Any Standard Web Server:** Copy the contents of `dist/` to your web server document root (Apache, Nginx, Caddy).
+
+---
+
+## License and Attribution
+
+Created by Patrick Verhaert for Thomas More Hogeschool (IT Factory).
+Free to adapt and use for educational and commercial presentation needs.

@@ -14,6 +14,7 @@ Your mission is to create high-quality, visually consistent, and pedagogically s
 **Communication style:** Always respond to the user in the language they are writing in (Dutch, English, French, etc.). The AGENTS.md file itself is written in English, but you communicate with users in their own language.
 
 **Strict rules:**
+
 - Never use en-dashes or em-dashes. Use standard hyphens (`-`), colons (`:`) or commas only.
 - Never use emojis in slide content or markdown files unless the user explicitly requests them.
 - Always write slides in the language requested per version.
@@ -59,12 +60,14 @@ Once you have these answers, propose a file and folder structure using the follo
 **Convention:** Use lowercase with underscores for all names. Language files are named by their full language name in English.
 
 **Example:**
+
 - Course: "Web Development"
 - Module: "JavaScript"
 - Languages: "Dutch, English and French"
 - First language: "Dutch"
 
 Proposed structure:
+
 ```
 presentations/
   web_development/
@@ -87,15 +90,16 @@ Only proceed to this step after the user has approved the file structure.
 Ask the following:
 
 1. **Level** - What is the target skill level?
-   Options: `beginner`, `intermediate`, `advanced`, `expert`
+   Options: `beginner`, `intermediate`, `advanced`, `expert` or let the user decide what is appropriate.
 
 2. **Slide count / scope** - How extensive should the deck be?
-   Options: `compact` (5-10 slides), `standard` (10-20 slides), `extended` (20-35 slides)
+   Options: `compact` (5-10 slides), `standard` (10-20 slides), `extended` (20-35 slides) or let the user decide what is appropriate.
 
 3. **Images / Visuals** - How should visuals be handled?
-   - A: Place WebP placeholder images that the user can replace manually later.
+   - A: Place dummy placeholder images in the `assets/` folder and link to them in the slides. These placeholders will be replaced manually later.
    - B: Use hotlinks to existing online images (from documentation sites, GitHub, etc.).
-   - C: Both A and B are allowed.
+   - C: Use simple <https://placehold.co/[width]x[height>] images as placeholders in Warp style.
+   - D: All options are allowed, let the AI agent decide what is appropriate.
 
 4. **Sources** - Provide one or more of the following:
    - A list of URLs for the agent to read and use as reference material.
@@ -181,6 +185,7 @@ footer: '[CourseName] - Thomas More Hogeschool'
 ## Code Block Language Rules
 
 Always use recognized Highlight.js identifiers in fenced code blocks:
+
 - Allowed: `html`, `css`, `javascript`, `typescript`, `php`, `bash`, `json`, `sql`, `python`, `yaml`
 - **NEVER use `blade`** - Highlight.js has no Blade definition. It renders as plain unstyled text. For Blade or Flux UI component examples, always use `html` or `php` instead.
 
@@ -216,6 +221,7 @@ When using image placeholders, use this standard format:
 ```
 
 And note in a HTML comment below what the image should show:
+
 ```html
 <!-- Placeholder: screenshot of X component in Y state -->
 ```
