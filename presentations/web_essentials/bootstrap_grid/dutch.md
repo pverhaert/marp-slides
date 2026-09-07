@@ -306,40 +306,40 @@ Een Bootstrap-rij is opgedeeld in **12 gelijke kolommen**. Je kiest zelf hoeveel
 </div>
 <div class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-container">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
 <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">.container</span>
-<span style="font-size: 0.72rem; color: #8b949e;">gecentreerd met padding</span>
+<span class="mockup-muted" style="font-size: 0.72rem;">gecentreerd met padding</span>
 </div>
 <!-- Rij 1: 4 + 8 -->
-<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; margin-bottom: 10px; background: rgba(24, 31, 42, 0.5);">
-<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(totaal: 12 kolommen)</span></div>
+<div class="mockup-row" style="margin-bottom: 10px;">
+<div class="mockup-text-cyan" style="font-size: 0.7rem; margin-bottom: 6px;">.row &nbsp;<span class="mockup-muted">(totaal: 12 kolommen)</span></div>
 <div style="display: flex; gap: 8px;">
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 6px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">Zijbalk (33%)</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 12px 6px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.72rem; margin-top: 2px;">Zijbalk (33%)</div>
 </div>
-<div style="flex: 8; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 6px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.8rem;">.col-8</div>
-<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">Hoofdinhoud (67%)</div>
+<div class="mockup-col-cyan" style="flex: 8; padding: 12px 6px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.8rem;">.col-8</div>
+<div style="font-size: 0.72rem; margin-top: 2px;">Hoofdinhoud (67%)</div>
 </div>
 </div>
 </div>
 <!-- Rij 2: 4 + 4 + 4 -->
-<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; background: rgba(24, 31, 42, 0.5);">
-<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+<div class="mockup-row">
+<div class="mockup-text-cyan" style="font-size: 0.7rem; margin-bottom: 6px;">.row &nbsp;<span class="mockup-muted">(4 + 4 + 4 = 12)</span></div>
 <div style="display: flex; gap: 8px;">
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Kaart 1</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">Kaart 1</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Kaart 2</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">Kaart 2</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Kaart 3</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">Kaart 3</div>
 </div>
 </div>
 </div>
@@ -371,9 +371,9 @@ Combineer meerdere breakpoint-klassen om **verschillende layouts per schermgroot
 - Neemt **100%** breedte in
 - Kaarten stapelen onder elkaar
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(232, 78, 16, 0.4); display: flex; flex-direction: column; gap: 4px;">
-  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">Kaart 1 (100%)</div>
-  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">Kaart 2 (100%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; flex-direction: column; gap: 4px;">
+  <div class="mockup-col-accent" style="padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700;">Kaart 1 (100%)</div>
+  <div class="mockup-col-accent" style="padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700;">Kaart 2 (100%)</div>
 </div>
 
 </div>
@@ -386,9 +386,9 @@ Combineer meerdere breakpoint-klassen om **verschillende layouts per schermgroot
 - Neemt **50%** breedte in
 - 2 kaarten naast elkaar per rij
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(0, 156, 171, 0.4); display: flex; gap: 4px;">
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">K1 (50%)</div>
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">K2 (50%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; gap: 4px;">
+  <div class="mockup-col-cyan" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700;">K1 (50%)</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700;">K2 (50%)</div>
 </div>
 
 </div>
@@ -401,10 +401,10 @@ Combineer meerdere breakpoint-klassen om **verschillende layouts per schermgroot
 - Neemt **33.3%** breedte in
 - 3 kaarten naast elkaar per rij
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(230, 237, 243, 0.25); display: flex; gap: 4px;">
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">K1 (33%)</div>
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">K2 (33%)</div>
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">K3 (33%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; gap: 4px;">
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">K1 (33%)</div>
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">K2 (33%)</div>
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">K3 (33%)</div>
 </div>
 
 </div>
@@ -432,17 +432,17 @@ Gebruik `col` **zonder nummer** om kolommen automatisch gelijk te verdelen:
 Elke `.col` krijgt automatisch exact **1/3** van de beschikbare breedte.
 
 <div style="display: flex; gap: 6px; margin-top: 8px;">
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
 </div>
 
@@ -462,17 +462,17 @@ Elke `.col` krijgt automatisch exact **1/3** van de beschikbare breedte.
 De twee `.col` elementen verdelen de resterende 50% elk gelijk (25% elk).
 
 <div style="display: flex; gap: 6px; margin-top: 8px;">
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-cyan" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">25%</div>
   </div>
-  <div style="flex: 2; background: rgba(232, 78, 16, 0.25); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col-6</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">50%</div>
+  <div class="mockup-col-accent" style="flex: 2; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col-6</div>
+    <div style="font-size: 0.65rem;">50%</div>
   </div>
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-cyan" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">25%</div>
   </div>
 </div>
 
@@ -512,40 +512,40 @@ Hoe bepalen automatische kolommen hun breedte binnen een `.row`?
 <div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
 <!-- Voorbeeld 1: .col -->
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-accent-light); margin-bottom: 6px; font-family: var(--font-code);">Met .col (verdelen altijd gelijk):</div>
+<div class="mockup-box">
+  <div class="mockup-text-accent" style="font-size: 0.72rem; margin-bottom: 6px;">Met .col (verdelen altijd gelijk):</div>
   <div style="display: flex; gap: 6px;">
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
-      <div style="font-size: 0.65rem; color: var(--color-foreground);">Kort (50%)</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem;">Kort (50%)</div>
     </div>
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
-      <div style="font-size: 0.65rem; color: var(--color-foreground);">Lange tekst (50%)</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem;">Lange tekst (50%)</div>
     </div>
   </div>
 </div>
 
 <!-- Voorbeeld 2: .col-auto gecombineerd met .col -->
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Praktijk: .col-auto + .col + .col-auto:</div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">Praktijk: .col-auto + .col + .col-auto:</div>
   <div style="display: flex; gap: 6px; align-items: center;">
-    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">[ Badge ]</div>
+    <div class="mockup-col-cyan" style="flex: 0 0 auto; padding: 8px 10px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem;">[ Badge ]</div>
     </div>
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col (restruimte)</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">Artikel beschrijving...</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col (restruimte)</div>
+      <div style="font-size: 0.62rem;">Artikel beschrijving...</div>
     </div>
-    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">&lt;Knop&gt;</div>
+    <div class="mockup-col-cyan" style="flex: 0 0 auto; padding: 8px 10px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem;">&lt;Knop&gt;</div>
     </div>
   </div>
 </div>
 
-<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+<div class="mockup-muted" style="font-size: 0.68rem; line-height: 1.3;">
   <strong>Gouden combinatie:</strong> Gebruik <code>.col-auto</code> voor elementen met een vaste inhoudsbreedte en <code>.col</code> om de rest van de rij flexibel op te vullen.
 </div>
 
@@ -586,41 +586,40 @@ Je kunt een **nieuw grid starten binnen een kolom** door opnieuw een `.row` te p
 </div>
 <div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(0, 156, 171, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
-<div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">Buitenste .row &nbsp;<span style="color: #8b949e;">(totaal 12 kolommen)</span></div>
+<div class="mockup-row" style="border: 2px dashed rgba(0, 156, 171, 0.5);">
+<div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 8px;">Buitenste .row &nbsp;<span class="mockup-muted">(totaal 12 kolommen)</span></div>
 <div style="display: flex; gap: 8px;">
 <!-- Hoofdkolom col-8 -->
-<div style="flex: 8; background: rgba(24, 31, 42, 0.9); border: 2px solid var(--color-accent); border-radius: 6px; padding: 8px;">
+<div class="mockup-col-accent" style="flex: 8; padding: 8px; border-width: 2px;">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-<span style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-8 (Hoofdsectie)</span>
-<span style="font-size: 0.65rem; color: #8b949e;">67% buitenste rij</span>
+<span class="mockup-text-accent" style="font-size: 0.76rem;">.col-8 (Hoofdsectie)</span>
+<span class="mockup-muted" style="font-size: 0.65rem;">67% buitenste rij</span>
 </div>
 <!-- Binnenste row -->
-<div style="border: 1px dashed rgba(0, 156, 171, 0.6); border-radius: 4px; padding: 6px; background: rgba(15, 20, 28, 0.7);">
-<div style="font-size: 0.68rem; color: var(--color-secondary); margin-bottom: 4px; font-family: var(--font-code);">Binnenste .row &nbsp;<span style="color: #8b949e;">(opnieuw 12 eenheden!)</span></div>
+<div class="mockup-row-dashed">
+<div class="mockup-text-cyan" style="font-size: 0.68rem; margin-bottom: 4px;">Binnenste .row &nbsp;<span class="mockup-muted">(opnieuw 12 eenheden!)</span></div>
 <div style="display: flex; gap: 6px;">
-<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
-<div style="font-size: 0.66rem; color: var(--color-foreground);">50% van col-8</div>
+<div class="mockup-col-cyan" style="flex: 1; padding: 10px 4px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem;">50% van col-8</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
-<div style="font-size: 0.66rem; color: var(--color-foreground);">50% van col-8</div>
+<div class="mockup-col-cyan" style="flex: 1; padding: 10px 4px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem;">50% van col-8</div>
 </div>
 </div>
 </div>
 </div>
 <!-- Zijbalk col-4 -->
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 4px;">Zijbalk</div>
-<div style="font-size: 0.65rem; color: #8b949e; margin-top: 2px;">33% buitenste rij</div>
-</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.76rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 4px;">Zijbalk</div>
+<div class="mockup-muted" style="font-size: 0.65rem; margin-top: 2px;">33% buitenste rij</div>
 </div>
 </div>
 </div>
 
-<div style="font-size: 0.7rem; color: #8b949e; margin-top: 4px; line-height: 1.4;">
+<div class="mockup-muted" style="font-size: 0.7rem; margin-top: 4px; line-height: 1.4;">
 <strong>Kerninzicht:</strong> Een geneste <code>.row</code> herdefinieert de 12 kolommen binnen zijn directe ouder (<code>.col-8</code>).
 </div>
 
@@ -655,31 +654,31 @@ Gutters regelen de **tussenruimte** (padding) tussen kolommen:
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 
-<div style="border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">Visueel: .row.gx-4.gy-2</div>
+<div class="mockup-box" style="padding: 12px;">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 8px;">Visueel: .row.gx-4.gy-2</div>
 
   <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 22px; row-gap: 8px;">
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart A</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Kaart A</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart B</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Kaart B</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart C</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Kaart C</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart D</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Kaart D</span>
     </div>
   </div>
 
   <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.66rem;">
-    <span style="color: var(--color-secondary); font-family: var(--font-code);">&harr; gx-4 (kolomafstand)</span>
-    <span style="color: var(--color-accent-light); font-family: var(--font-code);">&varr; gy-2 (rij-afstand)</span>
+    <span class="mockup-text-cyan">&harr; gx-4 (kolomafstand)</span>
+    <span class="mockup-text-accent">&varr; gy-2 (rij-afstand)</span>
   </div>
 </div>
 
-<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+<div class="mockup-muted" style="font-size: 0.68rem; line-height: 1.3;">
   <code>g-0</code> verwijdert alle gutters (ideaal voor naadloze fotogrid layouts).
 </div>
 
@@ -715,38 +714,38 @@ Met `offset-{bp}-{n}` verschuif je een kolom naar rechts met behulp van lege kol
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Rij 1: col-4 offset-4 &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">Rij 1: col-4 offset-4 &nbsp;<span class="mockup-muted">(4 + 4 + 4 = 12)</span></div>
   <div style="display: flex; gap: 4px;">
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-4</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 leeg</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">offset-4</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 leeg</div>
     </div>
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">Gecentreerd</div>
+    <div class="mockup-col-accent" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.76rem;">.col-4</div>
+      <div style="font-size: 0.66rem;">Gecentreerd</div>
     </div>
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">(rest: 4)</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 leeg</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">(rest: 4)</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 leeg</div>
     </div>
   </div>
 </div>
 
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Rij 2: col-md-4 + offset-md-4</div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">Rij 2: col-md-4 + offset-md-4</div>
   <div style="display: flex; gap: 4px;">
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">Links</div>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem;">Links</div>
     </div>
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-md-4</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 overgeslagen</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">offset-md-4</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 overgeslagen</div>
     </div>
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">Rechts</div>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem;">Rechts</div>
     </div>
   </div>
 </div>
@@ -783,32 +782,32 @@ Met `order-{bp}-{n}` pas je de **visuele volgorde** aan zonder de HTML structuur
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 1px solid rgba(232, 78, 16, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-box" style="border-color: rgba(232, 78, 16, 0.45);">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
     <span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">Mobiel (&lt; 768px)</span>
-    <span style="font-size: 0.65rem; color: #8b949e;">Visueel gestapeld</span>
+    <span class="mockup-muted" style="font-size: 0.65rem;">Visueel gestapeld</span>
   </div>
   <div style="display: flex; flex-direction: column; gap: 4px;">
-    <div style="background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-1: Foto (bovenaan)</span>
+    <div class="mockup-col-cyan" style="padding: 6px; text-align: center;">
+      <span class="mockup-text-cyan" style="font-size: 0.7rem;">order-1: Foto (bovenaan)</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-2: Tekst 'Over Mij' (onderaan)</span>
+    <div class="mockup-col-accent" style="padding: 6px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.7rem;">order-2: Tekst 'Over Mij' (onderaan)</span>
     </div>
   </div>
 </div>
 
-<div style="border: 1px solid rgba(0, 156, 171, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-box" style="border-color: rgba(0, 156, 171, 0.45);">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
     <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 1px 6px;">Desktop (&gt;= 768px)</span>
-    <span style="font-size: 0.65rem; color: #8b949e;">Naast elkaar</span>
+    <span class="mockup-muted" style="font-size: 0.65rem;">Naast elkaar</span>
   </div>
   <div style="display: flex; gap: 6px;">
-    <div style="flex: 8; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-md-1: Tekst (8 kol.)</span>
+    <div class="mockup-col-accent" style="flex: 8; padding: 12px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.7rem;">order-md-1: Tekst (8 kol.)</span>
     </div>
-    <div style="flex: 4; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 4px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-md-2: Foto (4 kol.)</span>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 12px 4px; text-align: center;">
+      <span class="mockup-text-cyan" style="font-size: 0.7rem;">order-md-2: Foto (4 kol.)</span>
     </div>
   </div>
 </div>
@@ -851,42 +850,42 @@ Met `order-{bp}-{n}` pas je de **visuele volgorde** aan zonder de HTML structuur
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-container">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
 <span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">.container</span>
-<span style="font-size: 0.65rem; color: #8b949e;">Desktop wireframe preview</span>
+<span class="mockup-muted" style="font-size: 0.65rem;">Desktop wireframe preview</span>
 </div>
 <!-- Navigatie -->
-<div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 5px 8px; margin-bottom: 8px; font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">
-.col-12: &lt;nav&gt; Portfolio
+<div class="mockup-col-accent" style="padding: 5px 8px; margin-bottom: 8px; font-size: 0.72rem; font-family: var(--font-code);">
+<span class="mockup-text-accent">.col-12:</span> &lt;nav&gt; Portfolio
 </div>
 <!-- Body row -->
 <div style="display: flex; gap: 8px;">
 <!-- Projecten col-lg-8 -->
-<div style="flex: 8; background: rgba(24, 31, 42, 0.8); border: 1px solid var(--color-secondary); border-radius: 6px; padding: 8px;">
-<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-secondary); font-family: var(--font-code); margin-bottom: 6px;">
+<div class="mockup-row" style="flex: 8; padding: 8px;">
+<div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">
 .col-12.col-lg-8 (Projecten)
 </div>
 <!-- Nested project cards -->
 <div style="display: flex; gap: 6px;">
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P1</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P1</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P2</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P2</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P3</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P3</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
 </div>
 </div>
 <!-- Aside col-lg-4 -->
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">.col-12.col-lg-4</div>
-<div style="font-size: 0.68rem; color: var(--color-foreground); margin-top: 4px;">Over mij & Contact</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.72rem;">.col-12.col-lg-4</div>
+<div style="font-size: 0.68rem; margin-top: 4px;">Over mij & Contact</div>
 </div>
 </div>
 </div>

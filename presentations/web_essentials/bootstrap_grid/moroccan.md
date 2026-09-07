@@ -305,47 +305,43 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 ```
 
 </div>
-<div class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
-
-<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-container">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
 <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">.container</span>
-<span style="font-size: 0.72rem; color: #8b949e;">موسط مع مسافات جانبية</span>
+<span class="mockup-muted" style="font-size: 0.72rem;">موسط مع مسافات جانبية</span>
 </div>
 <!-- Row 1: 4 + 8 -->
-<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; margin-bottom: 10px; background: rgba(24, 31, 42, 0.5);">
-<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(المجموع: 12 عمود)</span></div>
+<div class="mockup-row" style="margin-bottom: 10px;">
+<div class="mockup-text-cyan" style="font-size: 0.7rem; margin-bottom: 6px;">.row &nbsp;<span class="mockup-muted">(المجموع: 12 عمود)</span></div>
 <div style="display: flex; gap: 8px;">
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 6px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">جانبي (33%)</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 12px 6px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.72rem; margin-top: 2px;">جانبي (33%)</div>
 </div>
-<div style="flex: 8; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 6px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.8rem;">.col-8</div>
-<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">رئيسي (67%)</div>
+<div class="mockup-col-cyan" style="flex: 8; padding: 12px 6px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.8rem;">.col-8</div>
+<div style="font-size: 0.72rem; margin-top: 2px;">رئيسي (67%)</div>
 </div>
 </div>
 </div>
 <!-- Row 2: 4 + 4 + 4 -->
-<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; background: rgba(24, 31, 42, 0.5);">
-<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+<div class="mockup-row">
+<div class="mockup-text-cyan" style="font-size: 0.7rem; margin-bottom: 6px;">.row &nbsp;<span class="mockup-muted">(4 + 4 + 4 = 12)</span></div>
 <div style="display: flex; gap: 8px;">
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">بطاقة 1</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">بطاقة 1</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">بطاقة 2</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">بطاقة 2</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">بطاقة 3</div>
-</div>
-</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">بطاقة 3</div>
 </div>
 </div>
-
+</div>
 </div>
 </div>
 
@@ -372,9 +368,9 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 - كياخد عرض **100%**
 - البطاقات كيجيو وحدة فوق وحدة
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(232, 78, 16, 0.4); display: flex; flex-direction: column; gap: 4px;">
-  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">بطاقة 1 (100%)</div>
-  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">بطاقة 2 (100%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; flex-direction: column; gap: 4px;">
+  <div class="mockup-col-accent" style="padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700;">بطاقة 1 (100%)</div>
+  <div class="mockup-col-accent" style="padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700;">بطاقة 2 (100%)</div>
 </div>
 
 </div>
@@ -387,9 +383,9 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 - كياخد عرض **50%**
 - 2 بطاقات جنب لجنب في السطر
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(0, 156, 171, 0.4); display: flex; gap: 4px;">
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">ب 1 (50%)</div>
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">ب 2 (50%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; gap: 4px;">
+  <div class="mockup-col-cyan" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700;">ب 1 (50%)</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700;">ب 2 (50%)</div>
 </div>
 
 </div>
@@ -402,10 +398,10 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 - كياخد عرض **33.3%**
 - 3 بطاقات جنب لجنب في السطر
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(230, 237, 243, 0.25); display: flex; gap: 4px;">
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">ب 1 (33%)</div>
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">ب 2 (33%)</div>
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">ب 3 (33%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; gap: 4px;">
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">ب 1 (33%)</div>
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">ب 2 (33%)</div>
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">ب 3 (33%)</div>
 </div>
 
 </div>
@@ -433,17 +429,17 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 كل `.col` كياخد أوتوماتيكياً **ثلث المساحة (1/3)** بالضبط.
 
 <div style="display: flex; gap: 6px; margin-top: 8px;">
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
 </div>
 
@@ -463,17 +459,17 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 العنصران ديال `.col` كيقتسمو الـ 50% اللي بقات بالتساوي (25% لكل واحد).
 
 <div style="display: flex; gap: 6px; margin-top: 8px;">
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-cyan" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">25%</div>
   </div>
-  <div style="flex: 2; background: rgba(232, 78, 16, 0.25); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col-6</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">50%</div>
+  <div class="mockup-col-accent" style="flex: 2; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col-6</div>
+    <div style="font-size: 0.65rem;">50%</div>
   </div>
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-cyan" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">25%</div>
   </div>
 </div>
 
@@ -513,40 +509,40 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 <div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
 <!-- Example 1: .col -->
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-accent-light); margin-bottom: 6px; font-family: var(--font-code);">باستعمال .col (توزيع متساوي):</div>
+<div class="mockup-box">
+  <div class="mockup-text-accent" style="font-size: 0.72rem; margin-bottom: 6px;">باستعمال .col (توزيع متساوي):</div>
   <div style="display: flex; gap: 6px;">
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
-      <div style="font-size: 0.65rem; color: var(--color-foreground);">نص قصير (50%)</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem;">نص قصير (50%)</div>
     </div>
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
-      <div style="font-size: 0.65rem; color: var(--color-foreground);">نص طويل شوية (50%)</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem;">نص طويل شوية (50%)</div>
     </div>
   </div>
 </div>
 
 <!-- Example 2: .col-auto paired with .col -->
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">تطبيق عملي: .col-auto + .col + .col-auto:</div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">تطبيق عملي: .col-auto + .col + .col-auto:</div>
   <div style="display: flex; gap: 6px; align-items: center;">
-    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">[ شارة ]</div>
+    <div class="mockup-col-cyan" style="flex: 0 0 auto; padding: 8px 10px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem;">[ شارة ]</div>
     </div>
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col (مرن)</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">عنوان المقال...</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col (مرن)</div>
+      <div style="font-size: 0.62rem;">عنوان المقال...</div>
     </div>
-    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">&lt;زر&gt;</div>
+    <div class="mockup-col-cyan" style="flex: 0 0 auto; padding: 8px 10px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem;">&lt;زر&gt;</div>
     </div>
   </div>
 </div>
 
-<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+<div class="mockup-muted" style="font-size: 0.68rem; line-height: 1.3;">
   <strong>التركيبة المثالية:</strong> استعمل <code>.col-auto</code> للعناصر ذات العرض المحدد و <code>.col</code> باش يعمر الفراغ المتبقي بمرونة.
 </div>
 
@@ -587,41 +583,40 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 </div>
 <div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(0, 156, 171, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
-<div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">الـ .row الخارجي &nbsp;<span style="color: #8b949e;">(المجموع 12 عمود)</span></div>
+<div class="mockup-row" style="border: 2px dashed rgba(0, 156, 171, 0.5);">
+<div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 8px;">الـ .row الخارجي &nbsp;<span class="mockup-muted">(المجموع 12 عمود)</span></div>
 <div style="display: flex; gap: 8px;">
 <!-- Main column col-8 -->
-<div style="flex: 8; background: rgba(24, 31, 42, 0.9); border: 2px solid var(--color-accent); border-radius: 6px; padding: 8px;">
+<div class="mockup-col-accent" style="flex: 8; padding: 8px; border-width: 2px;">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-<span style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-8 (القسم الرئيسي)</span>
-<span style="font-size: 0.65rem; color: #8b949e;">67% من السطر الخارجي</span>
+<span class="mockup-text-accent" style="font-size: 0.76rem;">.col-8 (القسم الرئيسي)</span>
+<span class="mockup-muted" style="font-size: 0.65rem;">67% من السطر الخارجي</span>
 </div>
 <!-- Inner row -->
-<div style="border: 1px dashed rgba(0, 156, 171, 0.6); border-radius: 4px; padding: 6px; background: rgba(15, 20, 28, 0.7);">
-<div style="font-size: 0.68rem; color: var(--color-secondary); margin-bottom: 4px; font-family: var(--font-code);">الـ .row الداخلي &nbsp;<span style="color: #8b949e;">(12 وحدة جديدة تماماً!)</span></div>
+<div class="mockup-row-dashed">
+<div class="mockup-text-cyan" style="font-size: 0.68rem; margin-bottom: 4px;">الـ .row الداخلي &nbsp;<span class="mockup-muted">(12 وحدة جديدة تماماً!)</span></div>
 <div style="display: flex; gap: 6px;">
-<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
-<div style="font-size: 0.66rem; color: var(--color-foreground);">50% من col-8</div>
+<div class="mockup-col-cyan" style="flex: 1; padding: 10px 4px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem;">50% من col-8</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
-<div style="font-size: 0.66rem; color: var(--color-foreground);">50% من col-8</div>
+<div class="mockup-col-cyan" style="flex: 1; padding: 10px 4px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem;">50% من col-8</div>
 </div>
 </div>
 </div>
 </div>
 <!-- Sidebar col-4 -->
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 4px;">شريط جانبي</div>
-<div style="font-size: 0.65rem; color: #8b949e; margin-top: 2px;">33% من السطر الخارجي</div>
-</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.76rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 4px;">شريط جانبي</div>
+<div class="mockup-muted" style="font-size: 0.65rem; margin-top: 2px;">33% من السطر الخارجي</div>
 </div>
 </div>
 </div>
 
-<div style="font-size: 0.7rem; color: #8b949e; margin-top: 4px; line-height: 1.4;">
+<div class="mockup-muted" style="font-size: 0.7rem; margin-top: 4px; line-height: 1.4;">
 <strong>الفكرة الأساسية:</strong> السطر المتداخل <code>.row</code> كيعاود يبدا 12 عمود جديدة وسط العنصر الأب ديالو (<code>.col-8</code>).
 </div>
 
@@ -656,31 +651,31 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 
-<div style="border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">توضيح بصري: .row.gx-4.gy-2</div>
+<div class="mockup-box" style="padding: 12px;">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 8px;">توضيح بصري: .row.gx-4.gy-2</div>
 
   <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 22px; row-gap: 8px;">
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">بطاقة أ</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">بطاقة أ</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">بطاقة ب</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">بطاقة ب</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">بطاقة ج</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">بطاقة ج</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">بطاقة د</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">بطاقة د</span>
     </div>
   </div>
 
   <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.66rem;">
-    <span style="color: var(--color-secondary); font-family: var(--font-code);">&harr; gx-4 (فراغ الأعمدة الأفقي)</span>
-    <span style="color: var(--color-accent-light); font-family: var(--font-code);">&varr; gy-2 (فراغ الأسطر العمودي)</span>
+    <span class="mockup-text-cyan">&harr; gx-4 (فراغ الأعمدة الأفقي)</span>
+    <span class="mockup-text-accent">&varr; gy-2 (فراغ الأسطر العمودي)</span>
   </div>
 </div>
 
-<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+<div class="mockup-muted" style="font-size: 0.68rem; line-height: 1.3;">
   الكلاس <code>g-0</code> كيمسح المسافات كاملة (ممتاز لمعارض الصور المتلاصقة edge-to-edge).
 </div>
 
@@ -716,38 +711,38 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">السطر 1: col-4 offset-4 &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">السطر 1: col-4 offset-4 &nbsp;<span class="mockup-muted">(4 + 4 + 4 = 12)</span></div>
   <div style="display: flex; gap: 4px;">
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-4</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 خاويين</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">offset-4</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 خاويين</div>
     </div>
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">موسط</div>
+    <div class="mockup-col-accent" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.76rem;">.col-4</div>
+      <div style="font-size: 0.66rem;">موسط</div>
     </div>
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">(الباقي: 4)</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 خاويين</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">(الباقي: 4)</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 خاويين</div>
     </div>
   </div>
 </div>
 
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">السطر 2: col-md-4 + offset-md-4</div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">السطر 2: col-md-4 + offset-md-4</div>
   <div style="display: flex; gap: 4px;">
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">يسار</div>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem;">يسار</div>
     </div>
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-md-4</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 منقزين</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">offset-md-4</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 منقزين</div>
     </div>
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">يمين</div>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem;">يمين</div>
     </div>
   </div>
 </div>
@@ -784,32 +779,32 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 1px solid rgba(232, 78, 16, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-box" style="border-color: rgba(232, 78, 16, 0.45);">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
     <span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">هاتف (&lt; 768px)</span>
-    <span style="font-size: 0.65rem; color: #8b949e;">واحد فوق واحد</span>
+    <span class="mockup-muted" style="font-size: 0.65rem;">واحد فوق واحد</span>
   </div>
   <div style="display: flex; flex-direction: column; gap: 4px;">
-    <div style="background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-1: الصورة (الفوق)</span>
+    <div class="mockup-col-cyan" style="padding: 6px; text-align: center;">
+      <span class="mockup-text-cyan" style="font-size: 0.7rem;">order-1: الصورة (الفوق)</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-2: النص 'معلومات عليا' (لتحت)</span>
+    <div class="mockup-col-accent" style="padding: 6px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.7rem;">order-2: النص 'معلومات عليا' (لتحت)</span>
     </div>
   </div>
 </div>
 
-<div style="border: 1px solid rgba(0, 156, 171, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-box" style="border-color: rgba(0, 156, 171, 0.45);">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
     <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 1px 6px;">حاسوب (&gt;= 768px)</span>
-    <span style="font-size: 0.65rem; color: #8b949e;">جنب لجنب</span>
+    <span class="mockup-muted" style="font-size: 0.65rem;">جنب لجنب</span>
   </div>
   <div style="display: flex; gap: 6px;">
-    <div style="flex: 8; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-md-1: النص (8 أعمدة)</span>
+    <div class="mockup-col-accent" style="flex: 8; padding: 12px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.7rem;">order-md-1: النص (8 أعمدة)</span>
     </div>
-    <div style="flex: 4; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 4px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-md-2: الصورة (4 أعمدة)</span>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 12px 4px; text-align: center;">
+      <span class="mockup-text-cyan" style="font-size: 0.7rem;">order-md-2: الصورة (4 أعمدة)</span>
     </div>
   </div>
 </div>
@@ -852,42 +847,42 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-container">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
 <span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">.container</span>
-<span style="font-size: 0.65rem; color: #8b949e;">معاينة المخطط الهيكلي (Desktop)</span>
+<span class="mockup-muted" style="font-size: 0.65rem;">معاينة المخطط الهيكلي (Desktop)</span>
 </div>
 <!-- Navigation -->
-<div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 5px 8px; margin-bottom: 8px; font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">
-.col-12: &lt;nav&gt; Portfolio
+<div class="mockup-col-accent" style="padding: 5px 8px; margin-bottom: 8px; font-size: 0.72rem; font-family: var(--font-code);">
+<span class="mockup-text-accent">.col-12:</span> &lt;nav&gt; Portfolio
 </div>
 <!-- Body row -->
 <div style="display: flex; gap: 8px;">
 <!-- Projects col-lg-8 -->
-<div style="flex: 8; background: rgba(24, 31, 42, 0.8); border: 1px solid var(--color-secondary); border-radius: 6px; padding: 8px;">
-<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-secondary); font-family: var(--font-code); margin-bottom: 6px;">
+<div class="mockup-row" style="flex: 8; padding: 8px;">
+<div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">
 .col-12.col-lg-8 (المشاريع)
 </div>
 <!-- Nested project cards -->
 <div style="display: flex; gap: 6px;">
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P1</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P1</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P2</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P2</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P3</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P3</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
 </div>
 </div>
 <!-- Aside col-lg-4 -->
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">.col-12.col-lg-4</div>
-<div style="font-size: 0.68rem; color: var(--color-foreground); margin-top: 4px;">معلومات والاتصال</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.72rem;">.col-12.col-lg-4</div>
+<div style="font-size: 0.68rem; margin-top: 4px;">معلومات والاتصال</div>
 </div>
 </div>
 </div>

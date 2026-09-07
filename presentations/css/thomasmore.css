@@ -151,7 +151,7 @@ pre {
 }
 
 /* Inline Code (only outside pre code blocks) */
-:not(pre) > code {
+:not(pre)>code {
   background-color: var(--color-code-bg);
   color: var(--color-accent-light);
   padding: 2px 7px;
@@ -678,6 +678,74 @@ footer {
 }
 
 /* ==========================================================================
+   Layout & Grid Mockup Utilities (Visual Diagrams)
+   ========================================================================== */
+.mockup-container {
+  border: 2px dashed rgba(232, 78, 16, 0.45);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(15, 20, 28, 0.65);
+}
+
+.mockup-row {
+  border: 1px solid rgba(0, 156, 171, 0.35);
+  border-radius: 6px;
+  padding: 8px;
+  background: rgba(24, 31, 42, 0.6);
+}
+
+.mockup-row-dashed {
+  border: 1px dashed rgba(0, 156, 171, 0.55);
+  border-radius: 4px;
+  padding: 6px;
+  background: rgba(15, 20, 28, 0.7);
+}
+
+.mockup-box {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 8px;
+  background: rgba(15, 20, 28, 0.65);
+}
+
+.mockup-col-accent {
+  background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.08));
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  color: var(--color-foreground);
+}
+
+.mockup-col-cyan {
+  background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.08));
+  border: 1px solid var(--color-secondary);
+  border-radius: 4px;
+  color: var(--color-foreground);
+}
+
+.mockup-col-empty {
+  border: 1px dashed #484f58;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #8b949e;
+}
+
+.mockup-text-accent {
+  color: var(--color-accent-light) !important;
+  font-family: var(--font-code);
+  font-weight: 700;
+}
+
+.mockup-text-cyan {
+  color: var(--color-secondary) !important;
+  font-family: var(--font-code);
+  font-weight: 700;
+}
+
+.mockup-muted {
+  color: #8b949e !important;
+}
+
+/* ==========================================================================
    Light Mode Support (High Contrast for Projectors & Daylight)
    ========================================================================== */
 section.theme-light {
@@ -690,19 +758,25 @@ section.theme-light {
   --color-glass-border: rgba(232, 78, 16, 0.4);
   --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.08);
 
-  background: 
+  background:
     radial-gradient(circle at 90% 10%, rgba(232, 78, 16, 0.08) 0%, transparent 60%),
     radial-gradient(circle at 10% 90%, rgba(0, 156, 171, 0.06) 0%, transparent 60%),
     #ffffff !important;
   color: #0f172a !important;
 
   /* Headings */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: #0a0f1d !important;
   }
 
   h1 {
     color: #0a0f1d !important;
+
     &::before {
       color: #e84e10 !important;
     }
@@ -711,6 +785,7 @@ section.theme-light {
   h2 {
     color: #0a0f1d !important;
     border-bottom: 2px solid #e2e8f0 !important;
+
     &::before {
       color: #e84e10 !important;
     }
@@ -721,11 +796,15 @@ section.theme-light {
   }
 
   /* Paragraphs, lists & strong text */
-  p, li, div, span {
+  p,
+  li,
+  div,
+  span {
     color: inherit;
   }
 
-  strong, b {
+  strong,
+  b {
     color: #000000 !important;
     font-weight: 700 !important;
   }
@@ -737,7 +816,8 @@ section.theme-light {
     color: #0f172a !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
 
-    strong, b {
+    strong,
+    b {
       color: #000000 !important;
     }
   }
@@ -745,6 +825,7 @@ section.theme-light {
   /* Links */
   a {
     color: #0969da !important;
+
     &:hover {
       color: #e84e10 !important;
     }
@@ -754,7 +835,10 @@ section.theme-light {
   table {
     background-color: transparent !important;
 
-    tr, tr:nth-child(2n), tr:nth-child(2n+1), tbody tr {
+    tr,
+    tr:nth-child(2n),
+    tr:nth-child(2n+1),
+    tbody tr {
       background-color: transparent !important;
     }
 
@@ -804,7 +888,7 @@ section.theme-light {
   }
 
   /* Inline Code (outside pre code blocks) */
-  :not(pre) > code {
+  :not(pre)>code {
     background-color: #f1f5f9 !important;
     color: #c23e07 !important;
     border: 1px solid #cbd5e1 !important;
@@ -894,6 +978,7 @@ section.theme-light {
     &.badge-outline {
       color: #b83604 !important;
     }
+
     &.badge-outline-cyan {
       color: #006873 !important;
     }
@@ -906,7 +991,12 @@ section.theme-light {
     color: #0f172a !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: #0a0f1d !important;
     }
 
@@ -933,14 +1023,15 @@ section.theme-light {
     color: #0f172a !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
 
-    strong, b {
+    strong,
+    b {
       color: #000000 !important;
     }
   }
 
   /* Lead / Hero slide in light mode */
   &.lead {
-    background: 
+    background:
       radial-gradient(circle at 90% 10%, rgba(232, 78, 16, 0.12) 0%, transparent 65%),
       radial-gradient(circle at 10% 90%, rgba(0, 156, 171, 0.09) 0%, transparent 65%),
       #ffffff !important;
@@ -955,7 +1046,8 @@ section.theme-light {
   }
 
   /* Header and Footer */
-  footer, header {
+  footer,
+  header {
     color: #64748b !important;
   }
 
@@ -985,5 +1077,116 @@ section.theme-light {
       border-color: #e84e10 !important;
       color: #ffffff !important;
     }
+  }
+
+  /* ==========================================================================
+     Grid & Layout Mockups in Light Mode (High Contrast & Clear Hierarchy)
+     ========================================================================== */
+  .mockup-container {
+    border-color: rgba(232, 78, 16, 0.55) !important;
+    background: #f8fafc !important;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+  }
+
+  .mockup-row {
+    border-color: #cbd5e1 !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .mockup-row-dashed {
+    border-color: rgba(0, 156, 171, 0.6) !important;
+    background: #f0fdfa !important;
+  }
+
+  .mockup-box {
+    border-color: #cbd5e1 !important;
+    background: #f8fafc !important;
+  }
+
+  .mockup-col-accent {
+    background: linear-gradient(135deg, #fff2eb, #ffe6d8) !important;
+    border: 1.5px solid #e84e10 !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 3px rgba(232, 78, 16, 0.12) !important;
+  }
+
+  .mockup-col-cyan {
+    background: linear-gradient(135deg, #e6f9fa, #cbf1f5) !important;
+    border: 1.5px solid #009cab !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 3px rgba(0, 156, 171, 0.12) !important;
+  }
+
+  .mockup-col-empty {
+    border: 1.5px dashed #94a3b8 !important;
+    background: #f1f5f9 !important;
+    color: #64748b !important;
+  }
+
+  .mockup-text-accent {
+    color: #c23e07 !important;
+    font-weight: 700 !important;
+  }
+
+  .mockup-text-cyan {
+    color: #007682 !important;
+    font-weight: 700 !important;
+  }
+
+  .mockup-muted {
+    color: #64748b !important;
+  }
+
+  /* Automatic Fallback Overrides for any inline styles inside cards */
+  .card div[style*="background: rgba(15, 20, 28"],
+  .card div[style*="background:rgba(15, 20, 28"],
+  .card div[style*="background: rgba(15,20,28"],
+  .card div[style*="background:rgba(15,20,28"],
+  .card div[style*="background: rgba(24, 31, 42"],
+  .card div[style*="background:rgba(24, 31, 42"],
+  .card div[style*="background: rgba(24,31,42"],
+  .card div[style*="background:rgba(24,31,42"] {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  .card div[style*="background: linear-gradient(135deg, rgba(232, 78, 16"],
+  .card div[style*="background:linear-gradient(135deg, rgba(232, 78, 16"],
+  .card div[style*="background: rgba(232, 78, 16"] {
+    background: linear-gradient(135deg, #fff2eb, #ffe6d8) !important;
+    border-color: #e84e10 !important;
+    color: #0f172a !important;
+  }
+
+  .card div[style*="background: linear-gradient(135deg, rgba(0, 156, 171"],
+  .card div[style*="background:linear-gradient(135deg, rgba(0, 156, 171"],
+  .card div[style*="background: rgba(0, 156, 171"] {
+    background: linear-gradient(135deg, #e6f9fa, #cbf1f5) !important;
+    border-color: #009cab !important;
+    color: #0f172a !important;
+  }
+
+  .card div[style*="rgba(255, 255, 255, 0.02)"],
+  .card div[style*="rgba(255,255,255,0.02)"],
+  .card div[style*="rgba(255, 255, 255, 0.03)"] {
+    background: #f1f5f9 !important;
+    border-color: #94a3b8 !important;
+  }
+
+  .card span[style*="color: #8b949e"],
+  .card span[style*="color:#8b949e"],
+  .card div[style*="color: #8b949e"],
+  .card div[style*="color:#8b949e"],
+  .card div[style*="color: #6e7681"] {
+    color: #64748b !important;
+  }
+
+  .card div[style*="color: var(--color-accent-light)"] {
+    color: #c23e07 !important;
+  }
+
+  .card div[style*="color: var(--color-secondary)"] {
+    color: #007682 !important;
   }
 }

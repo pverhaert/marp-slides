@@ -307,40 +307,40 @@ A Bootstrap row is divided into **12 equal column units**. You decide how many u
 </div>
 <div class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-container">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
 <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">.container</span>
-<span style="font-size: 0.72rem; color: #8b949e;">centered with padding</span>
+<span class="mockup-muted" style="font-size: 0.72rem;">centered with padding</span>
 </div>
 <!-- Row 1: 4 + 8 -->
-<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; margin-bottom: 10px; background: rgba(24, 31, 42, 0.5);">
-<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(total: 12 columns)</span></div>
+<div class="mockup-row" style="margin-bottom: 10px;">
+<div class="mockup-text-cyan" style="font-size: 0.7rem; margin-bottom: 6px;">.row &nbsp;<span class="mockup-muted">(total: 12 columns)</span></div>
 <div style="display: flex; gap: 8px;">
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 6px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">Sidebar (33%)</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 12px 6px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.72rem; margin-top: 2px;">Sidebar (33%)</div>
 </div>
-<div style="flex: 8; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 6px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.8rem;">.col-8</div>
-<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">Main Content (67%)</div>
+<div class="mockup-col-cyan" style="flex: 8; padding: 12px 6px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.8rem;">.col-8</div>
+<div style="font-size: 0.72rem; margin-top: 2px;">Main Content (67%)</div>
 </div>
 </div>
 </div>
 <!-- Row 2: 4 + 4 + 4 -->
-<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; background: rgba(24, 31, 42, 0.5);">
-<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+<div class="mockup-row">
+<div class="mockup-text-cyan" style="font-size: 0.7rem; margin-bottom: 6px;">.row &nbsp;<span class="mockup-muted">(4 + 4 + 4 = 12)</span></div>
 <div style="display: flex; gap: 8px;">
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Card 1</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">Card 1</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Card 2</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">Card 2</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Card 3</div>
+<div class="mockup-col-accent" style="flex: 1; padding: 12px 4px; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 2px;">Card 3</div>
 </div>
 </div>
 </div>
@@ -372,9 +372,9 @@ Combine multiple breakpoint classes to define **distinct layouts across screen s
 - Takes **100%** width
 - Cards stack vertically
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(232, 78, 16, 0.4); display: flex; flex-direction: column; gap: 4px;">
-  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">Card 1 (100%)</div>
-  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">Card 2 (100%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; flex-direction: column; gap: 4px;">
+  <div class="mockup-col-accent" style="padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700;">Card 1 (100%)</div>
+  <div class="mockup-col-accent" style="padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700;">Card 2 (100%)</div>
 </div>
 
 </div>
@@ -387,9 +387,9 @@ Combine multiple breakpoint classes to define **distinct layouts across screen s
 - Takes **50%** width
 - 2 cards side by side per row
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(0, 156, 171, 0.4); display: flex; gap: 4px;">
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">C1 (50%)</div>
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">C2 (50%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; gap: 4px;">
+  <div class="mockup-col-cyan" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700;">C1 (50%)</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700;">C2 (50%)</div>
 </div>
 
 </div>
@@ -402,10 +402,10 @@ Combine multiple breakpoint classes to define **distinct layouts across screen s
 - Takes **33.3%** width
 - 3 cards side by side per row
 
-<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(230, 237, 243, 0.25); display: flex; gap: 4px;">
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">C1 (33%)</div>
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">C2 (33%)</div>
-  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">C3 (33%)</div>
+<div class="mockup-box" style="margin-top: 10px; padding: 6px; display: flex; gap: 4px;">
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">C1 (33%)</div>
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">C2 (33%)</div>
+  <div class="mockup-col-empty" style="flex: 1; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700;">C3 (33%)</div>
 </div>
 
 </div>
@@ -433,17 +433,17 @@ Use `col` **without a number** to distribute columns equally across available sp
 Every `.col` automatically receives exactly **1/3** of available width.
 
 <div style="display: flex; gap: 6px; margin-top: 8px;">
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
-  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  <div class="mockup-col-accent" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">33.3%</div>
   </div>
 </div>
 
@@ -463,17 +463,17 @@ Every `.col` automatically receives exactly **1/3** of available width.
 The two `.col` elements split the remaining 50% equally (25% each).
 
 <div style="display: flex; gap: 6px; margin-top: 8px;">
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-cyan" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">25%</div>
   </div>
-  <div style="flex: 2; background: rgba(232, 78, 16, 0.25); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col-6</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">50%</div>
+  <div class="mockup-col-accent" style="flex: 2; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-accent" style="font-size: 0.72rem;">.col-6</div>
+    <div style="font-size: 0.65rem;">50%</div>
   </div>
-  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
-    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
-    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  <div class="mockup-col-cyan" style="flex: 1; padding: 6px 2px; text-align: center;">
+    <div class="mockup-text-cyan" style="font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem;">25%</div>
   </div>
 </div>
 
@@ -513,40 +513,40 @@ How do automatic columns calculate their width within a `.row`?
 <div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
 <!-- Example 1: .col -->
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-accent-light); margin-bottom: 6px; font-family: var(--font-code);">With .col (equal distribution):</div>
+<div class="mockup-box">
+  <div class="mockup-text-accent" style="font-size: 0.72rem; margin-bottom: 6px;">With .col (equal distribution):</div>
   <div style="display: flex; gap: 6px;">
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
-      <div style="font-size: 0.65rem; color: var(--color-foreground);">Short (50%)</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem;">Short (50%)</div>
     </div>
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
-      <div style="font-size: 0.65rem; color: var(--color-foreground);">Longer text (50%)</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem;">Longer text (50%)</div>
     </div>
   </div>
 </div>
 
 <!-- Example 2: .col-auto paired with .col -->
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">In practice: .col-auto + .col + .col-auto:</div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">In practice: .col-auto + .col + .col-auto:</div>
   <div style="display: flex; gap: 6px; align-items: center;">
-    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">[ Badge ]</div>
+    <div class="mockup-col-cyan" style="flex: 0 0 auto; padding: 8px 10px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem;">[ Badge ]</div>
     </div>
-    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col (flexible)</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">Article title...</div>
+    <div class="mockup-col-accent" style="flex: 1; padding: 8px 4px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.74rem;">.col (flexible)</div>
+      <div style="font-size: 0.62rem;">Article title...</div>
     </div>
-    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
-      <div style="font-size: 0.62rem; color: var(--color-foreground);">&lt;Button&gt;</div>
+    <div class="mockup-col-cyan" style="flex: 0 0 auto; padding: 8px 10px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem;">&lt;Button&gt;</div>
     </div>
   </div>
 </div>
 
-<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+<div class="mockup-muted" style="font-size: 0.68rem; line-height: 1.3;">
   <strong>Golden Combination:</strong> Use <code>.col-auto</code> for elements with fixed content widths and <code>.col</code> to fill remaining space adaptively.
 </div>
 
@@ -587,41 +587,40 @@ You can start a **new nested grid within a column** by placing another `.row`:
 </div>
 <div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(0, 156, 171, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
-<div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">Outer .row &nbsp;<span style="color: #8b949e;">(total 12 columns)</span></div>
+<div class="mockup-row" style="border: 2px dashed rgba(0, 156, 171, 0.5);">
+<div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 8px;">Outer .row &nbsp;<span class="mockup-muted">(total 12 columns)</span></div>
 <div style="display: flex; gap: 8px;">
 <!-- Main column col-8 -->
-<div style="flex: 8; background: rgba(24, 31, 42, 0.9); border: 2px solid var(--color-accent); border-radius: 6px; padding: 8px;">
+<div class="mockup-col-accent" style="flex: 8; padding: 8px; border-width: 2px;">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-<span style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-8 (Main Section)</span>
-<span style="font-size: 0.65rem; color: #8b949e;">67% of outer row</span>
+<span class="mockup-text-accent" style="font-size: 0.76rem;">.col-8 (Main Section)</span>
+<span class="mockup-muted" style="font-size: 0.65rem;">67% of outer row</span>
 </div>
 <!-- Inner row -->
-<div style="border: 1px dashed rgba(0, 156, 171, 0.6); border-radius: 4px; padding: 6px; background: rgba(15, 20, 28, 0.7);">
-<div style="font-size: 0.68rem; color: var(--color-secondary); margin-bottom: 4px; font-family: var(--font-code);">Inner .row &nbsp;<span style="color: #8b949e;">(12 units reset!)</span></div>
+<div class="mockup-row-dashed">
+<div class="mockup-text-cyan" style="font-size: 0.68rem; margin-bottom: 4px;">Inner .row &nbsp;<span class="mockup-muted">(12 units reset!)</span></div>
 <div style="display: flex; gap: 6px;">
-<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
-<div style="font-size: 0.66rem; color: var(--color-foreground);">50% of col-8</div>
+<div class="mockup-col-cyan" style="flex: 1; padding: 10px 4px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem;">50% of col-8</div>
 </div>
-<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
-<div style="font-size: 0.66rem; color: var(--color-foreground);">50% of col-8</div>
+<div class="mockup-col-cyan" style="flex: 1; padding: 10px 4px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem;">50% of col-8</div>
 </div>
 </div>
 </div>
 </div>
 <!-- Sidebar col-4 -->
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
-<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 4px;">Sidebar</div>
-<div style="font-size: 0.65rem; color: #8b949e; margin-top: 2px;">33% of outer row</div>
-</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.76rem;">.col-4</div>
+<div style="font-size: 0.7rem; margin-top: 4px;">Sidebar</div>
+<div class="mockup-muted" style="font-size: 0.65rem; margin-top: 2px;">33% of outer row</div>
 </div>
 </div>
 </div>
 
-<div style="font-size: 0.7rem; color: #8b949e; margin-top: 4px; line-height: 1.4;">
+<div class="mockup-muted" style="font-size: 0.7rem; margin-top: 4px; line-height: 1.4;">
 <strong>Key Takeaway:</strong> A nested <code>.row</code> resets the 12 columns within its immediate parent (<code>.col-8</code>).
 </div>
 
@@ -656,31 +655,31 @@ Gutters manage horizontal and vertical **padding** between columns:
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 
-<div style="border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">Visual: .row.gx-4.gy-2</div>
+<div class="mockup-box" style="padding: 12px;">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 8px;">Visual: .row.gx-4.gy-2</div>
 
   <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 22px; row-gap: 8px;">
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Card A</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Card A</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Card B</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Card B</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Card C</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Card C</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
-      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Card D</span>
+    <div class="mockup-col-accent" style="padding: 10px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.75rem;">Card D</span>
     </div>
   </div>
 
   <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.66rem;">
-    <span style="color: var(--color-secondary); font-family: var(--font-code);">&harr; gx-4 (column spacing)</span>
-    <span style="color: var(--color-accent-light); font-family: var(--font-code);">&varr; gy-2 (row spacing)</span>
+    <span class="mockup-text-cyan">&harr; gx-4 (column spacing)</span>
+    <span class="mockup-text-accent">&varr; gy-2 (row spacing)</span>
   </div>
 </div>
 
-<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+<div class="mockup-muted" style="font-size: 0.68rem; line-height: 1.3;">
   <code>g-0</code> removes all gutters (ideal for seamless edge-to-edge photo galleries).
 </div>
 
@@ -716,38 +715,38 @@ Use `offset-{bp}-{n}` to shift columns to the right using empty grid tracks:
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
 
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Row 1: col-4 offset-4 &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">Row 1: col-4 offset-4 &nbsp;<span class="mockup-muted">(4 + 4 + 4 = 12)</span></div>
   <div style="display: flex; gap: 4px;">
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-4</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 empty</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">offset-4</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 empty</div>
     </div>
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">Centered</div>
+    <div class="mockup-col-accent" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-accent" style="font-size: 0.76rem;">.col-4</div>
+      <div style="font-size: 0.66rem;">Centered</div>
     </div>
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">(rest: 4)</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 empty</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">(rest: 4)</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 empty</div>
     </div>
   </div>
 </div>
 
-<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
-  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Row 2: col-md-4 + offset-md-4</div>
+<div class="mockup-box">
+  <div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">Row 2: col-md-4 + offset-md-4</div>
   <div style="display: flex; gap: 4px;">
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">Left</div>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem;">Left</div>
     </div>
-    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
-      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-md-4</div>
-      <div style="font-size: 0.62rem; color: #6e7681;">4 skipped</div>
+    <div class="mockup-col-empty" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-muted" style="font-size: 0.68rem; font-family: var(--font-code);">offset-md-4</div>
+      <div class="mockup-muted" style="font-size: 0.62rem;">4 skipped</div>
     </div>
-    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
-      <div style="font-size: 0.66rem; color: var(--color-foreground);">Right</div>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 10px 2px; text-align: center;">
+      <div class="mockup-text-cyan" style="font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem;">Right</div>
     </div>
   </div>
 </div>
@@ -784,32 +783,32 @@ Use `order-{bp}-{n}` to adjust **visual display order** without altering HTML ma
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 1px solid rgba(232, 78, 16, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-box" style="border-color: rgba(232, 78, 16, 0.45);">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
     <span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">Mobile (&lt; 768px)</span>
-    <span style="font-size: 0.65rem; color: #8b949e;">Stacked</span>
+    <span class="mockup-muted" style="font-size: 0.65rem;">Stacked</span>
   </div>
   <div style="display: flex; flex-direction: column; gap: 4px;">
-    <div style="background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-1: Photo (top)</span>
+    <div class="mockup-col-cyan" style="padding: 6px; text-align: center;">
+      <span class="mockup-text-cyan" style="font-size: 0.7rem;">order-1: Photo (top)</span>
     </div>
-    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-2: Text 'About Me' (bottom)</span>
+    <div class="mockup-col-accent" style="padding: 6px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.7rem;">order-2: Text 'About Me' (bottom)</span>
     </div>
   </div>
 </div>
 
-<div style="border: 1px solid rgba(0, 156, 171, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-box" style="border-color: rgba(0, 156, 171, 0.45);">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
     <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 1px 6px;">Desktop (&gt;= 768px)</span>
-    <span style="font-size: 0.65rem; color: #8b949e;">Side by side</span>
+    <span class="mockup-muted" style="font-size: 0.65rem;">Side by side</span>
   </div>
   <div style="display: flex; gap: 6px;">
-    <div style="flex: 8; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-md-1: Text (8 cols)</span>
+    <div class="mockup-col-accent" style="flex: 8; padding: 12px 4px; text-align: center;">
+      <span class="mockup-text-accent" style="font-size: 0.7rem;">order-md-1: Text (8 cols)</span>
     </div>
-    <div style="flex: 4; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 4px; text-align: center;">
-      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-md-2: Photo (4 cols)</span>
+    <div class="mockup-col-cyan" style="flex: 4; padding: 12px 4px; text-align: center;">
+      <span class="mockup-text-cyan" style="font-size: 0.7rem;">order-md-2: Photo (4 cols)</span>
     </div>
   </div>
 </div>
@@ -852,42 +851,42 @@ Use `order-{bp}-{n}` to adjust **visual display order** without altering HTML ma
 </div>
 <div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
 
-<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
+<div class="mockup-container">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
 <span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">.container</span>
-<span style="font-size: 0.65rem; color: #8b949e;">Desktop wireframe preview</span>
+<span class="mockup-muted" style="font-size: 0.65rem;">Desktop wireframe preview</span>
 </div>
 <!-- Navigation -->
-<div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 5px 8px; margin-bottom: 8px; font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">
-.col-12: &lt;nav&gt; Portfolio
+<div class="mockup-col-accent" style="padding: 5px 8px; margin-bottom: 8px; font-size: 0.72rem; font-family: var(--font-code);">
+<span class="mockup-text-accent">.col-12:</span> &lt;nav&gt; Portfolio
 </div>
 <!-- Body row -->
 <div style="display: flex; gap: 8px;">
 <!-- Projects col-lg-8 -->
-<div style="flex: 8; background: rgba(24, 31, 42, 0.8); border: 1px solid var(--color-secondary); border-radius: 6px; padding: 8px;">
-<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-secondary); font-family: var(--font-code); margin-bottom: 6px;">
+<div class="mockup-row" style="flex: 8; padding: 8px;">
+<div class="mockup-text-cyan" style="font-size: 0.72rem; margin-bottom: 6px;">
 .col-12.col-lg-8 (Projects)
 </div>
 <!-- Nested project cards -->
 <div style="display: flex; gap: 6px;">
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P1</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P1</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P2</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P2</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
-<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
-<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P3</div>
-<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+<div class="mockup-col-cyan" style="flex: 1; border-style: dashed; padding: 10px 2px; text-align: center;">
+<div class="mockup-text-cyan" style="font-size: 0.68rem;">P3</div>
+<div class="mockup-muted" style="font-size: 0.6rem;">col-xl-4</div>
 </div>
 </div>
 </div>
 <!-- Aside col-lg-4 -->
-<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">.col-12.col-lg-4</div>
-<div style="font-size: 0.68rem; color: var(--color-foreground); margin-top: 4px;">About & Contact</div>
+<div class="mockup-col-accent" style="flex: 4; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div class="mockup-text-accent" style="font-size: 0.72rem;">.col-12.col-lg-4</div>
+<div style="font-size: 0.68rem; margin-top: 4px;">About & Contact</div>
 </div>
 </div>
 </div>

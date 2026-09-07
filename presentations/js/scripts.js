@@ -540,12 +540,12 @@ function initSettingsModal() {
         </div>
 
         <div class="marp-settings-section-title">Shortcuts</div>
-        <div class="marp-shortcuts-list" style="font-size: 12px; color: #8b949e; line-height: 1.8; margin-bottom: 14px;">
-          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">+ / - / 0</code> : Zoom in / out / reset</div>
-          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">z</code> : Snelle zoom (focal point)</div>
-          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">t / o</code> : Inhoudsopgave (TOC)</div>
-          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">s</code> : Instellingen</div>
-          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">h</code> : Overzichtspagina</div>
+        <div class="marp-shortcuts-list">
+          <div class="marp-shortcut-item"><kbd>+ / - / 0</kbd> <span>Zoom in / out / reset</span></div>
+          <div class="marp-shortcut-item"><kbd>z</kbd> <span>Snelle zoom (focal point)</span></div>
+          <div class="marp-shortcut-item"><kbd>t / o</kbd> <span>Inhoudsopgave (TOC)</span></div>
+          <div class="marp-shortcut-item"><kbd>s</kbd> <span>Instellingen</span></div>
+          <div class="marp-shortcut-item"><kbd>h</kbd> <span>Overzichtspagina</span></div>
         </div>
 
         <div class="marp-settings-footer">
@@ -561,6 +561,11 @@ function initSettingsModal() {
 
     darkBtn.addEventListener('click', () => applyTheme('dark'));
     lightBtn.addEventListener('click', () => applyTheme('light'));
+
+    // Sync theme buttons immediately upon modal injection
+    const activeMode = localStorage.getItem('marp_theme_mode') || 'dark';
+    darkBtn.classList.toggle('active', activeMode === 'dark');
+    lightBtn.classList.toggle('active', activeMode === 'light');
 
     closeBtn.addEventListener('click', closeSettings);
     overlay.addEventListener('click', (e) => {
@@ -678,13 +683,13 @@ function initSettingsModal() {
 
   function openSettings() {
     overlay.classList.add('active');
-    // Refresh language visibility on open
-    const langBtn = overlay.querySelector('.marp-lang-btn');
-    if (langBtn) {
-      const p = (window.location.pathname || '').toLowerCase();
-      const curr = p.includes('english') ? 'english' : (p.includes('french') ? 'french' : 'dutch');
-      overlay.querySelectorAll('.marp-lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === curr));
-    }
+    const isLight = document.body.classList.contains('theme-light');
+    const darkBtn = overlay.querySelector('.marp-theme-btn[data-theme="dark"]');
+    const lightBtn = overlay.querySelector('.marp-theme-btn[data-theme="light"]');
+    if (darkBtn) darkBtn.classList.toggle('active', !isLight);
+    if (lightBtn) lightBtn.classList.toggle('active', isLight);
+    updateLanguageButtons();
+    checkAvailableLanguages();
   }
 
   function closeSettings() {
