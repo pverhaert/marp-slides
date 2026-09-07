@@ -24,6 +24,7 @@ Dit document beschrijft 15 concrete features om de Marp presentaties voor Thomas
 | 14 | [ ] | QR Code Generator voor Mobiel | Gemiddeld | Genereert een QR code van de huidige slide zodat studenten de inhoud direct op hun eigen laptop of smartphone kunnen openen. |
 | 15 | [ ] | In-Slide Zelfevaluatie Quizzen | Hoog | Interactieve meerkeuzevragen direct in de presentatie met onmiddellijke feedback (groen of rood) om voorkennis te testen. |
 | 16 | [x] | Instellingen Modal (Dark / Light Mode) | Laag | Een subtiel tandwielicoon linksonder dat een uitbreidbare instellingenmodal opent om direct te schakelen tussen Dark en Light mode. |
+| 17 | [x] | Slide Focal Zoom en Panning | Gemiddeld | Inzoomen op code of diagrammen (+ / - / 0 of z) met muis-focal point, drag-to-pan en een zwevende HUD indicator. |
 
 ---
 
@@ -153,4 +154,18 @@ Dit document beschrijft 15 concrete features om de Marp presentaties voor Thomas
   - Het script bewaart de voorkeur in `localStorage.getItem('marp_theme_mode')` en activeert de klasse `body.theme-light`.
   - In `thomasmore.css` herschrijft `body.theme-light section` de centrale kleurvariabelen (`--color-background`, `--color-foreground`, `--color-code-bg`, etc.) zodat alle slides, codeblokken, tabellen en kaarten direct omschakelen naar een strakke, heldere lichte stijl.
   - Toetsenbordvriendelijk (sluit met `Escape`) en modulair opgezet om later eenvoudig extra opties aan toe te voegen.
+
+---
+
+### 17. Slide Focal Zoom en Panning (Focal Point Zoom)
+- **Doel:** De actieve slide vloeiend kunnen vergroten en pannen om kleine details, codefragmenten of diagrammen extra duidelijk te presenteren.
+- **Didactische meerwaarde:** In grote auditoria of op minder scherpe projectoren is code onderaan of in compacte split-layouts soms moeilijk leesbaar voor studenten achterin. Met de zoomfunctie kan de docent direct inzoomen op een specifiek stukje syntax of schema, zonder de structuur van de slide te verstoren.
+- **Technische implementatie:**
+  - **Sneltoetsen:** `+` of `=` om in te zoomen, `-` om uit te zoomen, `0` om te resetten naar 100%, en `z` voor een snelle toggle zoom (1.75x) gericht op de muisaanwijzer.
+  - **Escape-prioriteit:** Geïmplementeerd via de capture phase (`useCapture: true`) met `e.stopImmediatePropagation()`, zodat `Escape` direct de zoom reset zonder per ongeluk Marp's ingebouwde slide overview te openen.
+  - **Muis en Panning:** Bij inzoomen verandert de cursor in `grab` / `grabbing` en kan de docent via slepen soepel door de vergrote slide navigeren met ingebouwde boundary clamping. Ook `Ctrl`/`Cmd` of `Alt` + scrollwiel wordt ondersteund.
+  - **HUD Indicator:** Een zwevende, subtiele badge bovenaan toont het actuele percentage (`150%`, `200%`, etc.), bedieningsknoppen en hulpsneltoetsen.
+  - **Slide Controls:** Een compact vergrootglasicoon linksonder in de navigatiebalk maakt de functie ook met de muis toegankelijk.
+  - **Automatische reset:** Zodra naar een volgende of vorige slide wordt gebladerd, springt de zoom automatisch terug naar 100%.
+
 

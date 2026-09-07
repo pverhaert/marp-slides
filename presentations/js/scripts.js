@@ -199,12 +199,14 @@ function initLightbox() {
       }
     });
 
-    document.addEventListener('keydown', (e) => {
+    window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
         closeLightbox();
       }
-    });
+    }, true);
   }
 
   const lightboxImg = overlay.querySelector('.marp-lightbox-img');
@@ -435,7 +437,28 @@ function initSettingsModal() {
       });
       controls.appendChild(tocBtn);
 
-      // 3. Settings button
+      // 3. Zoom button
+      const zoomBtn = document.createElement('button');
+      zoomBtn.className = 'marp-zoom-btn';
+      zoomBtn.setAttribute('type', 'button');
+      zoomBtn.setAttribute('aria-label', 'Zoom');
+      zoomBtn.setAttribute('title', 'Zoom (z / +/-)');
+      zoomBtn.innerHTML = `
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+      `;
+      zoomBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        if (window.marpToggleZoom) window.marpToggleZoom();
+      });
+      controls.appendChild(zoomBtn);
+
+      // 4. Settings button
       const gearBtn = document.createElement('button');
       gearBtn.className = 'marp-gear-btn';
       gearBtn.setAttribute('type', 'button');
@@ -510,6 +533,15 @@ function initSettingsModal() {
             <span class="lang-code">FR</span>
             <span class="lang-label">Français</span>
           </button>
+        </div>
+
+        <div class="marp-settings-section-title">Shortcuts</div>
+        <div class="marp-shortcuts-list" style="font-size: 12px; color: #8b949e; line-height: 1.8; margin-bottom: 14px;">
+          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">+ / - / 0</code> : Zoom in / out / reset</div>
+          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">z</code> : Snelle zoom (focal point)</div>
+          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">t / o</code> : Inhoudsopgave (TOC)</div>
+          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">s</code> : Instellingen</div>
+          <div><code style="color:#009cab; background:#181f2a; padding:1px 5px; border-radius:4px;">h</code> : Overzichtspagina</div>
         </div>
 
         <div class="marp-settings-footer">
@@ -654,8 +686,11 @@ function initSettingsModal() {
     overlay.classList.remove('active');
   }
 
-  document.addEventListener('keydown', (e) => {
+  window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       closeSettings();
     } else if ((e.key === 's' || e.key === 'S') && !overlay.classList.contains('active')) {
       const tag = document.activeElement ? document.activeElement.tagName : '';
@@ -675,7 +710,7 @@ function initSettingsModal() {
         }
       }
     }
-  });
+  }, true);
 
   // Watch for any newly added slides
   const observer = new MutationObserver(() => {
@@ -846,13 +881,13 @@ function initTableOfContents() {
     });
   }
 
-  // Keyboard shortcut listener: 't' or 'o' to toggle, Escape to close
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (drawer && drawer.classList.contains('active')) {
-        closeTOC();
-        e.stopPropagation();
-      }
+  // Keyboard shortcut listener: 't' or 'o' to toggle, Escape to close (capture phase)
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer && drawer.classList.contains('active')) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      closeTOC();
     } else if ((e.key === 't' || e.key === 'T' || e.key === 'o' || e.key === 'O')) {
       const tag = document.activeElement ? document.activeElement.tagName : '';
       if (!['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) {
@@ -863,12 +898,315 @@ function initTableOfContents() {
         }
       }
     }
-  });
+  }, true);
 
   window.addEventListener('hashchange', updateActiveTOCItem);
 
   // Expose toggleTOC globally for buttons
   window.marpToggleTOC = toggleTOC;
+}
+
+/**
+ * 7. Slide Focal Zoom & Panning (Option A)
+ */
+function initSlideZoom() {
+  let zoomLevel = 1.0;
+  const MIN_ZOOM = 1.0;
+  const MAX_ZOOM = 3.0;
+  const ZOOM_STEP = 0.25;
+
+  let panX = 0;
+  let panY = 0;
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartY = 0;
+  let initialPanX = 0;
+  let initialPanY = 0;
+
+  // Track cursor relative to window (0..1)
+  let mouseNormX = 0.5;
+  let mouseNormY = 0.5;
+
+  // Language helper
+  const isEn = document.documentElement.lang.startsWith('en') ||
+               (document.querySelector('header') && document.querySelector('header').innerText.includes('English'));
+  const isFr = document.documentElement.lang.startsWith('fr') ||
+               (document.querySelector('header') && document.querySelector('header').innerText.includes('French'));
+
+  const txtZoom = 'Zoom';
+  const txtDrag = isFr ? 'Glisser pour déplacer' : (isEn ? 'Drag to pan' : 'Sleep om te bewegen');
+  const txtReset = isFr ? 'Échap = réinitialiser' : (isEn ? 'Esc to reset' : 'Esc = reset');
+
+  // Create or get HUD element
+  let hud = document.getElementById('marp-zoom-hud');
+  if (!hud) {
+    hud = document.createElement('div');
+    hud.id = 'marp-zoom-hud';
+    hud.className = 'marp-zoom-hud';
+    hud.setAttribute('role', 'status');
+    hud.setAttribute('aria-live', 'polite');
+    hud.innerHTML = `
+      <div class="marp-zoom-hud-text">
+        <span>${txtZoom}</span>
+        <span class="marp-zoom-hud-badge" id="marp-zoom-val">100%</span>
+      </div>
+      <button class="marp-zoom-hud-btn" data-action="zoom-in" title="Zoom in (+)">+</button>
+      <button class="marp-zoom-hud-btn" data-action="zoom-out" title="Zoom out (-)">-</button>
+      <button class="marp-zoom-hud-btn" data-action="zoom-reset" title="Reset (Esc)">Reset</button>
+      <span class="marp-zoom-hud-hint">${txtDrag} &bull; ${txtReset}</span>
+    `;
+    document.body.appendChild(hud);
+
+    hud.querySelector('[data-action="zoom-in"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      zoomIn();
+    });
+    hud.querySelector('[data-action="zoom-out"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      zoomOut();
+    });
+    hud.querySelector('[data-action="zoom-reset"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      resetZoom();
+    });
+  }
+
+  function getActiveSlide() {
+    return document.querySelector('svg.bespoke-marp-slide.bespoke-marp-active') ||
+           document.querySelector('.bespoke-marp-active') ||
+           document.querySelector('section.bespoke-marp-active');
+  }
+
+  function clampPan() {
+    if (zoomLevel <= 1.0) {
+      panX = 0;
+      panY = 0;
+      return;
+    }
+    const maxPanX = ((window.innerWidth * (zoomLevel - 1)) / 2) + 60;
+    const maxPanY = ((window.innerHeight * (zoomLevel - 1)) / 2) + 60;
+    panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
+    panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+  }
+
+  function applyTransform() {
+    const slide = getActiveSlide();
+    const valSpan = document.getElementById('marp-zoom-val');
+
+    if (zoomLevel <= 1.0) {
+      zoomLevel = 1.0;
+      panX = 0;
+      panY = 0;
+      document.body.classList.remove('marp-is-zoomed', 'marp-is-dragging');
+      hud.classList.remove('active');
+
+      if (slide) {
+        slide.style.transform = '';
+        slide.style.transformOrigin = '';
+      }
+      // Clean leftover transforms on any other slides
+      document.querySelectorAll('svg.bespoke-marp-slide, section').forEach((s) => {
+        if (s !== slide && s.style.transform) {
+          s.style.transform = '';
+          s.style.transformOrigin = '';
+        }
+      });
+      return;
+    }
+
+    clampPan();
+    document.body.classList.add('marp-is-zoomed');
+    hud.classList.add('active');
+
+    if (valSpan) {
+      valSpan.textContent = Math.round(zoomLevel * 100) + '%';
+    }
+
+    if (slide) {
+      slide.style.transformOrigin = 'center center';
+      slide.style.transform = `translate(${Math.round(panX)}px, ${Math.round(panY)}px) scale(${zoomLevel.toFixed(2)})`;
+    }
+  }
+
+  function zoomIn(focal = true) {
+    const prevZoom = zoomLevel;
+    zoomLevel = Math.min(MAX_ZOOM, Math.round((zoomLevel + ZOOM_STEP) * 100) / 100);
+    if (zoomLevel !== prevZoom) {
+      if (focal && prevZoom === 1.0) {
+        // Shift focal center towards cursor position
+        panX = (0.5 - mouseNormX) * window.innerWidth * (zoomLevel - 1);
+        panY = (0.5 - mouseNormY) * window.innerHeight * (zoomLevel - 1);
+      } else if (focal && prevZoom > 1.0) {
+        const ratio = (zoomLevel - 1) / (prevZoom - 1 || 1);
+        panX *= ratio;
+        panY *= ratio;
+      }
+      applyTransform();
+    }
+  }
+
+  function zoomOut() {
+    const prevZoom = zoomLevel;
+    zoomLevel = Math.max(MIN_ZOOM, Math.round((zoomLevel - ZOOM_STEP) * 100) / 100);
+    if (zoomLevel !== prevZoom) {
+      if (zoomLevel <= 1.0) {
+        resetZoom();
+      } else {
+        const ratio = (zoomLevel - 1) / (prevZoom - 1 || 1);
+        panX *= ratio;
+        panY *= ratio;
+        applyTransform();
+      }
+    }
+  }
+
+  function resetZoom() {
+    if (zoomLevel === 1.0 && panX === 0 && panY === 0) return;
+    zoomLevel = 1.0;
+    panX = 0;
+    panY = 0;
+    applyTransform();
+  }
+
+  function toggleZoom() {
+    if (zoomLevel > 1.0) {
+      resetZoom();
+    } else {
+      zoomLevel = 1.75;
+      panX = (0.5 - mouseNormX) * window.innerWidth * (zoomLevel - 1);
+      panY = (0.5 - mouseNormY) * window.innerHeight * (zoomLevel - 1);
+      applyTransform();
+    }
+  }
+
+  // Mouse move listener to track cursor
+  window.addEventListener('mousemove', (e) => {
+    mouseNormX = e.clientX / window.innerWidth;
+    mouseNormY = e.clientY / window.innerHeight;
+
+    if (isDragging) {
+      panX = initialPanX + (e.clientX - dragStartX);
+      panY = initialPanY + (e.clientY - dragStartY);
+      applyTransform();
+    }
+  });
+
+  // Drag to pan mousedown
+  window.addEventListener('mousedown', (e) => {
+    if (zoomLevel <= 1.0) return;
+    if (e.button !== 0) return; // Left click only
+    if (e.target.closest('button, a, input, textarea, select, .marp-settings-overlay, .marp-toc-drawer, .marp-lightbox-overlay, .marp-zoom-hud')) {
+      return;
+    }
+    isDragging = true;
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
+    initialPanX = panX;
+    initialPanY = panY;
+    document.body.classList.add('marp-is-dragging');
+    e.preventDefault();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      document.body.classList.remove('marp-is-dragging');
+    }
+  });
+
+  // Trackpad pinch or Ctrl/Alt/Cmd + Mouse wheel
+  window.addEventListener('wheel', (e) => {
+    if (e.ctrlKey || e.metaKey || e.altKey) {
+      e.preventDefault();
+      if (e.deltaY < 0) {
+        zoomIn(true);
+      } else {
+        zoomOut();
+      }
+    }
+  }, { passive: false });
+
+  // Keyboard shortcuts (Windows & Mac) - capture phase intercepts before Bespoke Marp
+  window.addEventListener('keydown', (e) => {
+    // 1. Escape key handling: if zoomed, reset zoom and stop propagation so Bespoke overview doesn't open
+    if (e.key === 'Escape') {
+      if (zoomLevel > 1.0) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        resetZoom();
+        return;
+      }
+      return;
+    }
+
+    const tag = document.activeElement ? document.activeElement.tagName : '';
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) return;
+
+    // Check if modal dialogs are open
+    const settingsActive = document.querySelector('.marp-settings-overlay.active');
+    const tocActive = document.querySelector('.marp-toc-drawer.active');
+    const lightboxActive = document.querySelector('.marp-lightbox-overlay.active');
+    if (settingsActive || tocActive || lightboxActive) return;
+
+    const isCmdOrCtrl = e.metaKey || e.ctrlKey;
+
+    // Zoom in: '+' or '=' or Cmd/Ctrl + '+' / '='
+    if (e.key === '+' || e.key === '=' || (isCmdOrCtrl && (e.key === '+' || e.key === '=' || e.code === 'NumpadAdd' || e.code === 'Equal'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      zoomIn(true);
+    }
+    // Zoom out: '-' or '_' or Cmd/Ctrl + '-'
+    else if (e.key === '-' || e.key === '_' || (isCmdOrCtrl && (e.key === '-' || e.code === 'NumpadSubtract' || e.code === 'Minus'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      zoomOut();
+    }
+    // Reset zoom: '0' or Cmd/Ctrl + '0'
+    else if (e.key === '0' || (isCmdOrCtrl && (e.key === '0' || e.code === 'Numpad0' || e.code === 'Digit0'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      resetZoom();
+    }
+    // Quick toggle: 'z' or 'Z' (without Cmd/Ctrl so it does not conflict with Undo)
+    else if ((e.key === 'z' || e.key === 'Z') && !isCmdOrCtrl) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      toggleZoom();
+    }
+  }, true);
+
+  // Auto reset zoom when navigating to another slide
+  window.addEventListener('hashchange', resetZoom);
+  window.addEventListener('keydown', (e) => {
+    const navKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', 'Space'];
+    if (navKeys.includes(e.code) && zoomLevel > 1.0) {
+      resetZoom();
+    }
+  });
+
+  // Watch bespoke active slide changes
+  const parent = document.querySelector('.bespoke-marp-parent') || document.body;
+  let lastActive = getActiveSlide();
+  const slideObserver = new MutationObserver(() => {
+    const currentActive = getActiveSlide();
+    if (currentActive !== lastActive) {
+      lastActive = currentActive;
+      resetZoom();
+    }
+  });
+  slideObserver.observe(parent, { attributes: true, subtree: true, attributeFilter: ['class'] });
+
+  // Expose methods globally
+  window.marpZoomIn = zoomIn;
+  window.marpZoomOut = zoomOut;
+  window.marpResetZoom = resetZoom;
+  window.marpToggleZoom = toggleZoom;
 }
 
 // Global initialization function
@@ -879,6 +1217,7 @@ function initMarpScripts() {
   initProgressBar();
   initSettingsModal();
   initTableOfContents();
+  initSlideZoom();
 }
 
 window.copyCode = initCopyButtons;
@@ -886,6 +1225,7 @@ window.initLightbox = initLightbox;
 window.initFavicon = initFavicon;
 window.initProgressBar = initProgressBar;
 window.initSettingsModal = initSettingsModal;
+window.initSlideZoom = initSlideZoom;
 window.applyTheme = applyTheme;
 window.initMarpScripts = initMarpScripts;
 

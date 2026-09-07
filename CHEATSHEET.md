@@ -1,6 +1,6 @@
 # Cheatsheet: Marp & Thomas More Theme
 
-This document provides a comprehensive overview of all available CSS classes from [thomasmore.css](file:///d:/Sites_Marp/presentations/css/thomasmore.css), along with all Marp Markdown syntax to author and customize presentations manually.
+This document provides a comprehensive overview of all available CSS classes from [thomasmore.css](/presentations/css/thomasmore.css), along with all Marp Markdown syntax to author and customize presentations manually.
 
 ---
 

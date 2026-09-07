@@ -633,7 +633,8 @@ footer {
 
 .marp-home-btn,
 .marp-gear-btn,
-.marp-toc-btn {
+.marp-toc-btn,
+.marp-zoom-btn {
   width: 24px;
   height: 24px;
   border-radius: 50%;
