@@ -36,6 +36,7 @@ if (fs.existsSync(presentationsDir)) {
     if (folderFiles.some(f => f.startsWith('dutch.'))) availableLangs.push('dutch');
     if (folderFiles.some(f => f.startsWith('english.'))) availableLangs.push('english');
     if (folderFiles.some(f => f.startsWith('french.'))) availableLangs.push('french');
+    if (folderFiles.some(f => f.startsWith('moroccan.'))) availableLangs.push('moroccan');
 
     const metaTags = `  <meta name="marp-module" content="${relModuleDir}">\n  <meta name="marp-current-lang" content="${currentLang}">\n  <meta name="marp-languages" content="${availableLangs.join(',')}">`;
 

@@ -533,6 +533,10 @@ function initSettingsModal() {
             <span class="lang-code">FR</span>
             <span class="lang-label">Français</span>
           </button>
+          <button class="marp-lang-btn" data-lang="moroccan">
+            <span class="lang-code">MA</span>
+            <span class="lang-label">الدارجة</span>
+          </button>
         </div>
 
         <div class="marp-settings-section-title">Shortcuts</div>
@@ -572,6 +576,7 @@ function initSettingsModal() {
       const p = (window.location.pathname || '').toLowerCase();
       if (p.includes('english')) return 'english';
       if (p.includes('french')) return 'french';
+      if (p.includes('moroccan')) return 'moroccan';
       return 'dutch';
     }
 

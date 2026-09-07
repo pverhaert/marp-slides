@@ -1,15 +1,15 @@
-﻿---
+---
 marp: true
 theme: thomasmore
 paginate: true
-header: 'ITF | Web Essentials - Bootstrap 5.3 Grid'
+header: 'ITF | Web Essentials - Bootstrap 5.3.8 Grid'
 footer: 'Web Essentials - Thomas More Hogeschool'
 ---
 
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Bootstrap 5.3 Grid Systeem
+# Bootstrap 5.3.8 Grid Systeem
 
 <p class="subtitle">&lt;Responsive layouts bouwen met 12 kolommen /&gt;</p>
 
@@ -22,51 +22,129 @@ footer: 'Web Essentials - Thomas More Hogeschool'
 
 ## Inhoudsopgave
 
-1. **Wat is Bootstrap?** - Introductie en doel
-2. **De drie bouwstenen** - Container, Row, Kolommen
-3. **Breakpoints** - Responsive breekpunten
-4. **Containers** - Soorten containers
-5. **Het 12-kolommenmodel** - Hoe verdeel je de pagina?
-6. **Responsive klassen** - `col-sm-`, `col-md-`, `col-lg-`
-7. **Auto-layout** - Automatische kolombreedte
-8. **Kolommen nestelen** - Nesting
-9. **Gutters** - Ruimte tussen kolommen
-10. **Offset en Order** - Positionering en volgorde
-11. **Praktisch voorbeeld** - Portfolio layout
-12. **Veelgemaakte fouten** - Valkuilen vermijden
+1. **Wat is Bootstrap 5.3.8?** - Introductie en modulaire setup
+2. **Waarom Reboot?** - CSS normalisatie en box-sizing
+3. **Verschil .css vs .min.css** - Development versus productie
+4. **De drie bouwstenen** - Container, Row, Kolommen
+5. **Breakpoints** - Responsive breekpunten
+6. **Containers** - Soorten containers
+7. **Het 12-kolommenmodel** - Hoe verdeel je de pagina?
+8. **Responsive klassen** - `col-sm-`, `col-md-`, `col-lg-`
+9. **Auto-layout** - Automatische kolombreedte
+10. **Kolommen nestelen** - Nesting
+11. **Gutters** - Ruimte tussen kolommen
+12. **Offset en Order** - Positionering en volgorde
+13. **Praktisch voorbeeld & valkuilen** - Portfolio layout en best practices
 
 ---
 
-## Wat is Bootstrap 5.3?
+## Wat is Bootstrap 5.3.8?
 
-Bootstrap is een **open-source CSS-framework** dat kant-en-klare stijlen en componenten aanbiedt voor responsieve webpagina's.
+Bootstrap is een populair **open-source CSS-framework** voor het bouwen van responsieve, mobile-first webpagina's.
 
 <div class="grid-2">
 <div class="card card-accent">
 
-#### Waarom Bootstrap?
+#### Waarom Bootstrap in Web Essentials?
 
-- Geen CSS van nul schrijven
-- Automatisch **responsive** (werkt op elke schermgrootte)
-- Consistent en goed gedocumenteerd
-- Enorm populair in de industrie
+- Geen complex grid of media queries van nul af aan opbouwen
+- Volledig **responsive** en betrouwbaar op elk schermformaat
+- Industriestandaard voor snelle en gestructureerde layouts
+- **Semester 1:** We focussen **alleen** op layout en het 12-kolommen grid
+- **Semester 2:** UI-componenten (modals, navbar, alerts, buttons) volgen pas later
 
 </div>
 <div class="card card-cyan">
 
-#### Hoe installeren via CDN?
+#### Modulaire CDN installatie (v5.3.8)
+
+Laad **alleen** reboot en grid in je `<head>`:
 
 ```html
-<!-- In je <head> -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<!-- 1. Reset en normalisatie basis -->
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap-reboot.min.css">
+
+<!-- 2. Het 12-kolommen flexbox gridsysteem -->
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap-grid.min.css">
 ```
 
-Of via npm:
-```bash
-npm install bootstrap@5.3
+> **Belangrijk:** Laad in Semester 1 **niet** de volledige `bootstrap.min.css`. Deelbestanden houden je code licht en didactisch zuiver!
+
+</div>
+</div>
+
+---
+
+## Waarom `bootstrap-reboot` toevoegen?
+
+Elke browser (Chrome, Firefox, Safari, Edge) hanteert eigen standaardwaarden voor marges, lettergroottes en afmetingen. **Reboot** trekt één universele startlijn.
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### Wat is en doet Reboot?
+
+- Geëvolueerde **CSS reset** (bovenop Normalize.css)
+- Verwijdert inconsistente browser-afwijkingen (*user-agent styles*)
+- Biedt een stabiel, voorspelbaar fundament voor het grid
+- **Typografie baseline:** `line-height: 1.5` en moderne systeemfonts
+- **Element resets:** `table` (`border-collapse`), formulieren en links genormaliseerd
+
+</div>
+<div class="card card-cyan">
+
+#### Cruciaal voor het Grid
+
+- **`box-sizing: border-box`** op álle elementen:
+  - Padding en border tellen mee **binnen** de berekende breedte
+  - Essentieel zodat grid kolommen niet verspringen of overvloeien!
+- **Consistente marges:**
+  - `margin-top: 0` op `h1`-`h6`, `p` en lijsten voorkomt onverwachte *margin-collapsing*
+  - Voorspelbare `margin-bottom` opgebouwd met `rem` eenheden
+
+</div>
+</div>
+
+---
+
+## Verschil: `xxx.css` versus `xxx.min.css`
+
+Bootstrap levert twee varianten van elk stylesheet. Beide bevatten **exact dezelfde CSS-regels**, maar verschillen in formaat en bestandsgrootte:
+
+<div class="grid-2">
+<div class="card">
+
+#### `xxx.css` (Development versie)
+
+- **Leesbaar geformatteerd:** met spaties, tabs, regeleinden en commentaar
+- **Doel:** Bestuderen hoe Bootstrap stijlen opbouwt en lokaal debuggen
+- **Nadeel:** Veel groter bestand (extra netwerk overhead)
+
+```css
+/* Voorbeeld in bootstrap-grid.css */
+.row-cols-auto > * {
+  flex: 0 0 auto;
+  width: auto;
+}
 ```
+
+</div>
+<div class="card card-accent">
+
+#### `xxx.min.css` (Productie versie)
+
+- **Geminificeerd:** Alle spaties, enters en commentaren zijn gestript
+- **Doel:** Productie en live websites (zoals via CDN)
+- **Voordeel:** **60% tot 80% kleiner** in bestandsgrootte
+
+```css
+/* Zelfde code in bootstrap-grid.min.css */
+.row-cols-auto>*{flex:0 0 auto;width:auto;}
+```
+
+> **Conclusie:** Gebruik in HTML projecten altijd de `.min.css` variant voor snellere laadtijden en optimale performance!
 
 </div>
 </div>
@@ -103,7 +181,10 @@ Het Bootstrap grid werkt altijd met **drie geneste elementen** in deze vaste vol
 
 ## Breakpoints - Responsive breekpunten
 
-Bootstrap 5.3 heeft **6 breakpoints** gebaseerd op minimale schermbreedtes:
+Bootstrap 5.3.8 heeft **6 breakpoints** gebaseerd op minimale schermbreedtes:
+
+<div class="grid-2">
+<div>
 
 | Naam | Prefix | Min. breedte | Typisch apparaat |
 | :--- | :---: | :---: | :--- |
@@ -114,7 +195,17 @@ Bootstrap 5.3 heeft **6 breakpoints** gebaseerd op minimale schermbreedtes:
 | **Extra large** | `xl` | 1200px | Desktops |
 | **XXL** | `xxl` | 1400px | Grote breedbeeld monitors |
 
-> **Mobile-first:** Bootstrap stijlen werken van klein naar groot. Een klasse zonder breakpoint geldt voor alle schermen; een klasse met prefix geldt vanaf dat breakpoint **en groter**.
+</div>
+<div>
+
+> **Mobile-first:**
+>
+> - Bootstrap stijlen werken van klein naar groot.
+> - Een klasse zonder breakpoint geldt voor alle schermen.
+> - Een klasse met prefix geldt vanaf dat breakpoint **en groter**.
+
+</div>
+</div>
 
 ---
 
@@ -187,20 +278,23 @@ Een Bootstrap-rij is opgedeeld in **12 gelijke kolommen**. Je kiest zelf hoeveel
 
 ## Basis Grid Syntax
 
+<div class="grid-2">
+<div>
+
 ```html
 <div class="container">
   <div class="row">
 
-    <!-- 4 van de 12 kolommen = 33% breed -->
+    <!-- 4 van 12 = 33% breed -->
     <div class="col-4">Zijbalk</div>
 
-    <!-- 8 van de 12 kolommen = 67% breed -->
+    <!-- 8 van 12 = 67% breed -->
     <div class="col-8">Hoofdinhoud</div>
 
   </div>
   <div class="row">
 
-    <!-- Drie gelijke kolommen: 4 + 4 + 4 = 12 -->
+    <!-- 3 gelijke kolommen: 4+4+4 -->
     <div class="col-4">Projectkaart 1</div>
     <div class="col-4">Projectkaart 2</div>
     <div class="col-4">Projectkaart 3</div>
@@ -208,6 +302,51 @@ Een Bootstrap-rij is opgedeeld in **12 gelijke kolommen**. Je kiest zelf hoeveel
   </div>
 </div>
 ```
+
+</div>
+<div class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+
+<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+<span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">.container</span>
+<span style="font-size: 0.72rem; color: #8b949e;">gecentreerd met padding</span>
+</div>
+<!-- Rij 1: 4 + 8 -->
+<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; margin-bottom: 10px; background: rgba(24, 31, 42, 0.5);">
+<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(totaal: 12 kolommen)</span></div>
+<div style="display: flex; gap: 8px;">
+<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 6px; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">Zijbalk (33%)</div>
+</div>
+<div style="flex: 8; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 6px; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.8rem;">.col-8</div>
+<div style="font-size: 0.72rem; color: var(--color-foreground); margin-top: 2px;">Hoofdinhoud (67%)</div>
+</div>
+</div>
+</div>
+<!-- Rij 2: 4 + 4 + 4 -->
+<div style="border: 1px solid rgba(0, 156, 171, 0.3); border-radius: 6px; padding: 8px; background: rgba(24, 31, 42, 0.5);">
+<div style="font-size: 0.7rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">.row &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+<div style="display: flex; gap: 8px;">
+<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Kaart 1</div>
+</div>
+<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Kaart 2</div>
+</div>
+<div style="flex: 1; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.8rem;">.col-4</div>
+<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 2px;">Kaart 3</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 
 ---
 
@@ -226,25 +365,47 @@ Combineer meerdere breakpoint-klassen om **verschillende layouts per schermgroot
 <div class="card card-accent">
 
 #### Telefoon (`< 768px`)
+
 `col-12`
+
 - Neemt **100%** breedte in
 - Kaarten stapelen onder elkaar
+
+<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(232, 78, 16, 0.4); display: flex; flex-direction: column; gap: 4px;">
+  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">Kaart 1 (100%)</div>
+  <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 3px; padding: 4px; text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--color-accent-light);">Kaart 2 (100%)</div>
+</div>
 
 </div>
 <div class="card card-cyan">
 
 #### Tablet (`>= 768px`)
+
 `col-md-6`
+
 - Neemt **50%** breedte in
 - 2 kaarten naast elkaar per rij
+
+<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(0, 156, 171, 0.4); display: flex; gap: 4px;">
+  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">K1 (50%)</div>
+  <div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.66rem; font-weight: 700; color: var(--color-secondary);">K2 (50%)</div>
+</div>
 
 </div>
 <div class="card">
 
 #### Laptop (`>= 992px`)
+
 `col-lg-4`
+
 - Neemt **33.3%** breedte in
 - 3 kaarten naast elkaar per rij
+
+<div style="margin-top: 10px; padding: 6px; background: rgba(15, 20, 28, 0.7); border-radius: 4px; border: 1px dashed rgba(230, 237, 243, 0.25); display: flex; gap: 4px;">
+  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">K1 (33%)</div>
+  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">K2 (33%)</div>
+  <div style="flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--color-border); border-radius: 3px; padding: 10px 2px; text-align: center; font-size: 0.62rem; font-weight: 700; color: var(--color-foreground);">K3 (33%)</div>
+</div>
 
 </div>
 </div>
@@ -270,6 +431,21 @@ Gebruik `col` **zonder nummer** om kolommen automatisch gelijk te verdelen:
 
 Elke `.col` krijgt automatisch exact **1/3** van de beschikbare breedte.
 
+<div style="display: flex; gap: 6px; margin-top: 8px;">
+  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
+    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  </div>
+  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
+    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  </div>
+  <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
+    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem; color: var(--color-foreground);">33.3%</div>
+  </div>
+</div>
+
 </div>
 <div class="card card-cyan">
 
@@ -285,10 +461,96 @@ Elke `.col` krijgt automatisch exact **1/3** van de beschikbare breedte.
 
 De twee `.col` elementen verdelen de resterende 50% elk gelijk (25% elk).
 
+<div style="display: flex; gap: 6px; margin-top: 8px;">
+  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
+    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  </div>
+  <div style="flex: 2; background: rgba(232, 78, 16, 0.25); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px 2px; text-align: center;">
+    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.72rem;">.col-6</div>
+    <div style="font-size: 0.65rem; color: var(--color-foreground);">50%</div>
+  </div>
+  <div style="flex: 1; background: rgba(0, 156, 171, 0.15); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px 2px; text-align: center;">
+    <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.72rem;">.col</div>
+    <div style="font-size: 0.65rem; color: var(--color-foreground);">25%</div>
+  </div>
+</div>
+
 </div>
 </div>
 
-> `col-auto` maakt de kolom zo breed als de **eigen inhoud** (`fit-content`).
+> `col-auto` maakt de kolom zo breed als de **eigen inhoud** (`fit-content`). Zie de volgende slide voor een vergelijking!
+
+---
+
+## Verschil: `.col` versus `.col-auto`
+
+Hoe bepalen automatische kolommen hun breedte binnen een `.row`?
+
+<div class="grid-2">
+<div>
+
+<div class="card card-accent" style="margin-bottom: 12px; padding: 12px;">
+
+#### `.col` &rarr; Ruimteverdeler
+
+- Neemt alle **beschikbare restruimte** in (`flex-grow: 1`)
+- Meerdere `.col` elementen verdelen de overgebleven ruimte **gelijk**, ongeacht de tekstlengte
+
+</div>
+
+<div class="card card-cyan" style="padding: 12px;">
+
+#### `.col-auto` &rarr; Inhoudsvolger
+
+- Wordt exact zo breed als de **eigen inhoud** (`fit-content`, `flex: 0 0 auto`)
+- Ideaal voor compacte elementen zoals badges, knoppen, avatars of icoontjes
+
+</div>
+
+</div>
+<div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+
+<!-- Voorbeeld 1: .col -->
+<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+  <div style="font-size: 0.72rem; color: var(--color-accent-light); margin-bottom: 6px; font-family: var(--font-code);">Met .col (verdelen altijd gelijk):</div>
+  <div style="display: flex; gap: 6px;">
+    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem; color: var(--color-foreground);">Kort (50%)</div>
+    </div>
+    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col</div>
+      <div style="font-size: 0.65rem; color: var(--color-foreground);">Lange tekst (50%)</div>
+    </div>
+  </div>
+</div>
+
+<!-- Voorbeeld 2: .col-auto gecombineerd met .col -->
+<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Praktijk: .col-auto + .col + .col-auto:</div>
+  <div style="display: flex; gap: 6px; align-items: center;">
+    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem; color: var(--color-foreground);">[ Badge ]</div>
+    </div>
+    <div style="flex: 1; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 8px 4px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.74rem;">.col (restruimte)</div>
+      <div style="font-size: 0.62rem; color: var(--color-foreground);">Artikel beschrijving...</div>
+    </div>
+    <div style="flex: 0 0 auto; background: rgba(0, 156, 171, 0.25); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 8px 10px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.74rem;">.col-auto</div>
+      <div style="font-size: 0.62rem; color: var(--color-foreground);">&lt;Knop&gt;</div>
+    </div>
+  </div>
+</div>
+
+<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+  <strong>Gouden combinatie:</strong> Gebruik <code>.col-auto</code> voor elementen met een vaste inhoudsbreedte en <code>.col</code> om de rest van de rij flexibel op te vullen.
+</div>
+
+</div>
+</div>
 
 ---
 
@@ -296,27 +558,74 @@ De twee `.col` elementen verdelen de resterende 50% elk gelijk (25% elk).
 
 Je kunt een **nieuw grid starten binnen een kolom** door opnieuw een `.row` te plaatsen:
 
+<div class="grid-2">
+<div>
+
 ```html
 <div class="container">
   <div class="row">
 
-    <!-- Hoofdkolom: 8 van de 12 kolommen -->
+    <!-- Hoofdkolom: 8 van 12 -->
     <div class="col-8">
       <h2>Hoofdsectie</h2>
 
-      <!-- Binnenste rij: biedt opnieuw 12 kolommen binnen col-8 -->
+      <!-- Binnenste rij: opnieuw 12! -->
       <div class="row">
-        <div class="col-6">Binnenste linkerblok (50%)</div>
-        <div class="col-6">Binnenste rechterblok (50%)</div>
+        <div class="col-6">Links (50%)</div>
+        <div class="col-6">Rechts (50%)</div>
       </div>
     </div>
 
-    <!-- Zijbalk: 4 van de 12 kolommen -->
+    <!-- Zijbalk: 4 van 12 -->
     <div class="col-4">Zijbalk</div>
 
   </div>
 </div>
 ```
+
+</div>
+<div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
+
+<div style="border: 2px dashed rgba(0, 156, 171, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
+<div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">Buitenste .row &nbsp;<span style="color: #8b949e;">(totaal 12 kolommen)</span></div>
+<div style="display: flex; gap: 8px;">
+<!-- Hoofdkolom col-8 -->
+<div style="flex: 8; background: rgba(24, 31, 42, 0.9); border: 2px solid var(--color-accent); border-radius: 6px; padding: 8px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+<span style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-8 (Hoofdsectie)</span>
+<span style="font-size: 0.65rem; color: #8b949e;">67% buitenste rij</span>
+</div>
+<!-- Binnenste row -->
+<div style="border: 1px dashed rgba(0, 156, 171, 0.6); border-radius: 4px; padding: 6px; background: rgba(15, 20, 28, 0.7);">
+<div style="font-size: 0.68rem; color: var(--color-secondary); margin-bottom: 4px; font-family: var(--font-code);">Binnenste .row &nbsp;<span style="color: #8b949e;">(opnieuw 12 eenheden!)</span></div>
+<div style="display: flex; gap: 6px;">
+<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem; color: var(--color-foreground);">50% van col-8</div>
+</div>
+<div style="flex: 1; background: linear-gradient(135deg, rgba(0, 156, 171, 0.3), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 3px; padding: 10px 4px; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.75rem;">.col-6</div>
+<div style="font-size: 0.66rem; color: var(--color-foreground);">50% van col-8</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Zijbalk col-4 -->
+<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
+<div style="font-size: 0.7rem; color: var(--color-foreground); margin-top: 4px;">Zijbalk</div>
+<div style="font-size: 0.65rem; color: #8b949e; margin-top: 2px;">33% buitenste rij</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="font-size: 0.7rem; color: #8b949e; margin-top: 4px; line-height: 1.4;">
+<strong>Kerninzicht:</strong> Een geneste <code>.row</code> herdefinieert de 12 kolommen binnen zijn directe ouder (<code>.col-8</code>).
+</div>
+
+</div>
+</div>
 
 ---
 
@@ -324,14 +633,17 @@ Je kunt een **nieuw grid starten binnen een kolom** door opnieuw een `.row` te p
 
 Gutters regelen de **tussenruimte** (padding) tussen kolommen:
 
+<div class="grid-2">
+<div>
+
 | Klasse | Toepassing |
 | :--- | :--- |
 | `g-0` t.e.m. `g-5` | Horizontale én verticale tussenruimte |
-| `gx-0` t.e.m. `gx-5` | Alleen horizontale tussenruimte (links/rechts) |
-| `gy-0` t.e.m. `gy-5` | Alleen verticale tussenruimte (boven/onder) |
+| `gx-0` t.e.m. `gx-5` | Alleen horizontaal (X-as) |
+| `gy-0` t.e.m. `gy-5` | Alleen verticaal (Y-as) |
 
 ```html
-<!-- Grote horizontale gutter, compacte verticale gutter -->
+<!-- gx-4: brede X-ruimte | gy-2: compacte Y-ruimte -->
 <div class="row gx-4 gy-2">
   <div class="col-6">Kaart A</div>
   <div class="col-6">Kaart B</div>
@@ -340,7 +652,39 @@ Gutters regelen de **tussenruimte** (padding) tussen kolommen:
 </div>
 ```
 
-> `g-0` verwijdert alle gutters (handig voor naadloze grid layouts zoals fotogalerijen).
+</div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
+
+<div style="border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; background: rgba(15, 20, 28, 0.6);">
+  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 8px; font-family: var(--font-code);">Visueel: .row.gx-4.gy-2</div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 22px; row-gap: 8px;">
+    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
+      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart A</span>
+    </div>
+    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
+      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart B</span>
+    </div>
+    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
+      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart C</span>
+    </div>
+    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 4px; text-align: center;">
+      <span style="font-weight: 700; color: var(--color-accent-light); font-size: 0.75rem;">Kaart D</span>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.66rem;">
+    <span style="color: var(--color-secondary); font-family: var(--font-code);">&harr; gx-4 (kolomafstand)</span>
+    <span style="color: var(--color-accent-light); font-family: var(--font-code);">&varr; gy-2 (rij-afstand)</span>
+  </div>
+</div>
+
+<div style="font-size: 0.68rem; color: #8b949e; line-height: 1.3;">
+  <code>g-0</code> verwijdert alle gutters (ideaal voor naadloze fotogrid layouts).
+</div>
+
+</div>
+</div>
 
 ---
 
@@ -348,9 +692,12 @@ Gutters regelen de **tussenruimte** (padding) tussen kolommen:
 
 Met `offset-{bp}-{n}` verschuif je een kolom naar rechts met behulp van lege kolomruimtes:
 
+<div class="grid-2">
+<div>
+
 ```html
 <div class="row">
-  <!-- Neemt 4 kolommen in, gecentreerd (4 leeg + 4 inhoud + 4 leeg = 12) -->
+  <!-- Gecentreerd: 4 leeg + 4 + 4 leeg = 12 -->
   <div class="col-4 offset-4">
     Gecentreerd blok
   </div>
@@ -358,12 +705,54 @@ Met `offset-{bp}-{n}` verschuif je een kolom naar rechts met behulp van lege kol
 
 <div class="row">
   <div class="col-md-4">Linkerblok</div>
-  <!-- Slaat 4 kolommen over op tablet en groter -->
+  <!-- Slaat 4 kolommen over -->
   <div class="col-md-4 offset-md-4">Rechterblok</div>
 </div>
 ```
 
-> Handig voor gecentreerde login formulieren, modals of verspringende portfolio elementen.
+> Handig voor login formulieren of verspringende portfolio elementen.
+
+</div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+
+<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Rij 1: col-4 offset-4 &nbsp;<span style="color: #8b949e;">(4 + 4 + 4 = 12)</span></div>
+  <div style="display: flex; gap: 4px;">
+    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
+      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-4</div>
+      <div style="font-size: 0.62rem; color: #6e7681;">4 leeg</div>
+    </div>
+    <div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.25), rgba(232, 78, 16, 0.1)); border: 1px solid var(--color-accent); border-radius: 4px; padding: 10px 2px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-accent-light); font-size: 0.76rem;">.col-4</div>
+      <div style="font-size: 0.66rem; color: var(--color-foreground);">Gecentreerd</div>
+    </div>
+    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
+      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">(rest: 4)</div>
+      <div style="font-size: 0.62rem; color: #6e7681;">4 leeg</div>
+    </div>
+  </div>
+</div>
+
+<div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+  <div style="font-size: 0.72rem; color: var(--color-secondary); margin-bottom: 6px; font-family: var(--font-code);">Rij 2: col-md-4 + offset-md-4</div>
+  <div style="display: flex; gap: 4px;">
+    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem; color: var(--color-foreground);">Links</div>
+    </div>
+    <div style="flex: 4; border: 1px dashed #484f58; border-radius: 4px; padding: 10px 2px; text-align: center; background: rgba(255,255,255,0.02);">
+      <div style="font-size: 0.68rem; color: #8b949e; font-family: var(--font-code);">offset-md-4</div>
+      <div style="font-size: 0.62rem; color: #6e7681;">4 overgeslagen</div>
+    </div>
+    <div style="flex: 4; background: linear-gradient(135deg, rgba(0, 156, 171, 0.25), rgba(0, 156, 171, 0.1)); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
+      <div style="font-family: var(--font-code); font-weight: 700; color: var(--color-secondary); font-size: 0.76rem;">.col-md-4</div>
+      <div style="font-size: 0.66rem; color: var(--color-foreground);">Rechts</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
 
 ---
 
@@ -371,55 +760,139 @@ Met `offset-{bp}-{n}` verschuif je een kolom naar rechts met behulp van lege kol
 
 Met `order-{bp}-{n}` pas je de **visuele volgorde** aan zonder de HTML structuur te wijzigen:
 
+<div class="grid-2">
+<div>
+
 ```html
 <div class="row">
-  <!-- Mobiel: order-2 (onderaan) | Desktop: order-md-1 (links) -->
+  <!-- Mobiel: onderaan | Desktop: links -->
   <div class="col-12 col-md-8 order-2 order-md-1">
     <h2>Over Mij</h2>
-    <p>Op desktop staat deze tekst links van de foto.</p>
+    <p>Tekst links van foto.</p>
   </div>
 
-  <!-- Mobiel: order-1 (bovenaan) | Desktop: order-md-2 (rechts) -->
+  <!-- Mobiel: bovenaan | Desktop: rechts -->
   <div class="col-12 col-md-4 order-1 order-md-2">
-    <img src="profielfoto.webp" alt="Profielfoto">
+    <img src="foto.webp" alt="Foto">
   </div>
 </div>
 ```
 
-> Ideaal voor **mobile-first design**: toon op mobiel eerst de foto en daaronder de tekst, terwijl op desktop de tekst links staat.
+> Ideaal voor **mobile-first**: toon op mobiel eerst de foto en daaronder de tekst, terwijl op desktop de tekst links staat.
+
+</div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
+
+<div style="border: 1px solid rgba(232, 78, 16, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+    <span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">Mobiel (&lt; 768px)</span>
+    <span style="font-size: 0.65rem; color: #8b949e;">Visueel gestapeld</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <div style="background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 6px; text-align: center;">
+      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-1: Foto (bovenaan)</span>
+    </div>
+    <div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 6px; text-align: center;">
+      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-2: Tekst 'Over Mij' (onderaan)</span>
+    </div>
+  </div>
+</div>
+
+<div style="border: 1px solid rgba(0, 156, 171, 0.4); border-radius: 6px; padding: 8px; background: rgba(15, 20, 28, 0.6);">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+    <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 1px 6px;">Desktop (&gt;= 768px)</span>
+    <span style="font-size: 0.65rem; color: #8b949e;">Naast elkaar</span>
+  </div>
+  <div style="display: flex; gap: 6px;">
+    <div style="flex: 8; background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 12px 4px; text-align: center;">
+      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-accent-light);">order-md-1: Tekst (8 kol.)</span>
+    </div>
+    <div style="flex: 4; background: rgba(0, 156, 171, 0.2); border: 1px solid var(--color-secondary); border-radius: 4px; padding: 12px 4px; text-align: center;">
+      <span style="font-size: 0.7rem; font-weight: 700; color: var(--color-secondary);">order-md-2: Foto (4 kol.)</span>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
 
 ---
 
 ## Praktijkvoorbeeld: Portfolio Layout
 
+<div class="grid-2">
+<div>
+
 ```html
 <div class="container">
-
-  <!-- Navigatie: volledige breedte -->
+  <!-- Navigatie: 100% -->
   <div class="row">
-    <div class="col-12"><nav>Portfolio van Jef</nav></div>
+    <div class="col-12"><nav>Portfolio</nav></div>
   </div>
 
   <!-- Hoofdsectie + Zijbalk -->
   <div class="row gy-4">
-    <!-- Mobiel: 100% | Desktop: 8 kolommen -->
     <div class="col-12 col-lg-8">
-      <h2>Mijn Projecten</h2>
+      <h2>Projecten</h2>
       <div class="row g-3">
-        <div class="col-12 col-md-6 col-xl-4">Project 1</div>
-        <div class="col-12 col-md-6 col-xl-4">Project 2</div>
-        <div class="col-12 col-md-6 col-xl-4">Project 3</div>
+        <div class="col-12 col-md-6 col-xl-4">P1</div>
+        <div class="col-12 col-md-6 col-xl-4">P2</div>
+        <div class="col-12 col-md-6 col-xl-4">P3</div>
       </div>
     </div>
 
-    <!-- Mobiel: 100% | Desktop: 4 kolommen -->
     <div class="col-12 col-lg-4">
       <aside>Over mij & Contact</aside>
     </div>
   </div>
-
 </div>
 ```
+
+</div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 8px; justify-content: center;">
+
+<div style="border: 2px dashed rgba(232, 78, 16, 0.4); border-radius: 8px; padding: 10px; background: rgba(15, 20, 28, 0.6);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+<span class="badge" style="font-size: 0.68rem; padding: 1px 6px;">.container</span>
+<span style="font-size: 0.65rem; color: #8b949e;">Desktop wireframe preview</span>
+</div>
+<!-- Navigatie -->
+<div style="background: rgba(232, 78, 16, 0.2); border: 1px solid var(--color-accent); border-radius: 4px; padding: 5px 8px; margin-bottom: 8px; font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">
+.col-12: &lt;nav&gt; Portfolio
+</div>
+<!-- Body row -->
+<div style="display: flex; gap: 8px;">
+<!-- Projecten col-lg-8 -->
+<div style="flex: 8; background: rgba(24, 31, 42, 0.8); border: 1px solid var(--color-secondary); border-radius: 6px; padding: 8px;">
+<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-secondary); font-family: var(--font-code); margin-bottom: 6px;">
+.col-12.col-lg-8 (Projecten)
+</div>
+<!-- Nested project cards -->
+<div style="display: flex; gap: 6px;">
+<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
+<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P1</div>
+<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+</div>
+<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
+<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P2</div>
+<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+</div>
+<div style="flex: 1; background: rgba(0, 156, 171, 0.2); border: 1px dashed var(--color-secondary); border-radius: 4px; padding: 10px 2px; text-align: center;">
+<div style="font-size: 0.68rem; font-weight: 700; color: var(--color-secondary);">P3</div>
+<div style="font-size: 0.6rem; color: #8b949e;">col-xl-4</div>
+</div>
+</div>
+</div>
+<!-- Aside col-lg-4 -->
+<div style="flex: 4; background: linear-gradient(135deg, rgba(232, 78, 16, 0.2), rgba(232, 78, 16, 0.05)); border: 1px solid var(--color-accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+<div style="font-size: 0.72rem; font-weight: 700; color: var(--color-accent-light); font-family: var(--font-code);">.col-12.col-lg-4</div>
+<div style="font-size: 0.68rem; color: var(--color-foreground); margin-top: 4px;">Over mij & Contact</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 
 ---
 
@@ -462,7 +935,7 @@ Met `order-{bp}-{n}` pas je de **visuele volgorde** aan zonder de HTML structuur
 
 # Samenvatting
 
-<p class="subtitle">&lt;Bootstrap 5.3 Grid - Kernpunten /&gt;</p>
+<p class="subtitle">&lt;Bootstrap 5.3.8 Grid - Kernpunten /&gt;</p>
 
 <div class="meta-box">
   - <strong>Hiërarchie:</strong> <code>container</code> &rarr; <code>row</code> &rarr; <code>col</code><br>

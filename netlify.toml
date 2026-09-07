@@ -45,6 +45,11 @@
   status = 200
 
 [[redirects]]
+  from = "/bootstrap_grid_ma"
+  to = "/web_essentials/bootstrap_grid/moroccan.html"
+  status = 200
+
+[[redirects]]
   from = "/tailwindcss"
   to = "/web_development/tailwindcss/dutch.html"
   status = 200
