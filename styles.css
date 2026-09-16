@@ -18,6 +18,10 @@
   --font-code: 'Fira Code', monospace;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -81,6 +85,61 @@ h1 span.highlight {
 .subtitle-main {
   font-size: 20px;
   color: var(--color-muted);
+}
+
+.course-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.course-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.course-btn .btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.course-btn:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(232, 78, 16, 0.25);
+}
+
+.course-btn:hover .btn-arrow {
+  transform: translateY(2px);
+  color: var(--color-accent-light);
+}
+
+.course-btn:active {
+  transform: translateY(0);
+}
+
+section[id] {
+  scroll-margin-top: 32px;
 }
 
 .section-title {
@@ -260,4 +319,52 @@ footer {
 
 footer span.highlight {
   color: var(--color-accent);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+}
+
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent-light);
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 22px rgba(232, 78, 16, 0.5);
+}
+
+.back-to-top:active {
+  transform: translateY(-1px);
 }

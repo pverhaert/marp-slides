@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ITF Cursus Presentaties | Thomas More</title>
+  <title>ITF Course Presentations | Thomas More</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
   <div class="container">
     <header>
       <div class="brand-badge">
@@ -15,13 +15,31 @@
         <span>•</span>
         <span>IT Factory (ITF)</span>
       </div>
-      <h1>Cursus <span class="highlight">Presentaties</span></h1>
-      <p class="subtitle-main">Interactieve Marp-slides voor IT-opleidingen (NL, EN, FR & MA)</p>
+      <h1>Course <span class="highlight">Presentations</span></h1>
+      <p class="subtitle-main">Interactive Marp slides for IT programs</p>
+      <nav class="course-nav" aria-label="Course navigation">
+        <a href="#web-essentials" class="course-btn">
+          <span>Web Essentials</span>
+          <span class="btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 13l5 5 5-5M12 6v12"/>
+            </svg>
+          </span>
+        </a>
+        <a href="#web-development" class="course-btn">
+          <span>Web Development</span>
+          <span class="btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 13l5 5 5-5M12 6v12"/>
+            </svg>
+          </span>
+        </a>
+      </nav>
     </header>
 
     <main>
       <!-- Cursus 1: Web Essentials -->
-      <section>
+      <section id="web-essentials">
         <h2 class="section-title">Web Essentials</h2>
         
         <div class="card-grid">
@@ -32,13 +50,13 @@
                 <span class="card-tag">Deel 1 / Part 1</span>
               </div>
               <h3>HTML5 Essentials</h3>
-              <p>Basisstructuur, Document Outline, semantische tags, WebP afbeeldingen met fallback, hyperlinks, speciale tekens, tabellen en voorbereiding op CSS.</p>
+              <p>Basic document structure, Document Outline, semantic elements, WebP images with fallbacks, hyperlinks, special characters, tables, and preparation for CSS.</p>
               
               <div class="card-tags-list">
                 <span class="tag-pill">HTML5</span>
-                <span class="tag-pill">WebP Formaat</span>
-                <span class="tag-pill">Semantiek</span>
-                <span class="tag-pill">W3C Validatie</span>
+                <span class="tag-pill">WebP Format</span>
+                <span class="tag-pill">Semantics</span>
+                <span class="tag-pill">W3C Validation</span>
               </div>
             </div>
             
@@ -61,13 +79,13 @@
                 <span class="card-tag">Deel 2 / Part 2</span>
               </div>
               <h3>CSS3 Essentials</h3>
-              <p>Cascade & specificiteit, typografie (REM vs EM vs PX), Box Model, Flexbox, 12-kolommen CSS Grid, positionering, gradients, transitions en 2D/3D animaties.</p>
+              <p>Cascade & specificity, typography (REM vs EM vs PX), Box Model, Flexbox, 12-column CSS Grid, positioning, gradients, transitions, and 2D/3D animations.</p>
               
               <div class="card-tags-list">
                 <span class="tag-pill">CSS3</span>
                 <span class="tag-pill">Flexbox</span>
                 <span class="tag-pill">CSS Grid</span>
-                <span class="tag-pill">Animaties</span>
+                <span class="tag-pill">Animations</span>
               </div>
             </div>
             
@@ -90,7 +108,7 @@
                 <span class="card-tag">Deel 3 / Part 3</span>
               </div>
               <h3>Bootstrap 5.3 Grid</h3>
-              <p>Mobile-first layouts, containers (.container, .container-fluid), 6 breakpoints, 12-kolommenmodel, auto-layout kolommen, nesting, gutters (g-*, gx-*, gy-*), offset en order utilities.</p>
+              <p>Mobile-first layouts, containers (.container, .container-fluid), 6 breakpoints, 12-column grid system, auto-layout columns, nesting, gutters (g-*, gx-*, gy-*), offset, and order utilities.</p>
               
               <div class="card-tags-list">
                 <span class="tag-pill">Bootstrap 5.3</span>
@@ -124,18 +142,48 @@
       </section>
 
       <!-- Cursus 2: Web Development -->
-      <section>
+      <section id="web-development">
         <h2 class="section-title">Web Development</h2>
         
         <div class="card-grid">
-          <!-- Slide Deck 1: Tailwind CSS v4 -->
+          <!-- Slide Deck 1: PHP 8 -->
           <div class="card">
             <div>
               <div class="card-header">
                 <span class="card-tag">Deel 1 / Part 1</span>
               </div>
+              <h3>PHP 8 Fundamentals</h3>
+              <p>Server-side scripting, syntax, strict equality (===), null coalescing (??), match expressions, arrays, functions with nullable types (?type), form handling, and OOP fundamentals for Laravel.</p>
+              
+              <div class="card-tags-list">
+                <span class="tag-pill">PHP 8.5</span>
+                <span class="tag-pill">OOP</span>
+                <span class="tag-pill">Match</span>
+                <span class="tag-pill">Null Coalescing</span>
+                <span class="tag-pill">Laravel Prep</span>
+              </div>
+            </div>
+            
+            <div class="button-group">
+              <a href="web_development/php8/dutch.html" class="card-button">
+                <span class="lang-code">NL</span>
+                <span class="lang-label">Nederlands</span>
+              </a>
+              <a href="web_development/php8/english.html" class="card-button secondary">
+                <span class="lang-code">EN</span>
+                <span class="lang-label">English</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide Deck 2: Tailwind CSS v4 -->
+          <div class="card">
+            <div>
+              <div class="card-header">
+                <span class="card-tag">Deel 2 / Part 2</span>
+              </div>
               <h3>Tailwind CSS v4</h3>
-              <p>Utility-First CSS, basis utilities, spacing/sizing, Flexbox/Grid, state modifiers, responsive breakpoints, Oxide engine in Rust, Tailwind Play sandbox en @theme CSS-first configuratie.</p>
+              <p>Utility-first CSS, core utilities, spacing/sizing, Flexbox/Grid, state modifiers, responsive breakpoints, Oxide engine in Rust, Tailwind Play sandbox, and @theme CSS-first configuration.</p>
               
               <div class="card-tags-list">
                 <span class="tag-pill">Tailwind v4</span>
@@ -158,18 +206,18 @@
             </div>
           </div>
 
-          <!-- Slide Deck 2: Alpine.js -->
+          <!-- Slide Deck 3: Alpine.js -->
           <div class="card">
             <div>
               <div class="card-header">
-                <span class="card-tag">Deel 2 / Part 2</span>
+                <span class="card-tag">Deel 3 / Part 3</span>
               </div>
               <h3>Alpine.js Fundamentals</h3>
-              <p>Declaratieve JavaScript reactiviteit, core directives (x-data, x-show, x-bind, x-on, x-model, x-for), animaties via x-transition, magic properties ($dispatch, $watch) en globale stores.</p>
+              <p>Declarative JavaScript reactivity, core directives (x-data, x-show, x-bind, x-on, x-model, x-for), animations via x-transition, magic properties ($dispatch, $watch), and global stores.</p>
               
               <div class="card-tags-list">
                 <span class="tag-pill">Alpine.js</span>
-                <span class="tag-pill">Reactiviteit</span>
+                <span class="tag-pill">Reactivity</span>
                 <span class="tag-pill">Directives</span>
                 <span class="tag-pill">x-transition</span>
                 <span class="tag-pill">Alpine.store</span>
@@ -188,14 +236,14 @@
             </div>
           </div>
 
-          <!-- Slide Deck 3: Livewire v4 -->
+          <!-- Slide Deck 4: Livewire v4 -->
           <div class="card">
             <div>
               <div class="card-header">
-                <span class="card-tag">Deel 3 / Part 3</span>
+                <span class="card-tag">Deel 4 / Part 4</span>
               </div>
               <h3>Livewire v4 Fundamentals</h3>
-              <p>Full-Stack Laravel reactiviteit in pure PHP en Blade, single-file componenten, wire:model data binding, acties, loading states, form objects, #[Validate] en wire:navigate SPA transities.</p>
+              <p>Full-stack Laravel reactivity in pure PHP and Blade, single-file components, wire:model data binding, actions, loading states, form objects, #[Validate], and wire:navigate SPA transitions.</p>
               
               <div class="card-tags-list">
                 <span class="tag-pill">Livewire v4</span>
@@ -218,14 +266,14 @@
             </div>
           </div>
 
-          <!-- Slide Deck 4: Flux UI -->
+          <!-- Slide Deck 5: Flux UI -->
           <div class="card">
             <div>
               <div class="card-header">
-                <span class="card-tag">Deel 4 / Part 4</span>
+                <span class="card-tag">Deel 5 / Part 5</span>
               </div>
-              <h3>Flux UI Componenten</h3>
-              <p>Toegankelijke UI componenten voor Livewire & Tailwind CSS in Laravel 13. Automatische labels en validatiefouten, flux:input, flux:select, flux:button en flux:modal.</p>
+              <h3>Flux UI Components</h3>
+              <p>Accessible UI components for Livewire & Tailwind CSS in Laravel 13. Automatic labels and validation errors, flux:input, flux:select, flux:button, and flux:modal.</p>
               
               <div class="card-tags-list">
                 <span class="tag-pill">Flux UI</span>
@@ -252,8 +300,49 @@
     </main>
   </div>
 
+  <button id="back-to-top" class="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
   <footer>
     <p>/* © Thomas More Hogeschool <span class="highlight">•</span> Toegepaste Informatica (ITF) */</p>
   </footer>
+
+  <script>
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    // Slide naar top effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 150) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Slide effect voor de anker knoppen bovenaan
+    document.querySelectorAll('.course-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = btn.getAttribute('href');
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

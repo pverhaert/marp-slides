@@ -112,6 +112,9 @@ function handleRequest(req, res) {
   if (pathname === '/' || pathname === '/index.html') {
     pathname = '/presentations/index.html';
   }
+  if (pathname === '/styles.css') {
+    pathname = '/presentations/styles.css';
+  }
 
   // Resolve safe path within rootDir
   let safePath = path.normalize(path.join(rootDir, pathname));

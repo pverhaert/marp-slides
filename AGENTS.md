@@ -18,6 +18,7 @@ Your mission is to create high-quality, visually consistent, and pedagogically s
 - Never use en-dashes or em-dashes. Use standard hyphens (`-`), colons (`:`) or commas only.
 - Never use emojis in slide content or markdown files unless the user explicitly requests them.
 - Always write slides in the language requested per version.
+- Always write module/card introduction and overview descriptions on the presentations index page in English.
 - Target audience: IT students at Thomas More Hogeschool (Toegepaste Informatica / ITF).
 
 ---
