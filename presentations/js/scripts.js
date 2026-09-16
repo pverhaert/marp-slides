@@ -397,14 +397,29 @@ function initSettingsModal() {
         oldGear.remove();
       }
 
+      // Language-aware tooltips (removes native title attribute to prevent ugly browser tooltip)
+      const metaLang = document.querySelector('meta[name="marp-current-lang"]')?.content?.toLowerCase() || '';
+      const p = (window.location.pathname || '').toLowerCase();
+      const isEn = metaLang === 'english' || p.includes('english');
+      const isFr = metaLang === 'french' || p.includes('french');
+      const isMa = metaLang === 'moroccan' || p.includes('moroccan');
+
+      const tooltips = isMa
+        ? { home: 'نظرة عامة (h)', toc: 'جدول المحتويات (t)', zoom: 'تكبير (z / +/-)', settings: 'إعدادات (s)' }
+        : (isFr
+          ? { home: "Vue d'ensemble (h)", toc: 'Table des matières (t)', zoom: 'Zoom (z / +/-)', settings: 'Paramètres (s)' }
+          : (isEn
+            ? { home: 'Overview (h)', toc: 'Table of Contents (t)', zoom: 'Zoom (z / +/-)', settings: 'Settings (s)' }
+            : { home: 'Overzicht (h)', toc: 'Inhoudsopgave (t)', zoom: 'Zoom (z / +/-)', settings: 'Instellingen (s)' }));
+
       const controls = document.createElement('div');
       controls.className = 'marp-slide-controls';
 
       // 1. Home button (back to overview index)
       const homeBtn = document.createElement('a');
       homeBtn.className = 'marp-home-btn';
-      homeBtn.setAttribute('aria-label', 'Home');
-      homeBtn.setAttribute('title', 'Overview (h)');
+      homeBtn.setAttribute('aria-label', tooltips.home);
+      homeBtn.setAttribute('data-tooltip', tooltips.home);
       homeBtn.href = '../../index.html';
       homeBtn.innerHTML = `
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -418,8 +433,8 @@ function initSettingsModal() {
       const tocBtn = document.createElement('button');
       tocBtn.className = 'marp-toc-btn';
       tocBtn.setAttribute('type', 'button');
-      tocBtn.setAttribute('aria-label', 'Table of Contents');
-      tocBtn.setAttribute('title', 'Table of Contents (t)');
+      tocBtn.setAttribute('aria-label', tooltips.toc);
+      tocBtn.setAttribute('data-tooltip', tooltips.toc);
       tocBtn.innerHTML = `
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="8" y1="6" x2="21" y2="6"></line>
@@ -441,8 +456,8 @@ function initSettingsModal() {
       const zoomBtn = document.createElement('button');
       zoomBtn.className = 'marp-zoom-btn';
       zoomBtn.setAttribute('type', 'button');
-      zoomBtn.setAttribute('aria-label', 'Zoom');
-      zoomBtn.setAttribute('title', 'Zoom (z / +/-)');
+      zoomBtn.setAttribute('aria-label', tooltips.zoom);
+      zoomBtn.setAttribute('data-tooltip', tooltips.zoom);
       zoomBtn.innerHTML = `
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
@@ -462,12 +477,12 @@ function initSettingsModal() {
       const gearBtn = document.createElement('button');
       gearBtn.className = 'marp-gear-btn';
       gearBtn.setAttribute('type', 'button');
-      gearBtn.setAttribute('aria-label', 'Settings');
-      gearBtn.setAttribute('title', 'Settings (s)');
+      gearBtn.setAttribute('aria-label', tooltips.settings);
+      gearBtn.setAttribute('data-tooltip', tooltips.settings);
       gearBtn.innerHTML = `
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="3"></circle>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>
       `;
       gearBtn.addEventListener('click', (e) => {
@@ -1219,6 +1234,207 @@ function initSlideZoom() {
   window.marpToggleZoom = toggleZoom;
 }
 
+/**
+ * 8. Overview Quick Look (Spacebar Peek & Top Bar Tip)
+ */
+function initOverviewQuickLook() {
+  const isOverview = document.body.dataset.bespokeView === 'overview' ||
+                     new URLSearchParams(window.location.search).get('view') === 'overview';
+  if (!isOverview) return;
+
+  // Ensure settings.css stylesheet is loaded
+  if (!document.getElementById('marp-settings-css')) {
+    const link = document.createElement('link');
+    link.id = 'marp-settings-css';
+    link.rel = 'stylesheet';
+    const scriptTag = document.currentScript || document.querySelector('script[src*="scripts.js"]');
+    const basePath = scriptTag ? scriptTag.src : window.location.href;
+    link.href = new URL('../css/settings.css', basePath).href;
+    document.head.appendChild(link);
+  }
+
+  // Language helper
+  const metaLang = document.querySelector('meta[name="marp-current-lang"]')?.content?.toLowerCase() || '';
+  const isEn = metaLang === 'english' || window.location.pathname.toLowerCase().includes('english');
+  const isFr = metaLang === 'french' || window.location.pathname.toLowerCase().includes('french');
+
+  const txtTip = isFr 
+    ? { title: 'Quick Look :', hold: 'Maintenez', kbd: 'Espace', desc: 'sur une diapo pour aperçu', click: 'Clic pour ouvrir' }
+    : (isEn 
+      ? { title: 'Quick Look:', hold: 'Hold', kbd: 'Space', desc: 'over slide for large preview', click: 'Click to open' }
+      : { title: 'Quick Look:', hold: 'Houd', kbd: 'Spatie', desc: 'ingedrukt over een slide voor grote preview', click: 'Klik om direct te openen' });
+
+  const txtRelease = isFr ? 'Relâcher Espace pour fermer' : (isEn ? 'Release Space to close' : 'Spatie loslaten om te sluiten');
+
+  // 1. Inject subtle tip into overview header
+  function injectHeaderTip() {
+    const header = document.querySelector('.bespoke-marp-overview-header');
+    if (!header || header.querySelector('.marp-overview-tip')) return;
+
+    header.style.display = 'flex';
+    header.style.justifyContent = 'space-between';
+    header.style.alignItems = 'center';
+
+    const tip = document.createElement('div');
+    tip.className = 'marp-overview-tip';
+    tip.innerHTML = `
+      <span class="marp-overview-tip-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#009cab" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+        ${txtTip.title}
+      </span>
+      <span>${txtTip.hold}</span>
+      <kbd>${txtTip.kbd}</kbd>
+      <span>${txtTip.desc}</span>
+      <span class="marp-overview-tip-sep">&bull;</span>
+      <span>${txtTip.click}</span>
+    `;
+
+    header.prepend(tip);
+  }
+
+  injectHeaderTip();
+
+  // 2. Inject Quick Look modal overlay (clean frameless presentation)
+  let overlay = document.getElementById('marp-overview-preview-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'marp-overview-preview-overlay';
+    overlay.className = 'marp-overview-preview-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML = `
+      <div class="marp-overview-preview-card">
+        <div class="marp-quicklook-badge">
+          <span class="marp-quicklook-num"></span>
+          <span class="marp-quicklook-sep">&bull;</span>
+          <span class="marp-quicklook-hint">${txtRelease}</span>
+        </div>
+        <div class="marp-overview-preview-body" id=":$p"></div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  }
+
+  const badgeNum = overlay.querySelector('.marp-quicklook-num');
+  const body = overlay.querySelector('.marp-overview-preview-body');
+
+  let currentHoveredSlide = null;
+  let currentHoveredIndex = 0;
+  let isSpaceHeld = false;
+
+  function showQuickLook(slide, index) {
+    if (!slide) return;
+
+    const slides = Array.from(document.querySelectorAll('.bespoke-marp-parent svg.bespoke-marp-slide'));
+    const total = slides.length;
+    const slideNum = index + 1;
+
+    badgeNum.textContent = `Slide ${slideNum} / ${total}`;
+
+    body.innerHTML = '';
+    const clone = slide.cloneNode(true);
+    clone.style.width = '100%';
+    clone.style.height = '100%';
+    clone.style.margin = '0';
+    clone.style.padding = '0';
+    clone.style.backgroundImage = 'none';
+    clone.style.filter = 'none';
+    clone.style.contentVisibility = 'visible';
+    clone.style.opacity = '1';
+    clone.style.display = 'block';
+
+    body.appendChild(clone);
+    overlay.classList.add('active');
+  }
+
+  function hideQuickLook() {
+    overlay.classList.remove('active');
+  }
+
+  function attachSlideTracking() {
+    const slides = document.querySelectorAll('.bespoke-marp-parent svg.bespoke-marp-slide');
+    slides.forEach((slide, idx) => {
+      if (slide.dataset.quickLookAttached) return;
+      slide.dataset.quickLookAttached = 'true';
+
+      slide.addEventListener('mouseenter', () => {
+        currentHoveredSlide = slide;
+        currentHoveredIndex = idx;
+        if (isSpaceHeld) {
+          showQuickLook(slide, idx);
+        }
+      });
+
+      slide.addEventListener('mouseleave', () => {
+        if (currentHoveredSlide === slide) {
+          currentHoveredSlide = null;
+          if (isSpaceHeld) {
+            hideQuickLook();
+          }
+        }
+      });
+    });
+  }
+
+  attachSlideTracking();
+
+  // Watch for dynamic slides or overview header injection
+  const observer = new MutationObserver(() => {
+    injectHeaderTip();
+    attachSlideTracking();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // 3. Spacebar Peek Keyboard Listeners (Capture phase)
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'Space' || e.key === ' ') {
+      const tag = document.activeElement ? document.activeElement.tagName : '';
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) return;
+
+      if (currentHoveredSlide) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!isSpaceHeld) {
+          isSpaceHeld = true;
+          showQuickLook(currentHoveredSlide, currentHoveredIndex);
+        }
+      }
+    } else if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      e.preventDefault();
+      e.stopPropagation();
+      isSpaceHeld = false;
+      hideQuickLook();
+    }
+  }, true);
+
+  window.addEventListener('keyup', (e) => {
+    if (e.code === 'Space' || e.key === ' ') {
+      if (isSpaceHeld) {
+        isSpaceHeld = false;
+        hideQuickLook();
+      }
+    }
+  }, true);
+
+  window.addEventListener('blur', () => {
+    if (isSpaceHeld) {
+      isSpaceHeld = false;
+      hideQuickLook();
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    if (isSpaceHeld) {
+      isSpaceHeld = false;
+      hideQuickLook();
+    }
+  }, { passive: true });
+}
+
 // Global initialization function
 function initMarpScripts() {
   initFavicon();
@@ -1228,6 +1444,7 @@ function initMarpScripts() {
   initSettingsModal();
   initTableOfContents();
   initSlideZoom();
+  initOverviewQuickLook();
 }
 
 window.copyCode = initCopyButtons;
@@ -1236,6 +1453,7 @@ window.initFavicon = initFavicon;
 window.initProgressBar = initProgressBar;
 window.initSettingsModal = initSettingsModal;
 window.initSlideZoom = initSlideZoom;
+window.initOverviewQuickLook = initOverviewQuickLook;
 window.applyTheme = applyTheme;
 window.initMarpScripts = initMarpScripts;
 
