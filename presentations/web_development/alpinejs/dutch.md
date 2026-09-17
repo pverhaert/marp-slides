@@ -28,39 +28,9 @@ footer: 'Web Development - Thomas More Hogeschool'
 5. **Attributen & Events** - `x-bind` (`:`), `x-on` (`@`) en krachtige event modifiers
 6. **Formulieren & Loops** - `x-model` two-way data binding en `x-for`
 7. **Geavanceerde Directives** - `x-transition`, `x-cloak`, `x-ref` en `x-init`
-8. **De Magische Eigenschappen** - `$el`, `$refs`, `$dispatch`, `$watch` en `$nextTick`
-9. **Global State & Herbruikbaarheid** - `Alpine.data()` en `Alpine.store()`
-10. **Praktijkvoorbeelden met Tailwind** - Modals, live filtering en shopping cart
-
----
-
-## Interactief Oefenen: Alpine.js Testen <span class="badge">Online Sandbox</span>
-
-Wil je tijdens deze les de Alpine.js voorbeelden direct live uittesten in je browser?
-
-Gebruik een van de interactieve playgrounds:
-- **CodePen Template:** [codepen.io/pen](https://codepen.io/pen) *(voeg Alpine CDN toe)*
-- **JSFiddle:** [jsfiddle.net](https://jsfiddle.net)
-- **Documentatie & Sandbox:** [alpinejs.dev](https://alpinejs.dev)
-
-<div class="grid-2">
-<div class="card">
-
-#### Waarom een online sandbox?
-- **Direct resultaat:** Schrijf HTML met `x-data` en zie de reactieve UI onmiddellijk werken
-- **Geen build tools nodig:** Werkt out-of-the-box met een eenvoudige script tag
-- **Perfecte combo:** Combineer met Tailwind CSS CDN voor complete componenten
-
-</div>
-<div class="card">
-
-#### Tip voor studenten
-- Kopieer voorbeeldcode rechtstreeks uit deze slides
-- Experimenteer met `x-model`, event modifiers en state updates
-- Open de browser console om events en variabelen te inspecteren
-
-</div>
-</div>
+8. **De Magische Eigenschappen** <span class="badge badge-cyan">Optioneel</span> - `$el`, `$refs`, `$dispatch`, `$watch` en `$nextTick`
+9. **Global State & Herbruikbaarheid** <span class="badge badge-cyan">Optioneel</span> - `Alpine.data()` en `Alpine.store()`
+10. **Praktijkvoorbeelden met Tailwind** - Toegankelijke modal en live filterbaar overzicht
 
 ---
 
@@ -82,6 +52,7 @@ Alpine.js is een **robuust, minimaal JavaScript framework** voor het toevoegen v
 <div class="card">
 
 #### Belangrijkste Kenmerken
+
 - **Minimaal footprint:** ~15 KB (gzipped), 0 afhankelijkheden
 - **Geen Virtual DOM:** Muteert direct de echte DOM
 - **Geen Build Step Verplicht:** Werkt direct via een `<script>` tag
@@ -90,6 +61,7 @@ Alpine.js is een **robuust, minimaal JavaScript framework** voor het toevoegen v
 <div class="card">
 
 #### Ideale Gebruikssituaties
+
 - Dropdowns, modals, tabs en accordions
 - Dynamische formulieren en live zoekfilters
 - Perfecte partner voor Tailwind CSS en Laravel/Node/PHP
@@ -142,65 +114,218 @@ Plaats het script in de `<head>` van je HTML bestand met het `defer` attribuut:
 
 ## 2. Installatie via NPM (Vite Bundler)
 
-### Optie B: Via NPM in moderne frontend projecten
+<div class="grid-2">
+<div class="card">
+
+#### Optie B: Generieke Vite / NPM Setup
+
+In een standaard frontend project installeer je Alpine via npm:
 
 ```bash
-# Installeer Alpine via npm
 npm install alpinejs
 ```
 
-Initialiseer Alpine in je JavaScript entrypoint (`main.js` of `app.js`):
+Initialiseer Alpine in je entrypoint (`resources/js/app.js`):
 
 ```javascript
-// src/main.js
 import Alpine from 'alpinejs';
 
-// Maak Alpine globaal beschikbaar voor devtools inspectie
 window.Alpine = Alpine;
-
-// Start het reactieve Alpine systeem
 Alpine.start();
 ```
 
-> **Belangrijk:** Roep altijd `Alpine.start()` aan nadat je eventuele custom stores of data-functies hebt geregistreerd!
+</div>
+<div class="card card-accent">
+
+#### In ons Laravel Project <span class="badge">Automatisch</span>
+
+Binnen onze **Thomas More Web Development** projecten is een handmatige installatie **overbodig**:
+
+- **Standaard geïntegreerd:** Alpine.js en Vite zijn reeds kant-en-klaar geconfigureerd in onze Laravel stack
+- **Geen npm install nodig:** Alle afhankelijkheden en scripts zitten reeds in het startproject
+- **Vite bundler:** `@vite(['resources/css/app.css', 'resources/js/app.js'])` verzorgt automatisch Hot Module Replacement (HMR)
+- **Livewire integratie:** Livewire v4 bundelt Alpine.js automatisch onder de motorkap
+
+</div>
+</div>
 
 ---
 
-## 4. Core Directives: `x-data`
+## 3. Interactief Oefenen: Alpine.js Testen <span class="badge">Online Playground</span>
 
-`x-data` definieert een **reactief component bereik** (scope) en initialiseert de bijbehorende JavaScript data:
+Wil je tijdens deze les de voorbeelden direct live uittesten in je browser?
+
+Surf naar de interactieve omgeving: **<a href="https://alpine-lab.netlify.app/" target="_blank">alpine-lab.netlify.app</a>**
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### Waarom Alpine Lab?
+
+- **Direct aan de slag:** Kopieer en plak codevoorbeelden rechtstreeks in de editor
+- **Tailwind CSS geïntegreerd:** Alle utility classes werken onmiddellijk out-of-the-box
+- **Rijke bibliotheek:** Bevat voorgedefinieerde componenten en complete toepassingen
+
+</div>
+<div class="card">
+
+#### Tip voor studenten
+
+- Kopieer codefragmenten uit de slides en experimenteer met reactieve toestand
+- Pas directives aan (`x-show`, `x-model`, `@click`) en zie meteen het resultaat
+- Open de browser console (F12) om interacties en events te analyseren
+
+</div>
+</div>
+
+---
+
+## 4. Core Directives: `x-data` (Basis Scope)
+
+`x-data` definieert een **reactief component bereik** (scope) en initialiseert de toestand:
 
 ```html
-<!-- Component met lokale toestand -->
-<div x-data="{ open: false, title: 'Web Development', count: 1 }">
-  <h3 x-text="title"></h3>
-  <p>Status: <span x-text="open ? 'Geopend' : 'Gesloten'"></span></p>
+<!-- Eenvoudige reactieve component -->
+<div x-data="{ title: 'Hallo Alpine.js!' }" class="p-4 bg-slate-100 rounded border">
+  <h3 x-text="title" class="font-bold text-orange-600"></h3>
 </div>
 ```
 
 <div class="grid-2">
-<div class="card">
+<div class="card card-accent">
 
 #### Belangrijke Regels
-- Elk element met `x-data` is een zelfstandige reactieve component
-- Alle geneste HTML elementen hebben toegang tot de data van hun parent
-- Data kan strings, booleans, getallen, arrays, objecten en methoden bevatten
+
+- **Zelfstandige component:** Elk element met `x-data` vormt een afgebakende reactieve scope
+- **Data nesting:** Geneste elementen hebben direct toegang tot data van hun parent
+- **Typen:** Ondersteunt strings, booleans, getallen, arrays en objecten
 
 </div>
 <div class="card">
 
-#### Methoden binnen `x-data`
+#### Wat gebeurt hier?
+
+- `x-data`: Maakt van de `<div>` een Alpine component met de variabele `title`
+- `x-text`: Plaatst de waarde van `title` automatisch als tekst binnen de `<h3>`
+- **Reactiviteit:** Wijzigt de toestand in JavaScript, dan past de HTML zich direct aan
+
+</div>
+</div>
+
+---
+
+## 4. Core Directives: Toestand Wijzigen met `@click`
+
+Met `@click` pas je variabelen aan en met `x-text` toon je dynamische tekst:
+
 ```html
+<div x-data="{ open: false, title: 'Web Development' }" class="p-4 bg-slate-100 rounded border">
+  <h3 x-text="title" class="font-bold text-orange-600"></h3>
+  <p class="mt-2">
+    Status: <span x-text="open ? 'Geopend' : 'Gesloten'" class="font-semibold"></span>
+  </p>
+  <button @click="open = !open" class="mt-3 px-3 py-1 bg-orange-600 text-white rounded text-sm">
+    Wissel Status
+  </button>
+</div>
+```
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### `@click` Event Handler
+
+- `@click="open = !open"` keert de boolean toestand telkens om
+- Alpine detecteert toestandswijzigingen en herberekent afhankelijke data
+
+</div>
+<div class="card">
+
+#### `x-text` met Expressies
+
+- `x-text` evalueert volledige JavaScript expressies
+- **Ternary operator:** `open ? 'Geopend' : 'Gesloten'` toont direct de juiste tekst
+- Werkt reactief zonder dat je handmatig de DOM moet bijwerken
+
+</div>
+</div>
+
+---
+
+## 4. Core Directives: Dynamische Styling met `:class`
+
+Koppel CSS-klassen dynamisch aan JavaScript data:
+
+```html
+<div x-data="{ open: false }" class="p-4 bg-slate-100 rounded border">
+  <p>
+    Status: <span x-text="open ? 'Geopend' : 'Gesloten'"
+                  :class="open ? 'text-green-600' : 'text-red-600'"
+                  class="font-semibold"></span>
+  </p>
+  <button @click="open = !open" class="mt-3 px-3 py-1 bg-orange-600 text-white rounded text-sm">
+    Wissel Kleur & Status
+  </button>
+</div>
+```
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### Waarom de dubbele punt (`:`) in `:class`?
+
+- De dubbele punt `:` is de afkorting (shorthand) voor `x-bind:class`
+- **Zonder `:`** ziet de browser een gewone statische string
+- **Mét `:`** vertel je Alpine: *"evalueer deze waarde als JavaScript!"*
+
+</div>
+<div class="card">
+
+#### Hoe werkt de ternary in `:class`?
+
+- `open ? 'text-green-600' : 'text-red-600'`
+- Geeft `text-green-600` bij `open: true` en `text-red-600` bij `open: false`
+- De tekstkleur wisselt direct synchroon mee bij elke klik
+
+</div>
+</div>
+
+---
+
+## 4. Core Directives: `x-data` (Methoden & Interactie)
+
+Je kunt binnen `x-data` ook eigen methoden definiëren om logica netjes te bundelen:
+
+```html
+<!-- Teller met methoden -->
 <div x-data="{
   count: 0,
   increment() { this.count++; },
-  decrement() { if(this.count > 0) this.count--; }
-}">
-  <button @click="decrement()">-</button>
-  <span x-text="count"></span>
-  <button @click="increment()">+</button>
+  decrement() { if (this.count > 0) this.count--; }
+}" class="inline-flex items-center gap-2 p-4 bg-slate-100 rounded border">
+  <button @click="decrement()" class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded font-bold">-</button>
+  <span x-text="count" class="font-bold text-xl px-2"></span>
+  <button @click="increment()" class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded font-bold">+</button>
 </div>
 ```
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### Waarom methoden gebruiken?
+
+- **Schone markup:** Voorkomt lange, onleesbare JavaScript expressies in HTML attributen
+- **Herbruikbaar:** Roep dezelfde methode aan vanaf meerdere knoppen of events
+- **Context:** Binnen methoden verwijst `this` automatisch naar de gegevens van `x-data`
+
+</div>
+<div class="card">
+
+#### Hoe werkt de teller?
+
+- **Reactiviteit:** De `<span>` leest `count` uit via `x-text` en herberekent live bij elke klik
+- **Grenscontrole:** `decrement()` controleert `this.count > 0` zodat de teller niet onder 0 zakt
+- **Events:** `@click="increment()"` roept direct de bijbehorende methode aan
 
 </div>
 </div>
@@ -212,86 +337,235 @@ Alpine.start();
 Gebruik `x-text` en `x-html` om dynamische data in te voegen in een HTML element:
 
 ```html
-<div x-data="{ name: 'Patrick', bio: 'Docent <strong>ITF</strong>' }">
-  <!-- x-text: Veilige tekst (voorkomt XSS aanvallen) -->
-  <p>Welkom, <span x-text="name"></span>!</p>
+<div x-data="{ snippet: 'Dit is <strong>vetgedrukte</strong> tekst' }"
+     class="p-4 bg-slate-100 rounded border space-y-2">
+  <!-- x-text: toont de ruwe HTML-tags als platte tekst -->
+  <p x-text="snippet" class="p-2 bg-white rounded border text-sm"></p>
 
-  <!-- x-html: Rendert daadwerkelijke HTML tags -->
-  <div x-html="bio"></div>
+  <!-- x-html: interpreteert en rendert de HTML-tags effectief -->
+  <p x-html="snippet" class="p-2 bg-white rounded border text-sm"></p>
 </div>
 ```
 
 <div class="grid-2">
-<div class="card">
+<div class="card card-accent">
 
-#### `x-text` (Aanbevolen)
-- Overschrijft de `innerText` van het element
-- Converteert speciale tekens automatisch naar veilige tekst (beschermt tegen XSS)
-- Ondersteunt JavaScript expressies: `x-text="score * 2"`
+#### `x-text` (Veilig & Aanbevolen)
+
+- Overschrijft `innerText` en ontsnapt HTML automatisch
+- **Output:** Toont tags letterlijk als platte tekst
+- Beschermt betrouwbaar tegen XSS-kwetsbaarheden
 
 </div>
 <div class="card">
 
 #### `x-html` (Voorzichtig)
-- Overschrijft de `innerHTML` van het element
-- Gebruik **nooit** `x-html` met niet-vertrouwde gebruikersinvoer (gevaar voor Cross-Site Scripting)
+
+- Overschrijft `innerHTML` en rendert echte DOM-elementen
+- **Output:** Toont daadwerkelijk vetgedrukte opmaak
+- Gebruik **nooit** met invoer van eindgebruikers
 
 </div>
 </div>
 
 ---
 
-## 4. `x-show` vs `x-if`: Zichtbaarheid Beheren
+## 4. Core Directives: `x-show` (CSS Display)
 
-Alpine biedt twee manieren om elementen conditioneel te tonen:
+`x-show` wisselt de zichtbaarheid van een element via inline CSS (`display: none`):
 
 ```html
-<div x-data="{ isVisible: false }">
-  <button @click="isVisible = !isVisible" class="btn">Schakel Weergave</button>
+<div x-data="{ isVisible: false }" class="p-4 bg-slate-100 rounded border space-y-2">
+  <button @click="isVisible = !isVisible" class="px-3 py-1 bg-orange-600 text-white rounded text-sm">
+    Schakel Weergave
+  </button>
 
-  <!-- 1. x-show: Verandert enkel CSS display: none -->
-  <div x-show="isVisible" class="card">
-    Dit element blijft in de DOM aanwezig maar krijgt style="display: none;".
+  <div x-show="isVisible" class="p-2 bg-white rounded border text-sm">
+    <strong>x-show:</strong> Zichtbaar! Dit element blijft altijd in de DOM aanwezig.
   </div>
+</div>
+```
 
-  <!-- 2. x-if: Verwijdert/voegt het element fysiek toe aan de DOM (vereist <template>) -->
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>Werking via CSS</h4>
+  <p>Schakelt enkel <code>display: none</code> in of uit. Het HTML-element blijft continu in de DOM bestaan en behoudt interne state.</p>
+</div>
+<div class="card">
+  <h4>Voordelen & Toepassing</h4>
+  <p>Razendsnel zonder DOM-overhead, behoudt formulierwaarden en ondersteunt vloeiende animaties via <code>x-transition</code>.</p>
+</div>
+</div>
+
+---
+
+## 4. Core Directives: `x-if` (DOM Manipulatie)
+
+`x-if` voegt elementen fysiek toe aan de DOM of verwijdert ze volledig:
+
+```html
+<div x-data="{ isVisible: false }" class="p-4 bg-slate-100 rounded border space-y-2">
+  <button @click="isVisible = !isVisible" class="px-3 py-1 bg-orange-600 text-white rounded text-sm">
+    Schakel Weergave
+  </button>
+
+  <!-- Verplicht: x-if moet altijd op een <template> tag staan -->
   <template x-if="isVisible">
-    <div class="card">
-      Dit element wordt volledig gecreëerd of vernietigd in de DOM.
+    <div class="p-2 bg-white rounded border text-sm">
+      <strong>x-if:</strong> Volledig gecreëerd of vernietigd in de DOM.
     </div>
   </template>
 </div>
 ```
 
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>Fysieke DOM Manipulatie</h4>
+  <p>Bij <code>false</code> wordt de node compleet uit de DOM verwijderd. Bij <code>true</code> wordt deze opnieuw aangemaakt.</p>
+</div>
+<div class="card">
+  <h4>Verplichte &lt;template&gt; Wrapper</h4>
+  <p>Alpine vereist een <code>&lt;template&gt;</code> tag als blauwdruk. Binnen de template mag exact <strong>één</strong> root element staan.</p>
+</div>
+</div>
+
+---
+
+## 4. Core Directives: Waarom `<template>` bij `x-if`?
+
+In tegenstelling tot `x-show` heeft `x-if` een speciale syntax en levenscyclus:
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### Hoe werkt de DOM injectie?
+
+- **Fysieke mutatie:** Alpine voegt het element daadwerkelijk in via DOM API's
+- **Geheugenbesparing:** Ongebruikte elementen nemen 0 DOM resources in beslag
+- **Reactiviteit:** Geneste expressies worden pas geëvalueerd als het element bestaat
+- **Reset:** Interne toestand wordt automatisch herstart bij opnieuw tonen
+
+</div>
+<div class="card card-cyan">
+
+#### Waarom het `<template>` element?
+
+- **Standaard HTML5:** Browsers renderen de inhoud van `<template>` standaard niet
+- **Blauwdruk:** Alpine gebruikt de template als sjabloon om nodes te klonen
+- **Geen display: none:** Voorkomt dat media of stijlen voortijdig geladen worden
+- **Enkel root element:** Vereist altijd één overkoepelende tag (bv. een `<div>`)
+
+</div>
+</div>
+
+---
+
+## 4. Core Directives: `x-show` vs `x-if` (Vergelijking)
+
+Overzicht van de belangrijkste technische verschillen en richtlijnen:
+
 | Kenmerk | `x-show` | `x-if` |
 | :--- | :--- | :--- |
-| **DOM Manipulatie** | Behoudt element (CSS `display`) | Voegt toe / verwijdert fysiek |
-| **Ondersteunt `x-transition`** | Ja (vloeiende CSS animaties) | Nee |
-| **Vereist `<template>` wrapper** | Nee, direct op elk HTML element | **Ja, verplicht op `<template>`** |
+| **DOM Manipulatie** | Behoudt element (CSS `display`) | Voegt toe / verwijdert fysiek uit de DOM |
+| **Animaties** | **Ja**, ondersteunt `x-transition` | Nee (geen transities mogelijk) |
+| **HTML Syntax** | Direct op elk HTML-element | **Verplicht** op een `<template>` tag |
+| **Renderkost** | Rendert initiële DOM direct | Rendert DOM pas wanneer expressie `true` is |
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### Wanneer kies je `x-show`?
+
+- **Standaardkeuze voor de meeste UI:** Dropdowns, tabs, accordions
+- Zodra je elementen soepel wilt in- en uitfaden met animaties
+- Elementen die frequent getoond en verborgen worden
+
+</div>
+<div class="card">
+
+#### Wanneer kies je `x-if`?
+
+- Grote, zware componenten die niet onnodig geheugen mogen innemen
+- Als kind-elementen niet mogen initialiseren zolang data nog ontbreekt
+- Complexe onderdelen die slechts zelden getoond worden
+
+</div>
+</div>
 
 ---
 
 ## 5. Attributen Koppelen: `x-bind` (Shorthand `:`)
 
-Met `x-bind` (of de kortere syntax `:`) koppel je HTML attributen dynamisch aan JavaScript data:
+Met `x-bind` koppel je willekeurige HTML-attributen dynamisch aan JavaScript data:
 
 ```html
-<div x-data="{ isUrgent: true, isDisabled: false, imgUrl: 'img/logo.webp' }">
-  <!-- Dynamische class koppeling via object syntax -->
-  <div :class="{ 'border-red-500 bg-red-950': isUrgent, 'border-slate-700': !isUrgent }" class="border p-4 rounded">
-    Notificatiepaneel
-  </div>
+<div x-data="{ isDisabled: true, placeholderText: 'Typ je zoekopdracht...' }" 
+     class="p-4 bg-slate-100 rounded border space-y-3">
+  <input type="text" :placeholder="placeholderText" class="p-2 border rounded text-sm bg-white w-full">
 
-  <!-- Dynamische HTML attributen -->
-  <button :disabled="isDisabled" class="btn">Verzenden</button>
-  <img :src="imgUrl" alt="Dynamisch logo" class="w-16">
+  <div class="flex gap-2 items-center">
+    <button :disabled="isDisabled" class="px-3 py-1 bg-orange-600 text-white rounded text-sm disabled:opacity-50">
+      Verzenden
+    </button>
+    <button @click="isDisabled = !isDisabled" class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded text-sm">
+      Wissel Status
+    </button>
+  </div>
 </div>
 ```
 
-### Handige `:class` patronen:
-- **Object Syntax:** `:class="{ 'actief': isActief, 'fout': heeftFout }"`
-- **Ternary Syntax:** `:class="isOpen ? 'rotate-180' : 'rotate-0'"`
-- **Array Syntax:** `:class="[basisKlasse, dynamicKlasse]"`
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>Waarom x-bind?</h4>
+  <p>Koppel elk HTML-attribuut (zoals <code>:disabled</code>, <code>:placeholder</code>, <code>:href</code>, <code>:src</code>) dynamisch aan JavaScript toestand.</p>
+</div>
+<div class="card">
+  <h4>Shorthand Notatie</h4>
+  <p>Schrijf simpelweg een dubbele punt (<code>:</code>) in plaats van <code>x-bind:</code>. Zo wordt <code>x-bind:disabled</code> beknopt <code>:disabled</code>.</p>
+</div>
+</div>
+
+---
+
+## 5. Dynamische Klassen: Handige `:class` Patronen
+
+Alpine biedt drie expressieve manieren om CSS-klassen conditioneel te koppelen:
+
+<div class="grid-3">
+<div class="card card-accent">
+
+#### 1. Object Syntax
+
+`:class="{ 'bg-red-100 text-red-700': fout }"`
+
+- Sleutel = CSS class
+- Waarde = boolean conditie
+- Ideaal voor validatiestatussen
+
+</div>
+<div class="card card-cyan">
+
+#### 2. Ternary Syntax
+
+`:class="open ? 'rotate-180' : 'rotate-0'"`
+
+- Bekende `if-else` notatie
+- Wisselt tussen twee stijlen
+- Perfect voor iconen en toggles
+
+</div>
+<div class="card">
+
+#### 3. Array Syntax
+
+`:class="[basis, actief && 'font-bold']"`
+
+- Combineert meerdere klassen
+- Meng statische en dynamische klassen
+- Handig voor complexe tabs
+
+</div>
+</div>
 
 ---
 
@@ -300,23 +574,60 @@ Met `x-bind` (of de kortere syntax `:`) koppel je HTML attributen dynamisch aan 
 Met `x-on` (of de kortere `@` notatie) luister je naar browser en custom DOM events:
 
 ```html
-<div x-data="{ searchQuery: '' }">
-  <!-- Luisteren naar klik en toetsaanslagen -->
-  <button @click="alert('Geklikt!')" class="btn">Klik Hier</button>
-
-  <input type="text" 
-         @input="searchQuery = $event.target.value" 
-         @keydown.enter="console.log('Zoeken naar:', searchQuery)"
-         placeholder="Typ en druk op Enter...">
+<div x-data="{ searchQuery: '', submitted: '' }" class="p-4 bg-slate-100 rounded border space-y-2">
+  <div class="flex gap-2">
+    <input type="text" 
+           @input="searchQuery = $event.target.value" 
+           @keydown.enter="submitted = searchQuery"
+           placeholder="Typ en druk op Enter..."
+           class="p-2 border rounded text-sm bg-white">
+    <button @click="submitted = searchQuery" class="px-3 py-1 bg-orange-600 text-white rounded text-sm">
+      Zoek
+    </button>
+  </div>
+  <p x-show="submitted" class="text-sm">
+    Gezocht naar: <strong x-text="submitted" class="text-orange-600"></strong>
+  </p>
 </div>
 ```
 
-### Populaire Event Modifiers:
-- `@submit.prevent` - Voorkomt standaard pagina herladen (`e.preventDefault()`)
-- `@click.stop` - Stopt bubbling naar parent elementen (`e.stopPropagation()`)
-- `@click.outside` - Vuurt als de gebruiker **buiten** het element klikt (ideaal voor modals en dropdowns!)
-- `@keydown.escape.window` - Luistert globaal op het `window` naar de Escape toets
-- `@input.debounce.500ms` - Wacht 500ms na de laatste toetsaanslag alvorens te vuren (voor zoekvelden)
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>Event Handlers (@)</h4>
+  <p>Luister naar elk standaard DOM event zoals <code>@click</code>, <code>@input</code>, <code>@submit</code> of <code>@keydown</code>.</p>
+</div>
+<div class="card">
+  <h4>Het $event Object</h4>
+  <p>Geeft directe toegang tot het oorspronkelijke browser event, bijvoorbeeld om <code>$event.target.value</code> uit te lezen.</p>
+</div>
+</div>
+
+---
+
+## 5. Events: Populaire Event Modifiers
+
+Event modifiers vereenvoudigen veelvoorkomende JavaScript acties zonder extra functies:
+
+<div class="grid-2">
+<div class="card card-accent">
+
+#### UI & Interactie Modifiers
+
+- `@click.outside` - Vuurt zodra de gebruiker **buiten** het element klikt (onmisbaar voor modals en dropdowns)
+- `@submit.prevent` - Voorkomt het herladen van de pagina (`e.preventDefault()`)
+- `@click.stop` - Voorkomt event bubbling naar parent elementen (`e.stopPropagation()`)
+
+</div>
+<div class="card card-cyan">
+
+#### Toetsenbord & Timing Modifiers
+
+- `@keydown.escape.window` - Luistert globaal op het `window` naar de Escape-toets
+- `@keydown.enter` - Reageert specifiek op de Enter-toets
+- `@input.debounce.500ms` - Wacht 500ms na de laatste toetsaanslag alvorens te vuren (ideaal voor zoekvelden)
+
+</div>
+</div>
 
 ---
 
@@ -325,23 +636,28 @@ Met `x-on` (of de kortere `@` notatie) luister je naar browser en custom DOM eve
 `x-model` synchroniseert de waarde van een formulierveld automatisch tweezijdig met je data:
 
 ```html
-<div x-data="{ name: '', role: 'student', newsletter: true, age: 20 }">
-  <!-- Tekstinvoer -->
-  <input type="text" x-model="name" placeholder="Naam" class="input">
+<div x-data="{ name: 'Sam', role: 'student', newsletter: true, age: 20 }"
+     class="p-4 bg-slate-100 rounded border space-y-2">
+  <!-- Tekstinvoer en select dropdown -->
+  <div class="flex gap-2">
+    <input type="text" x-model="name" placeholder="Naam" class="p-2 bg-white border rounded text-sm">
+    <select x-model="role" class="p-2 bg-white border rounded text-sm">
+      <option value="student">Student ITF</option>
+      <option value="docent">Docent</option>
+    </select>
+  </div>
 
-  <!-- Select dropdown -->
-  <select x-model="role" class="select">
-    <option value="student">Student ITF</option>
-    <option value="docent">Docent</option>
-  </select>
+  <!-- Checkbox boolean en getal input -->
+  <div class="flex items-center gap-4 text-sm">
+    <label class="flex items-center gap-1">
+      <input type="checkbox" x-model="newsletter"> Nieuwsbrief
+    </label>
+    <input type="number" x-model.number="age" class="w-16 p-1 bg-white border rounded text-center">
+  </div>
 
-  <!-- Checkbox boolean -->
-  <label><input type="checkbox" x-model="newsletter"> Nieuwsbrief ontvangen</label>
-
-  <!-- Number modifier (converteert automatisch naar getal ipv string) -->
-  <input type="number" x-model.number="age" class="input">
-
-  <p class="mt-4">Ingevoerd: <strong x-text="name"></strong> (<span x-text="role"></span>, leeftijd: <span x-text="age"></span>)</p>
+  <p class="p-2 bg-white rounded border text-sm">
+    Ingevoerd: <strong x-text="name"></strong> (<span x-text="role"></span>, leeftijd: <span x-text="age"></span>)
+  </p>
 </div>
 ```
 
@@ -358,13 +674,13 @@ Gebruik `x-for` om dynamisch lijsten van data te renderen:
     { id: 2, name: 'Web Development', semester: 2 },
     { id: 3, name: 'Cloud Engineering', semester: 3 }
   ]
-}">
-  <ul class="space-y-2">
+}" class="p-4 bg-slate-100 rounded border max-w-md">
+  <ul class="space-y-1">
     <!-- x-for MOET altijd op een <template> element staan! -->
     <template x-for="(course, index) in courses" :key="course.id">
-      <li class="p-3 bg-slate-800 border border-slate-700 rounded flex justify-between">
-        <span x-text="`${index + 1}. ${course.name}`" class="font-semibold text-white"></span>
-        <span class="text-xs text-orange-400 font-mono" x-text="`Semester ${course.semester}`"></span>
+      <li class="p-2 bg-white border rounded flex justify-between text-sm">
+        <span x-text="`${index + 1}. ${course.name}`"></span>
+        <span class="font-bold text-orange-600" x-text="`Semester ${course.semester}`"></span>
       </li>
     </template>
   </ul>
@@ -380,23 +696,18 @@ Gebruik `x-for` om dynamisch lijsten van data te renderen:
 Met `x-transition` animeer je elementen bij `x-show` zonder één regel complexe CSS te schrijven:
 
 ```html
-<div x-data="{ open: false }" class="relative">
-  <button @click="open = !open" class="px-4 py-2 bg-orange-600 text-white rounded font-bold">
+<div x-data="{ open: false }" class="relative inline-block">
+  <button @click="open = !open" class="px-3 py-1 bg-orange-600 text-white rounded text-sm">
     Dropdown Menu
   </button>
 
-  <!-- Vloeiende fade en scale overgang -->
+  <!-- Vloeiende overgang -->
   <div x-show="open" 
        @click.outside="open = false"
-       x-transition:enter="transition ease-out duration-200"
-       x-transition:enter-start="opacity-0 scale-95"
-       x-transition:enter-end="opacity-100 scale-100"
-       x-transition:leave="transition ease-in duration-150"
-       x-transition:leave-start="opacity-100 scale-100"
-       x-transition:leave-end="opacity-0 scale-95"
-       class="absolute left-0 mt-2 w-56 bg-slate-900 border border-slate-800 rounded-xl p-4 shadow-2xl">
-    <a href="#" class="block py-1.5 text-slate-300 hover:text-white">Mijn Profiel</a>
-    <a href="#" class="block py-1.5 text-slate-300 hover:text-white">Instellingen</a>
+       x-transition
+       class="absolute left-0 mt-1 w-44 bg-white border rounded p-2 text-sm">
+    <a href="#" class="block p-1 hover:bg-slate-100 rounded">Mijn Profiel</a>
+    <a href="#" class="block p-1 hover:bg-slate-100 rounded">Instellingen</a>
   </div>
 </div>
 ```
@@ -409,15 +720,13 @@ Met `x-transition` animeer je elementen bij `x-show` zonder één regel complexe
 <div class="card">
 
 #### 1. `x-cloak` (Voorkom FOUC)
+
 Verbergt elementen totdat Alpine volledig geladen is:
 
 ```html
-<style>
-  [x-cloak] { display: none !important; }
-</style>
-
-<div x-data="{ open: false }" x-cloak>
-  <p x-show="open">Geen flikkering bij laden!</p>
+<div x-data="{ open: false }" x-cloak
+     class="p-3 bg-slate-100 rounded border text-sm">
+  <p x-show="open" class="text-green-600">Geen flikkering bij laden!</p>
 </div>
 ```
 
@@ -425,13 +734,16 @@ Verbergt elementen totdat Alpine volledig geladen is:
 <div class="card">
 
 #### 2. `x-ref` & `$refs` (DOM Elementen)
+
 Directe toegang tot DOM nodes:
 
 ```html
-<div x-data>
-  <input type="text" x-ref="zoekVeld" placeholder="Zoeken...">
-  <button @click="$refs.zoekVeld.focus()">
-    Focus Input
+<div x-data class="flex gap-2">
+  <input type="text" x-ref="zoekVeld" placeholder="Zoeken..."
+         class="p-1 border rounded text-xs bg-white">
+  <button @click="$refs.zoekVeld.focus()"
+          class="px-2 py-1 bg-orange-600 text-white rounded text-xs">
+    Focus
   </button>
 </div>
 ```
@@ -440,16 +752,38 @@ Directe toegang tot DOM nodes:
 </div>
 
 ### 3. `x-init` (Component Lifecycle)
+
 Voert JavaScript code uit zodra het component geïnitialiseerd wordt:
+
 ```html
-<div x-data="{ items: [] }" x-init="items = await (await fetch('/api/courses')).json()">
-  <span x-text="`Aantal cursussen: ${items.length}`"></span>
+<div x-data="{ items: ['HTML5', 'CSS3', 'Alpine.js'] }" class="p-2 bg-slate-100 rounded border text-sm max-w-md">
+  <span x-text="`Aantal geladen cursussen: ${items.length}`" class="text-orange-600 font-medium"></span>
 </div>
 ```
 
 ---
 
-## 8. De Magische Eigenschappen (The `$` Magics)
+## Intermezzo: Advanced Features <span class="badge badge-cyan">Optioneel</span>
+
+Een korte mededeling over het vervolg van deze presentatie:
+
+<div class="card card-accent" style="margin-top: 18px; padding: 22px;">
+
+### Alles voor ons Laravel project is reeds behandeld!
+
+Alle directives die we binnen onze **Thomas More Web Development** projecten gebruiken (`x-data`, `x-show`, `x-if`, `x-bind`, `x-on`, `x-model`), zijn in de voorgaande slides volledig behandeld.
+
+<div style="margin-top: 16px; padding: 14px 18px; background: rgba(0, 156, 171, 0.1); border-left: 4px solid var(--color-secondary); border-radius: 6px;">
+  <strong style="color: var(--color-secondary);">Enkel voor de die-hards:</strong><br>
+  De komende slides behandelen geavanceerde onderwerpen zoals custom events (<code>$dispatch</code>), component factories (<code>Alpine.data()</code>) en globale stores (<code>Alpine.store()</code>).<br><br>
+  Deze technieken hebben we in ons Laravel project <strong>niet echt nodig</strong>, maar zijn bedoeld als interessante verdieping en naslagwerk voor wie méér wil halen uit Alpine.js!
+</div>
+
+</div>
+
+---
+
+## 8. De Magische Eigenschappen (The `$` Magics) <span class="badge badge-cyan">Optioneel</span>
 
 Alpine biedt ingebouwde magische eigenschappen met het `$` voorvoegsel:
 
@@ -465,9 +799,9 @@ Alpine biedt ingebouwde magische eigenschappen met het `$` voorvoegsel:
 
 ---
 
-## 9. Herbruikbare Componenten: `Alpine.data()`
+## 9. Herbruikbare Componenten: `Alpine.data()` (Definitie) <span class="badge badge-cyan">Optioneel</span>
 
-Als componentlogica te groot wordt voor inline HTML attributen, definieer je herbruikbare functies:
+Als componentlogica te groot wordt voor inline HTML attributen, definieer je herbruikbare functies in JavaScript:
 
 ```javascript
 // Registreer een herbruikbaar component in JavaScript
@@ -484,24 +818,55 @@ document.addEventListener('alpine:init', () => {
 });
 ```
 
-```html
-<!-- Gebruik het component overal in je HTML -->
-<div x-data="dropdown(false)">
-  <button @click="toggle()">Menu</button>
-  <div x-show="open" @click.outside="close()">Inhoud...</div>
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>Wat doet Alpine.data()?</h4>
+  <p>Registreert een herbruikbare component-blauwdruk gekoppeld aan een naam. Dit houdt je HTML-markup schoon en vrij van lange functies.</p>
 </div>
-
-<div x-data="dropdown(true)">
-  <button @click="toggle()">Ander Menu</button>
-  <div x-show="open" @click.outside="close()">Inhoud...</div>
+<div class="card">
+  <h4>Parameters & alpine:init</h4>
+  <p>Luister altijd naar het <code>alpine:init</code> event vóór registratie. Ondersteunt parameters met standaardwaarden (zoals <code>initialOpen = false</code>).</p>
 </div>
-```
+</div>
 
 ---
 
-## 9. Global State Management: `Alpine.store()`
+## 9. Herbruikbare Componenten: `Alpine.data()` (Gebruik in HTML) <span class="badge badge-cyan">Optioneel</span>
 
-Wil je data delen tussen verschillende componenten die niet in dezelfde DOM hiërarchie zitten?
+Koppel het geregistreerde component direct aan elementen via `x-data="naam(parameters)"`:
+
+```html
+<!-- Twee onafhankelijke dropdowns met dezelfde herbruikbare logica -->
+<div x-data="dropdown(false)" class="relative inline-block mr-2">
+  <button @click="toggle()" class="px-3 py-1 bg-orange-600 text-white rounded text-sm">Menu 1</button>
+  <div x-show="open" @click.outside="close()" class="absolute left-0 mt-1 w-36 bg-white border rounded p-2 text-sm">
+    <a href="#" class="block p-1 hover:bg-slate-100 rounded">Mijn Profiel</a>
+  </div>
+</div>
+<div x-data="dropdown(false)" class="relative inline-block">
+  <button @click="toggle()" class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded text-sm">Menu 2</button>
+  <div x-show="open" @click.outside="close()" class="absolute left-0 mt-1 w-36 bg-white border rounded p-2 text-sm">
+    <a href="#" class="block p-1 hover:bg-slate-100 rounded">Instellingen</a>
+  </div>
+</div>
+```
+
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>Geïsoleerde Instanties</h4>
+  <p>Elk element met <code>x-data="dropdown(...)"</code> heeft een eigen, afgeschermde toestand. Menu 1 en Menu 2 werken onafhankelijk.</p>
+</div>
+<div class="card">
+  <h4>Click.outside Dismissal</h4>
+  <p>De modifier <code>@click.outside="close()"</code> sluit het dropdownmenu automatisch zodra de gebruiker buiten de component klikt.</p>
+</div>
+</div>
+
+---
+
+## 9. Global State: `Alpine.store()` (Definitie) <span class="badge badge-cyan">Optioneel</span>
+
+Met `Alpine.store()` beheer je globale reactieve data die gedeeld wordt over meerdere componenten:
 
 ```javascript
 document.addEventListener('alpine:init', () => {
@@ -517,21 +882,50 @@ document.addEventListener('alpine:init', () => {
 });
 ```
 
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>Waarom een Globale Store?</h4>
+  <p>Deel variabelen en acties over willekeurige componenten heen, zonder ingewikkelde parent-child hiërarchieën of event dispatching.</p>
+</div>
+<div class="card">
+  <h4>Getters & Reactiviteit</h4>
+  <p>Getters zoals <code>get count()</code> berekenen dynamisch afgeleide waarden en werken alle gekoppelde HTML-elementen automatisch live bij.</p>
+</div>
+</div>
+
+---
+
+## 9. Global State: `$store` (Gebruik in HTML) <span class="badge badge-cyan">Optioneel</span>
+
+Benader de globale store vanuit elk HTML-component via de magic `$store`:
+
 ```html
 <!-- Component A: Header Notificatie Badge -->
-<nav x-data class="p-4 bg-slate-900 text-white flex justify-between">
-  <span>ITF Web Shop</span>
-  <span>Winkelmand: <strong class="text-orange-400" x-text="$store.cart.count"></strong> items</span>
+<nav x-data class="p-3 bg-slate-100 border rounded flex justify-between text-sm max-w-md">
+  <span class="font-bold text-orange-600">ITF Web Shop</span>
+  <span>Winkelmand: <strong class="text-orange-600 font-mono" x-text="$store.cart.count"></strong> items</span>
 </nav>
 
 <!-- Component B: Product Kaart elders op de pagina -->
-<div x-data class="p-4 bg-slate-800 rounded">
-  <h4>Cursusboek Web Development</h4>
-  <button @click="$store.cart.add({ id: 101, title: 'Web Dev' })" class="btn">
-    Voeg toe aan winkelmand
+<div x-data class="p-3 bg-slate-100 border rounded flex justify-between items-center max-w-md mt-2">
+  <span class="text-sm font-medium">Cursusboek Web Development</span>
+  <button @click="$store.cart.add({ id: 101, title: 'Web Dev' })"
+          class="px-3 py-1 bg-orange-600 text-white rounded text-xs">
+    + Winkelmand
   </button>
 </div>
 ```
+
+<div class="grid-2">
+<div class="card card-accent">
+  <h4>De Magic Property $store</h4>
+  <p>Elk component met <code>x-data</code> kan direct data en methoden aanroepen via <code>$store.storeNaam.eigenschap</code>.</p>
+</div>
+<div class="card">
+  <h4>Live Synchronisatie</h4>
+  <p>Zodra Component B een product toevoegt, herberekent Alpine direct de teller in Component A in de DOM.</p>
+</div>
+</div>
 
 ---
 
@@ -549,24 +943,19 @@ Een complete, toegankelijke pop-up dialoog met achtergrond blur, Escape sluiting
   <div x-show="modalOpen" 
        x-cloak
        @keydown.escape.window="modalOpen = false"
-       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-       x-transition:enter="transition ease-out duration-300"
-       x-transition:enter-start="opacity-0"
-       x-transition:enter-end="opacity-100"
-       x-transition:leave="transition ease-in duration-200"
-       x-transition:leave-start="opacity-100"
-       x-transition:leave-end="opacity-0">
+       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+       x-transition>
 
     <!-- Modal Box met click.outside -->
     <div @click.outside="modalOpen = false"
-         class="w-full max-w-lg bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl text-white">
-      <h3 class="text-2xl font-bold text-orange-400">Belangrijke Mededeling</h3>
-      <p class="mt-2 text-slate-300 text-sm">
+         class="w-full max-w-md bg-white border rounded-xl p-6 text-slate-800">
+      <h3 class="text-xl font-bold text-orange-600">Belangrijke Mededeling</h3>
+      <p class="mt-2 text-sm text-slate-600">
         Dit venster sluit met de Escape-toets of door buiten het kader te klikken.
       </p>
-      <div class="mt-6 flex justify-end gap-3">
-        <button @click="modalOpen = false" class="px-4 py-2 bg-slate-800 rounded">Annuleren</button>
-        <button @click="modalOpen = false" class="px-4 py-2 bg-orange-600 rounded font-bold">Akkoord</button>
+      <div class="mt-4 flex justify-end gap-2">
+        <button @click="modalOpen = false" class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded text-sm">Annuleren</button>
+        <button @click="modalOpen = false" class="px-3 py-1 bg-orange-600 text-white rounded text-sm font-bold">Akkoord</button>
       </div>
     </div>
   </div>
@@ -594,11 +983,11 @@ Een complete, toegankelijke pop-up dialoog met achtergrond blur, Escape sluiting
       return matchesSearch && matchesSemester;
     });
   }
-}" class="p-6 bg-slate-900 rounded-2xl border border-slate-800 text-white">
+}" class="p-4 bg-slate-100 rounded border max-w-lg">
 
-  <div class="flex gap-4 mb-4">
-    <input type="text" x-model="search" placeholder="Zoek op cursusnaam..." class="p-2 bg-slate-800 border border-slate-700 rounded w-full">
-    <select x-model="selectedSemester" class="p-2 bg-slate-800 border border-slate-700 rounded">
+  <div class="flex gap-2 mb-3">
+    <input type="text" x-model="search" placeholder="Zoek op cursusnaam..." class="p-2 bg-white border rounded w-full text-sm">
+    <select x-model="selectedSemester" class="p-2 bg-white border rounded text-sm">
       <option value="all">Alle Semesters</option>
       <option value="1">Semester 1</option>
       <option value="2">Semester 2</option>
@@ -606,9 +995,9 @@ Een complete, toegankelijke pop-up dialoog met achtergrond blur, Escape sluiting
   </div>
 
   <template x-for="course in filteredCourses" :key="course.id">
-    <div class="p-3 mb-2 bg-slate-800 border border-slate-700 rounded flex justify-between items-center">
-      <span x-text="course.name" class="font-bold"></span>
-      <span class="px-2 py-0.5 text-xs rounded bg-orange-500/20 text-orange-400 border border-orange-500/30" x-text="course.level"></span>
+    <div class="p-2 mb-2 bg-white border rounded flex justify-between items-center text-sm">
+      <span x-text="course.name" class="font-medium"></span>
+      <span class="px-2 py-0.5 text-xs rounded bg-orange-100 text-orange-700 font-medium" x-text="course.level"></span>
     </div>
   </template>
 </div>

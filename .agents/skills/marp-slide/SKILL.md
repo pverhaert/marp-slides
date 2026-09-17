@@ -59,6 +59,11 @@ For detailed theme selection guidance, read `references/theme-selection.md`.
    - 3-5 bullet points per slide
    - Adequate whitespace
    - Avoid en-dashes and em-dashes; use standard hyphens `-`
+   - **STRICT VIEWPORT FIT (1280x720):** Every slide must fit completely within the viewport without overflowing into the footer:
+     - Never stack `h2` + intro text + long code block (7+ lines) + multi-bullet cards.
+     - When a code block is longer than 6 lines, cards underneath must have max 1-2 short lines or max height 80px.
+     - Always split across multiple slides (e.g. code slide -> explanation cards slide -> comparison slide) instead of cramming content.
+     - Read `references/best-practices.md` for vertical height budgeting rules.
 
 5. Add images if needed using patterns from `references/image-patterns.md`
 

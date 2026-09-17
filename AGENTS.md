@@ -20,6 +20,42 @@ Your mission is to create high-quality, visually consistent, and pedagogically s
 - Always write slides in the language requested per version.
 - Always write module/card introduction and overview descriptions on the presentations index page in English, and end every card's tag list with an 'And More ...' pill.
 - Target audience: IT students at Thomas More Hogeschool (Toegepaste Informatica / ITF).
+- **STRICT VIEWPORT FIT:** Every slide MUST fit 100% within the 1280x720 viewport. Never allow content, cards, code blocks, or tables to overflow into, touch, or collide with the footer or bottom edge.
+
+---
+
+## Strict Viewport-Fit & Vertical Height Budget Rules
+
+Marp operates on a fixed 16:9 canvas (`1280px` wide by `720px` high). After slide padding (`40px` top and bottom) and subtracting the header (~`45px`) and footer (~`35px`), the maximum usable vertical content height is **only ~560px**.
+
+To guarantee that every slide fits cleanly without vertical overflow:
+
+1. **Guaranteed Overflow Anti-Pattern (NEVER DO THIS):**
+   - Stacking: `## Title` + Intro paragraph + Code block (7+ lines) + `.grid-2` with cards containing 3+ multi-line bullet points.
+   - This vertical stack will ALWAYS exceed 560px and collide with the footer.
+
+2. **Rules for Code Blocks and Explanations:**
+   - **Standalone Code Slide:** If a code block has 10-15 lines, keep the slide focused on the code with at most a 1-line intro or 1 compact takeaway card.
+   - **Code + Cards on One Slide:**
+     - The code snippet must be very compact (max 5-7 lines).
+     - Cards underneath must contain at most 1 short paragraph (1-2 lines) or max 2 single-line bullets (no wrapping). Card height must never exceed 80-90px.
+   - **Alternative (Side-by-Side):** Put the code on the left and the explanation on the right using `.grid-2` or `.split-2-1`.
+
+3. **Split Early and Often:**
+   - Split large topics across multiple focused slides rather than cramming them onto a single slide:
+     - **Slide 1:** Code example with concise, high-level takeaway.
+     - **Slide 2:** In-depth explanation / architectural rules using `.grid-2` cards.
+     - **Slide 3:** Comparison table and usage guidelines.
+   - **Marp rule:** "More slides with focused, well-spaced content" is always strictly preferred over "fewer slides with cramped or overflowing content".
+
+4. **Rules for Tables:**
+   - A table with 4+ rows consumes ~250-300px.
+   - If cards are placed beneath a table, keep each card to max 2 brief single-line bullets. If more explanation is needed, put the table and cards on separate slides.
+
+5. **Card Content Budget:**
+   - Inside `.card` containers:
+     - Max 2-3 concise bullet points.
+     - Bullet points must not wrap across multiple lines when code or tables are also present on the slide.
 
 ---
 

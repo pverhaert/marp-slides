@@ -19,25 +19,61 @@ console.log('Thomas More Marp scripts.js loaded.');
  * 1. Copy Code Feature for Code Blocks
  */
 function initCopyButtons() {
-  const isEn = document.documentElement.lang.startsWith('en') || 
-               (document.querySelector('header') && document.querySelector('header').innerText.includes('English'));
-  const copyLabel = isEn ? 'Copy' : 'Kopieer';
-  const copiedLabel = isEn ? 'Copied!' : 'Gekopieerd!';
+  const metaLang = document.querySelector('meta[name="marp-current-lang"]');
+  const currentLang = metaLang ? metaLang.getAttribute('content') : '';
+  const isEn = currentLang === 'english' || 
+               (!currentLang && (document.documentElement.lang.startsWith('en') || 
+                (document.querySelector('header') && document.querySelector('header').innerText.includes('English'))));
+  const tooltipText = isEn ? 'Copy code' : 'Kopieer code';
+  const copiedTooltip = isEn ? 'Copied!' : 'Gekopieerd!';
 
-  document.querySelectorAll('pre').forEach((block) => {
+  const copyIconSvg = '<svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+  const checkIconSvg = '<svg class="check-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+  document.querySelectorAll('pre, marp-pre').forEach((block) => {
+    // Avoid duplicate processing
+    if (block.parentElement && block.parentElement.classList.contains('marp-code-wrapper')) return;
     if (block.querySelector('.copy-code-btn')) return;
 
+    // Wrap block in an outer relative container to guarantee top-right positioning outside Marp auto-scaling SVG
+    const wrapper = document.createElement('div');
+    wrapper.className = 'marp-code-wrapper';
+
+    const blockStyle = window.getComputedStyle(block);
+    if (blockStyle.margin && blockStyle.margin !== '0px') {
+      wrapper.style.margin = blockStyle.margin;
+    }
+    block.style.margin = '0';
+
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(block);
+
     const btn = document.createElement('button');
+    btn.type = 'button';
     btn.className = 'copy-code-btn';
-    btn.innerText = copyLabel;
-    btn.setAttribute('aria-label', copyLabel);
+    btn.setAttribute('aria-label', tooltipText);
+    // Intentionally do NOT set title attribute to avoid browser default OS tooltip
+
+    btn.innerHTML = `
+      <span class="copy-icon-wrap">${copyIconSvg}</span>
+      <span class="check-icon-wrap">${checkIconSvg}</span>
+      <span class="copy-tooltip">${tooltipText}</span>
+    `;
+
+    const tip = btn.querySelector('.copy-tooltip');
 
     btn.addEventListener('click', async (e) => {
       e.stopPropagation();
       e.preventDefault();
 
       const codeElement = block.querySelector('code');
-      const code = codeElement ? codeElement.innerText : block.innerText;
+      let code = codeElement ? codeElement.innerText : '';
+      if (!code) {
+        const clone = block.cloneNode(true);
+        const b = clone.querySelector('.copy-code-btn');
+        if (b) b.remove();
+        code = clone.innerText;
+      }
 
       try {
         if (navigator.clipboard && window.isSecureContext) {
@@ -52,19 +88,18 @@ function initCopyButtons() {
           document.execCommand('copy');
           document.body.removeChild(textarea);
         }
-        btn.innerText = copiedLabel;
         btn.classList.add('copied');
+        if (tip) tip.textContent = copiedTooltip;
         setTimeout(() => {
-          btn.innerText = copyLabel;
           btn.classList.remove('copied');
+          if (tip) tip.textContent = tooltipText;
         }, 2000);
       } catch (err) {
         console.error('Copy failed:', err);
       }
     });
 
-    block.style.position = 'relative';
-    block.appendChild(btn);
+    wrapper.appendChild(btn);
   });
 }
 

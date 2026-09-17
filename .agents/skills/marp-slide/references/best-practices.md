@@ -93,11 +93,25 @@ The main features include the following 7 points:
 (Continued)
 ```
 
-## Using Whitespace
+## Using Whitespace & Viewport Budget (1280x720)
 
-- **Adequate whitespace**: Don't cram too much information
-- **Visual guidance**: Layout that naturally draws eyes to important information
-- **Breathing room**: Appropriate "pauses" between slides
+Marp presentation canvases are fixed at 1280x720 (16:9). The actual usable vertical content space between the header and the footer is only **~560px**.
+
+### ⚠️ Guaranteed Overflow Anti-Patterns
+- **The Stacking Trap**: Combining `## Title` + intro paragraph + code block (7+ lines) + 2 cards with 3 multi-line bullets. This will ALWAYS collide with or cover the footer.
+- **Excessive Card Content**: Bullet points that wrap across 2-3 lines inside cards stacked below code snippets.
+
+### ✅ Viewport-Fit Guidelines
+1. **Split early and often**:
+   - Slide 1: Code example with a brief 1-line takeaway.
+   - Slide 2: In-depth architectural / conceptual breakdown (e.g. using `.grid-2` cards).
+   - Slide 3: Comparison table or practical checklist.
+2. **Budgeting Code + Cards**:
+   - If a slide contains a code block (5-8 lines), cards beneath it must contain at most 1 short paragraph (1-2 lines) or max 2 single-line bullets (max card height 80px).
+   - If a code block has 9+ lines, give it its own slide or use side-by-side columns (`.grid-2` or `.split-2-1`).
+3. **Table Slides**:
+   - A comparison table with 4+ rows uses ~250px. Do not place tall cards below it; keep cards to 2 concise 1-line bullets or split into a dedicated slide.
+4. **Breathing Room**: Always ensure at least 40px of visible margin above the footer. Content must never touch or cross the footer line or page number.
 
 ## Using Colors
 
