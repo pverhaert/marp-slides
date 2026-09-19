@@ -71,7 +71,7 @@ Bij traditioneel CSS bedenk je eerst een **klassennaam** en schrijf je daarna ap
 <!-- Traditioneel: Semantische klassen -->
 <div class="chat-notification">
   <div class="chat-notification-logo-wrapper">
-    <img class="chat-notification-logo" src="img/logo.svg" alt="Logo">
+    <img class="chat-notification-logo" src="https://picsum.photos/id/41/100/100" alt="Logo">
   </div>
   <div class="chat-notification-content">
     <h4 class="chat-notification-title">Nieuw Bericht</h4>
@@ -96,7 +96,7 @@ Met Tailwind CSS bouw je componenten door **kleine, enkelvoudige utility classes
 <!-- Tailwind CSS: Utility-first -->
 <div class="p-6 max-w-sm mx-auto bg-slate-800 rounded-xl shadow-lg flex items-center gap-x-4 border border-slate-700">
   <div class="shrink-0">
-    <img class="size-12 rounded-full" src="img/logo.svg" alt="Logo">
+    <img class="size-12 rounded-full" src="https://picsum.photos/id/41/100/100" alt="Logo">
   </div>
   <div>
     <h4 class="text-xl font-medium text-white">Nieuw Bericht</h4>
@@ -213,11 +213,10 @@ Tailwind hanteert een logisch wiskundig schaalsysteem waarbij **1 unit = 0.25rem
 
 ```html
 <!-- Vaste en relatieve breedtes -->
-<div class="w-full max-w-lg h-64 min-h-screen">
+<div class="w-full max-w-lg min-h-64">
   <!-- w-full: width 100% -->
   <!-- max-w-lg: max-width 32rem (512px) -->
-  <!-- h-64: height 16rem (256px) -->
-  <!-- min-h-screen: min-height 100vh -->
+  <!-- min-h-64: min-height 16rem (256px) -->
 </div>
 
 <!-- size-* shortcut voor gelijke breedte en hoogte -->
@@ -251,7 +250,7 @@ Tailwind hanteert een logisch wiskundig schaalsysteem waarbij **1 unit = 0.25rem
 ## 3. Typografie & Tekststijlen
 
 ```html
-<h1 class="text-3xl font-bold text-white tracking-tight leading-tight uppercase">
+<h1 class="text-3xl font-bold tracking-tight leading-tight uppercase">
   Thomas More ITF
 </h1>
 <p class="text-base font-normal text-slate-400 leading-relaxed text-justify line-clamp-2">
@@ -275,7 +274,7 @@ Tailwind levert een samengesteld kleurenpalet van tint `50` (zeer licht) tot `95
 
 ```html
 <!-- Achtergrond, Tekstkleur en Randkleur -->
-<button class="bg-orange-600 text-white border border-orange-500 hover:bg-orange-700">
+<button class="p-2 bg-orange-600 text-white border border-orange-500 hover:bg-orange-700">
   Inschrijven
 </button>
 ```
@@ -307,8 +306,9 @@ Voeg eenvoudig een transparantiegraad toe achter elke kleur:
 ## 4. Box Model, Borders & Shadows
 
 ```html
-<div class="border-2 border-slate-700 border-t-orange-500 rounded-2xl shadow-xl shadow-orange-500/10 ring-1 ring-white/10">
-  <p class="p-4 text-slate-200">Prachtig gestyled component met borders en diepte.</p>
+<div
+  class="border-2 border-slate-500 rounded-xl shadow-xl/30 shadow-slate-600 ring-1 ring-white/10">
+  <p class="p-4 text-orange-700">Gestyled component met borders en diepte.</p>
 </div>
 ```
 
@@ -446,7 +446,7 @@ Tailwind werkt volgens het **Mobile-First** principe. Classes zonder voorvoegsel
 
 ```html
 <!-- 1 kolom op smartphone, 2 op tablet, 4 op desktop -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-white">
   <div class="p-4 bg-slate-800 rounded">Kaart 1</div>
   <div class="p-4 bg-slate-800 rounded">Kaart 2</div>
 </div>
@@ -485,7 +485,7 @@ Moet je een keer afwijken van het standaard design systeem? Gebruik dan **vierka
 </div>
 
 <!-- Complexe CSS functies -->
-<div class="grid grid-cols-[200px_1fr_100px] h-[calc(100vh-80px)]">
+<div class="mt-[20px] grid grid-cols-[200px_1fr_100px] h-[calc(100vh-300px)] border">
   Custom grid layout
 </div>
 ```
@@ -697,101 +697,6 @@ Tailwind CSS v4.0 is een **volledige herarchitectuur** van het framework:
 
 </div>
 </div>
-
----
-
-## 9. V4: De Nieuwe Oxide Engine
-
-In Tailwind v3 was de compiler geschreven in JavaScript en draaide bovenop PostCSS.
-In **Tailwind v4** is de core volledig herschreven in **Rust** met **Lightning CSS**:
-
-```
-[Tailwind v3 (JavaScript / PostCSS)] ---> Buildtijd: 300ms - 2000ms
-[Tailwind v4 (Rust Oxide Engine)]    ---> Buildtijd: 3ms - 30ms (100x sneller!)
-```
-
-### Waarom maakt dit een enorm verschil?
-
-- **Full Builds:** Tot **5x sneller** bij het starten van je ontwikkelserver.
-- **Incrementele HMR (Hot Module Replacement):** Updates in **microseconden** tijdens het typen.
-- **Geen zware PostCSS pipeline meer nodig:** Werkt direct via snelle bundler plugins (Vite, Next.js).
-
----
-
-## 9. V4: CSS-First Configuratie met `@theme`
-
-In Tailwind v3 moest je een complex JavaScript bestand `tailwind.config.js` onderhouden.
-In **Tailwind v4** configureer je je hele design system direct in je CSS-bestand:
-
-```css
-/* style.css */
-@import "tailwindcss";
-
-@theme {
-  /* Custom Merkkleuren definiëren */
-  --color-tmk-orange: #e84e10;
-  --color-tmk-dark: #0f141c;
-  --color-tmk-blue: #009cab;
-
-  /* Custom Typografie */
-  --font-display: 'Outfit', sans-serif;
-  --font-code: 'Fira Code', monospace;
-
-  /* Custom Breakpoints toevoegen */
-  --breakpoint-3xl: 1920px;
-}
-```
-
-> **Magie van v4:** Deze CSS variabelen worden **automatisch classes** (`bg-tmk-orange`, `font-display`) én blijven runtime beschikbaar als standaard CSS custom properties (`var(--color-tmk-orange)`)!
-
----
-
-## 9. V4: Automatische Content Detectie
-
-In Tailwind v3 moest je handmatig elk bestandspad opgeven in `content: [...]`:
-
-```javascript
-// OUD (v3 tailwind.config.js) - NIET MEER NODIG!
-module.exports = {
-  content: ["./src/**/*.{html,js,ts,jsx,tsx,vue}"],
-  theme: { ... }
-}
-```
-
-```css
-/* NIEUW (v4 style.css) - Volledig Automatisch! */
-@import "tailwindcss";
-```
-
-### Hoe werkt het in v4?
-
-- De Oxide compiler scant automatisch je projectdirectory op zoek naar bronbestanden (`.html`, `.tsx`, `.vue`, `.php`, etc.).
-- Negeert automatisch `node_modules` en `.git`.
-- Nooit meer vergeten een nieuw pad of map toe te voegen!
-
----
-
-## 9. V4: Moderne Web Platform Integraties
-
-Tailwind CSS v4 omarmt de nieuwste CSS standaarden van de browser:
-
-### 1. OKLCH & Wide-Gamut P3 Kleuren
-
-- Kleuren worden berekend in de moderne **OKLCH kleurruimte** voor helderdere, levendigere tinten op moderne schermen (iPhone, Mac, OLED).
-
-### 2. Ingebouwde Container Queries
-
-- Geen externe `@tailwindcss/container-queries` plugin meer nodig:
-
-  ```html
-  <div class="@container">
-    <div class="grid grid-cols-1 @md:grid-cols-2">...</div>
-  </div>
-  ```
-
-### 3. Native `@starting-style` voor Enter Animaties
-
-- Elementen vloeiend animeren wanneer ze in de DOM worden ingevoegd (modals, dropdowns).
 
 ---
 

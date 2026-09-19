@@ -71,7 +71,7 @@ In traditional CSS development, you invent a **class name** first and then write
 <!-- Traditional: Semantic classes -->
 <div class="chat-notification">
   <div class="chat-notification-logo-wrapper">
-    <img class="chat-notification-logo" src="img/logo.svg" alt="Logo">
+    <img class="chat-notification-logo" src="https://picsum.photos/id/41/100/100" alt="Logo">
   </div>
   <div class="chat-notification-content">
     <h4 class="chat-notification-title">New Message</h4>
@@ -96,7 +96,7 @@ With Tailwind CSS, you compose interfaces by combining **small, single-purpose u
 <!-- Tailwind CSS: Utility-first -->
 <div class="p-6 max-w-sm mx-auto bg-slate-800 rounded-xl shadow-lg flex items-center gap-x-4 border border-slate-700">
   <div class="shrink-0">
-    <img class="size-12 rounded-full" src="img/logo.svg" alt="Logo">
+    <img class="size-12 rounded-full" src="https://picsum.photos/id/41/100/100" alt="Logo">
   </div>
   <div>
     <h4 class="text-xl font-medium text-white">New Message</h4>
@@ -213,11 +213,10 @@ Tailwind uses a 4px-based scaling system where **1 unit = 0.25rem = 4px**:
 
 ```html
 <!-- Fixed and relative sizing -->
-<div class="w-full max-w-lg h-64 min-h-screen">
+<div class="w-full max-w-lg min-h-64">
   <!-- w-full: width 100% -->
   <!-- max-w-lg: max-width 32rem (512px) -->
-  <!-- h-64: height 16rem (256px) -->
-  <!-- min-h-screen: min-height 100vh -->
+  <!-- min-h-64: min-height 16rem (256px) -->
 </div>
 
 <!-- size-* shortcut for square dimensions -->
@@ -251,7 +250,7 @@ Tailwind uses a 4px-based scaling system where **1 unit = 0.25rem = 4px**:
 ## 3. Typography & Text Styles
 
 ```html
-<h1 class="text-3xl font-bold text-white tracking-tight leading-tight uppercase">
+<h1 class="text-3xl font-bold tracking-tight leading-tight uppercase">
   Thomas More ITF
 </h1>
 <p class="text-base font-normal text-slate-400 leading-relaxed text-justify line-clamp-2">
@@ -307,8 +306,9 @@ Easily apply alpha transparency to any color utility:
 ## 4. Box Model, Borders & Shadows
 
 ```html
-<div class="border-2 border-slate-700 border-t-orange-500 rounded-2xl shadow-xl shadow-orange-500/10 ring-1 ring-white/10">
-  <p class="p-4 text-slate-200">Visually striking card with borders and elevation.</p>
+<div
+  class="border-2 border-slate-500 rounded-xl shadow-xl/30 shadow-slate-600 ring-1 ring-white/10">
+  <p class="p-4 text-orange-700">Visually striking card with borders and elevation.</p>
 </div>
 ```
 
@@ -446,7 +446,7 @@ Tailwind adheres to the **Mobile-First** approach. Unprefixed classes target mob
 
 ```html
 <!-- 1 column on mobile, 2 on tablet, 4 on desktop -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-white">
   <div class="p-4 bg-slate-800 rounded">Card 1</div>
   <div class="p-4 bg-slate-800 rounded">Card 2</div>
 </div>
@@ -485,7 +485,7 @@ Need to break outside the default design tokens for a unique edge-case? Use **sq
 </div>
 
 <!-- Complex CSS functions -->
-<div class="grid grid-cols-[200px_1fr_100px] h-[calc(100vh-80px)]">
+<div class="mt-[20px] grid grid-cols-[200px_1fr_100px] h-[calc(100vh-300px)] border">
   Custom grid structure
 </div>
 ```
@@ -697,101 +697,6 @@ Tailwind CSS v4.0 is a **ground-up re-architecture** of the framework:
 
 </div>
 </div>
-
----
-
-## 9. V4: The New Oxide Engine
-
-In Tailwind v3, the compiler was written in JavaScript on top of PostCSS.
-In **Tailwind v4**, the engine is completely rewritten in **Rust** powered by **Lightning CSS**:
-
-```
-[Tailwind v3 (JavaScript / PostCSS)] ---> Build time: 300ms - 2000ms
-[Tailwind v4 (Rust Oxide Engine)]    ---> Build time: 3ms - 30ms (100x faster!)
-```
-
-### Why does this matter?
-
-- **Full Builds:** Up to **5x faster** cold builds when starting your dev server.
-- **Incremental HMR:** Hot Module Replacement updates in **microseconds** while typing.
-- **Lighter Toolchain:** No heavy PostCSS plugin pipeline required.
-
----
-
-## 9. V4: CSS-First Configuration with `@theme`
-
-In Tailwind v3, customizing tokens required a complex JavaScript configuration file.
-In **Tailwind v4**, your entire design system lives natively in your CSS stylesheet:
-
-```css
-/* style.css */
-@import "tailwindcss";
-
-@theme {
-  /* Define Custom Brand Colors */
-  --color-tmk-orange: #e84e10;
-  --color-tmk-dark: #0f141c;
-  --color-tmk-blue: #009cab;
-
-  /* Custom Typography */
-  --font-display: 'Outfit', sans-serif;
-  --font-code: 'Fira Code', monospace;
-
-  /* Custom Breakpoints */
-  --breakpoint-3xl: 1920px;
-}
-```
-
-> **The Power of v4:** Variables defined in `@theme` generate **both utility classes** (`bg-tmk-orange`, `font-display`) and remain available at runtime as standard CSS variables (`var(--color-tmk-orange)`)!
-
----
-
-## 9. V4: Automatic Content Discovery
-
-In Tailwind v3, you had to manually maintain an array of template paths in `content: [...]`:
-
-```javascript
-// OLD (v3 tailwind.config.js) - NO LONGER NEEDED!
-module.exports = {
-  content: ["./src/**/*.{html,js,ts,jsx,tsx,vue}"],
-  theme: { ... }
-}
-```
-
-```css
-/* NEW (v4 style.css) - Fully Automatic! */
-@import "tailwindcss";
-```
-
-### How it works in v4
-
-- The Oxide compiler automatically scans your workspace for template files (`.html`, `.tsx`, `.vue`, `.php`, etc.).
-- Automatically ignores `node_modules` and `.git`.
-- You never have to worry about missing classes from a new directory!
-
----
-
-## 9. V4: Modern Web Platform Integrations
-
-Tailwind CSS v4 embraces the latest browser CSS standards:
-
-### 1. OKLCH & Wide-Gamut P3 Colors
-
-- Palette calculations utilize the modern **OKLCH color space** for more vivid, realistic hues on high-end displays (OLED, Retina).
-
-### 2. Built-in Container Queries
-
-- No separate `@tailwindcss/container-queries` plugin required:
-
-  ```html
-  <div class="@container">
-    <div class="grid grid-cols-1 @md:grid-cols-2">...</div>
-  </div>
-  ```
-
-### 3. Native `@starting-style` for Entrance Animations
-
-- Smooth entry animations when elements enter the DOM (modals, dropdowns).
 
 ---
 
