@@ -355,8 +355,8 @@ In vergelijking met Java, JavaScript en Python valt direct het dollarteken op:
 
 ```php
 $student1 = 'John Doe';
+$student2 = "Jane Smith";
 $percentage1 = 73.08;
-$student2 = 'Jane Smith';
 $hasGraduated = true;
 ```
 
@@ -413,7 +413,7 @@ PHP is een dynamisch getypeerde taal: het type van een variabele wordt bepaald o
 
 ---
 
-## 3. Type Juggling vs. Strikte Typering <span class="badge">PHP 8 Best Practice</span>
+## 3. Type Juggling vs. Strikte Typering <span class="badge">Optioneel</span>
 
 Standaard probeert PHP types automatisch om te zetten naar het verwachte type (**type juggling**). Met `declare(strict_types=1);` dwing je strikte types af:
 

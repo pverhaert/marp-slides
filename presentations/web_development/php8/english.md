@@ -355,8 +355,8 @@ Compared to Java, JavaScript and Python, the dollar sign immediately stands out:
 
 ```php
 $student1 = 'John Doe';
+$student2 = "Jane Smith";
 $percentage1 = 73.08;
-$student2 = 'Jane Smith';
 $hasGraduated = true;
 ```
 
@@ -413,7 +413,7 @@ PHP is a dynamically typed language: the type of a variable is inferred based on
 
 ---
 
-## 3. Type Juggling vs. Strict Typing <span class="badge">PHP 8 Best Practice</span>
+## 3. Type Juggling vs. Strict Typing <span class="badge">Optional</span>
 
 By default, PHP attempts to convert types automatically to the expected type (**type juggling**). With `declare(strict_types=1);`, you enforce strict type checking:
 

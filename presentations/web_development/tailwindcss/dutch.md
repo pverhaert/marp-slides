@@ -37,8 +37,9 @@ footer: 'Web Development - Thomas More Hogeschool'
 
 Wil je de voorbeeldcode uit deze presentatie direct live uittesten zonder lokale installatie?
 
-Gebruik de officiële interactieve playground:
-**[play.tailwindcss.com](https://play.tailwindcss.com)**
+Gebruik de officiële interactieve playground: **[play.tailwindcss.com](https://play.tailwindcss.com)**
+
+Of de AlpineJS interactieve palayground: **[https://alpine-lab.netlify.app/](https://alpine-lab.netlify.app/)**
 
 <div class="grid-2">
 <div class="card">
@@ -270,7 +271,8 @@ Tailwind hanteert een logisch wiskundig schaalsysteem waarbij **1 unit = 0.25rem
 
 ## 3. Het Uitgebreide Kleurenpalet
 
-Tailwind levert een samengesteld kleurenpalet van tint `50` (zeer licht) tot `950` (zeer donker):
+Tailwind levert een samengesteld kleurenpalet van tint `50` (zeer licht) tot `950` (zeer donker):  
+[https://tailwindcss.com/docs/colors](https://tailwindcss.com/docs/colors)
 
 ```html
 <!-- Achtergrond, Tekstkleur en Randkleur -->
@@ -303,7 +305,7 @@ Voeg eenvoudig een transparantiegraad toe achter elke kleur:
 
 ---
 
-## 4. Box Model, Borders & Shadows
+## 4. Borders & Shadows
 
 ```html
 <div

@@ -1470,6 +1470,53 @@ function initOverviewQuickLook() {
   }, { passive: true });
 }
 
+/**
+ * 9. External Links: open all external links in a new window/tab safely
+ */
+function initExternalLinks() {
+  function processLinks(root = document) {
+    const links = root.querySelectorAll ? root.querySelectorAll('a[href]') : [];
+    links.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) {
+        return;
+      }
+      try {
+        const isHttp = /^https?:\/\//i.test(href);
+        if (!isHttp) return;
+
+        const isExternal =
+          window.location.protocol === 'http:' || window.location.protocol === 'https:'
+            ? new URL(link.href, window.location.href).origin !== window.location.origin
+            : true;
+
+        if (isExternal) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      } catch (e) {}
+    });
+  }
+
+  processLinks();
+
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      for (const node of mutation.addedNodes) {
+        if (node.nodeType === 1) {
+          if (node.tagName === 'A') {
+            processLinks(node.parentElement || document);
+          } else if (node.querySelectorAll) {
+            processLinks(node);
+          }
+        }
+      }
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
 // Global initialization function
 function initMarpScripts() {
   initFavicon();
@@ -1480,6 +1527,7 @@ function initMarpScripts() {
   initTableOfContents();
   initSlideZoom();
   initOverviewQuickLook();
+  initExternalLinks();
 }
 
 window.copyCode = initCopyButtons;
@@ -1489,6 +1537,7 @@ window.initProgressBar = initProgressBar;
 window.initSettingsModal = initSettingsModal;
 window.initSlideZoom = initSlideZoom;
 window.initOverviewQuickLook = initOverviewQuickLook;
+window.initExternalLinks = initExternalLinks;
 window.applyTheme = applyTheme;
 window.initMarpScripts = initMarpScripts;
 

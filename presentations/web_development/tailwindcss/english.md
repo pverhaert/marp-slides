@@ -37,8 +37,9 @@ footer: 'Web Development - Thomas More University of Applied Sciences'
 
 Want to test the example code from this presentation immediately without any local setup?
 
-Use the official interactive playground:
-**[play.tailwindcss.com](https://play.tailwindcss.com)**
+Use the official interactive playground: **[play.tailwindcss.com](https://play.tailwindcss.com)**
+
+Or the AlpineJS interactive playground: **[https://alpine-lab.netlify.app/](https://alpine-lab.netlify.app/)**
 
 <div class="grid-2">
 <div class="card">
@@ -270,7 +271,8 @@ Tailwind uses a 4px-based scaling system where **1 unit = 0.25rem = 4px**:
 
 ## 3. The Color Palette
 
-Tailwind provides an expertly calibrated color scale from `50` (lightest) to `950` (darkest):
+Tailwind provides an expertly calibrated color scale from `50` (lightest) to `950` (darkest):  
+[https://tailwindcss.com/docs/colors](https://tailwindcss.com/docs/colors)
 
 ```html
 <!-- Background, text, and border colors -->
@@ -303,7 +305,7 @@ Easily apply alpha transparency to any color utility:
 
 ---
 
-## 4. Box Model, Borders & Shadows
+## 4. Borders & Shadows
 
 ```html
 <div
