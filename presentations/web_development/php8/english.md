@@ -27,7 +27,7 @@ footer: 'Web Development - Thomas More Hogeschool'
 4. **Operators & Evaluation** - Arithmetic, assignment, strict equality and booleans
 5. **Control Structures** - `if/else`, ternary operator, null coalescing (`??`), `switch` vs `match`, loops
 6. **Arrays & Objects** - Indexed, associative, multidimensional, `stdClass` and debugging
-7. **Functions & Typing** - Return types, default values, references, nullable types and arrow functions
+7. **Functions & Typing** - Return types, type hinting, arrow functions and built-in functions
 8. **Form Processing** - `$_GET` vs `$_POST`, `isset()` vs `empty()` and single page processing
 9. **Classes & OOP** - Properties, mutators, namespaces, constructors, method chaining and static methods
 
@@ -1378,6 +1378,293 @@ include_once '../shared/functions.php'; // Loads the file exactly once
 
 *Always use relative paths or `$_SERVER['DOCUMENT_ROOT'] . '/shared/...'`. In PHP, a path starting with `/` points to the server system root, not your project directory!*
 
+</div>
+
+---
+
+## 7. Built-in Functions: Array Functions (Searching & Sorting)
+
+PHP provides powerful built-in functions for searching and sorting arrays:
+
+<div class="grid-2">
+<div class="card">
+
+#### Searching with `in_array()`
+
+Checks whether a specified value exists in an array:
+
+```php
+$students = [
+    'Doe, John' => 'r0662335',
+    'Doe, Jane' => 'r0715283'
+];
+
+$found = in_array('r0715283', $students); // true
+```
+
+- Returns a boolean `true` or `false`
+- Searches by **value** by default, not by key
+
+</div>
+<div class="card">
+
+#### Sorting: Value vs. Key
+
+Maintaining index association in associative arrays:
+
+```php
+// Sort by VALUE (ascending / descending)
+asort($students);  // Value A-Z (index kept)
+arsort($students); // Value Z-A
+
+// Sort by KEY (ascending / descending)
+ksort($students);  // Key A-Z
+krsort($students); // Key Z-A
+```
+
+- `asort` / `arsort`: sorts by values
+- `ksort` / `krsort`: sorts by keys
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functions: Array Functions (Manipulation & `compact`)
+
+Adding elements, joining items, and bundling variables into an array:
+
+<div class="grid-2">
+<div class="card">
+
+#### Adding Elements & Joining
+
+Manipulating elements and converting to text:
+
+```php
+$colors = ['red', 'green'];
+
+$colors[] = 'blue';             // Faster for 1 element
+array_push($colors, 'purple');  // Or multiple at once
+array_unshift($colors, 'yellow'); // Prepend to beginning
+
+$list = implode(', ', $colors); // "yellow, red, ..."
+```
+
+- `$arr[] = ...`: preferred and faster than `array_push()` for 1 item
+- `array_push()`: convenient for appending multiple values at once
+- `implode($sep, $arr)`: joins array elements into a string
+
+</div>
+<div class="card card-accent">
+
+#### The `compact()` Function <span class="badge">Common in Laravel</span>
+
+Builds an associative array from existing variables:
+
+```php
+$name  = 'John Doe';
+$email = 'john@example.com';
+
+// Creates: ['name' => $name, 'email' => $email]
+$user = compact('name', 'email');
+```
+
+- Variable names become the keys of the array
+- Unmatched or missing variables are silently skipped
+- Frequently used in Laravel and Livewire to pass data to views
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functions: String Functions (Basic Operations)
+
+Text manipulation is one of the most common tasks in web applications:
+
+<div class="grid-2">
+<div class="card">
+
+#### Length, Search & Substrings
+
+Determining positions and substrings in PHP:
+
+```php
+$text = 'Applied Computer Science';
+
+$length = strlen($text);          // 24 characters
+$pos    = strpos($text, 'Comp');  // Position 8
+$sub    = substr($text, $pos, 4); // "Comp"
+```
+
+- `strlen($str)`: returns string character length
+- `strpos($haystack, $needle)`: first occurrence (0-based)
+- `substr($str, $start, $length)`: extracts a substring
+
+</div>
+<div class="card">
+
+#### Replace, Casing & Splitting
+
+Common string transformations:
+
+```php
+$title = 'web development';
+
+$capital = ucfirst($title);       // "Web development"
+$upper   = strtoupper($title);    // "WEB DEVELOPMENT"
+$clean   = str_replace('web', 'PHP', $title);
+
+// Split string into an array by delimiter
+$words   = explode(' ', $title);  // ['web', 'development']
+```
+
+- `explode()`: splits string into an array (counterpart to `implode`)
+- `str_replace()`: replaces all occurrences of search term
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functions: String Functions (PHP 8 Helpers & Numbers)
+
+Modern string inspection helpers and number formatting for clean output:
+
+<div class="grid-2">
+<div class="card card-cyan">
+
+#### Modern PHP 8 String Helpers
+
+Readable replacements for legacy `strpos() !== false` checks:
+
+```php
+$url = 'https://itf-webdev.netlify.app/php';
+
+// Each returns a clear boolean:
+str_starts_with($url, 'https://'); // true
+str_contains($url, 'webdev');       // true
+str_ends_with($url, '.php');        // false
+```
+
+- Return direct `true` or `false`
+- Case-sensitive checks
+- Avoids ambiguous comparisons between index `0` and `false`
+
+</div>
+<div class="card">
+
+#### Formatting Numbers: `number_format()`
+
+Presenting prices or formatted decimals:
+
+```php
+$price = 1499.95;
+
+// number_format($num, $dec, $decPoint, $thousandsSep)
+$formatted = number_format($price, 2, '.', ',');
+// Result: "1,499.95"
+
+$score = number_format(18.756, 1); 
+// Result: "18.8" (rounded)
+```
+
+- Controls number of decimal places and rounding
+- Configurable decimal point and thousands separator
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functions: Date & Time (Timestamps & `date()`)
+
+PHP tracks time using the **Unix timestamp**: seconds elapsed since January 1, 1970 00:00:00 GMT:
+
+<div class="grid-2">
+<div class="card">
+
+#### Generating Timestamps
+
+Fetching the current time or computing a specific point in time:
+
+```php
+// Current Unix timestamp (e.g. 1774785600)
+$now = time(); 
+
+// mktime($hour, $min, $sec, $month, $day, $year)
+$christmas = mktime(0, 0, 0, 12, 25, 2026);
+
+// Date math: 4 weeks into the future
+$later = mktime(0, 0, 0, date('m'), date('d') + 28, date('Y'));
+```
+
+- `time()`: current timestamp in seconds
+- `mktime()`: computes timestamp for a specified date and time
+
+</div>
+<div class="card">
+
+#### Displaying Dates with `date()`
+
+Converts a timestamp into human-readable text:
+
+```php
+// Without timestamp: uses current server time
+echo date('d/m/Y');           // "28/09/2026"
+echo date('H:i:s');           // "13:30:00"
+
+// With explicit timestamp:
+echo date('l d F Y', $christmas); 
+// "Friday 25 December 2026"
+```
+
+- First argument: format string
+- Second argument (optional): Unix timestamp
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functions: Date & Time (Formatting & Timezones)
+
+Overview of common formatting codes and configuring the server timezone:
+
+<div class="grid-2">
+<div class="card">
+
+#### Common Formatting Codes
+
+| Code | Meaning | Value / Example |
+| :--- | :--- | :--- |
+| `d` / `j` | Day of the month | `01` - `31` / `1` - `31` |
+| `D` / `l` | Day of the week (text) | `Mon` - `Sun` / `Monday` |
+| `m` / `n` | Month number | `01` - `12` / `1` - `12` |
+| `F` / `M` | Month name (text) | `January` / `Jan` |
+| `Y` / `y` | Year (4 / 2 digits) | `2026` / `26` |
+| `H` / `h` | Hour (24h / 12h format) | `00` - `23` / `01` - `12` |
+| `i` / `s` | Minutes / seconds | `00` - `59` / `00` - `59` |
+
+</div>
+<div class="card card-accent">
+
+#### Configuring Server Timezone
+
+Displayed time may differ if the server defaults to UTC:
+
+```php
+// Configure the timezone for Belgium:
+date_default_timezone_set('Europe/Brussels');
+
+echo date('H:i:s'); // Correct local time
+```
+
+- Call this once at the top of a shared bootstrap file (e.g. `shared/meta.php`)
+- Ensures all `date()` calls consistently use the Belgian timezone
+
+</div>
 </div>
 
 ---

@@ -27,7 +27,7 @@ footer: 'Web Development - Thomas More Hogeschool'
 4. **Operatoren & Evaluatie** - Rekenkundig, toewijzing, strikte gelijkheid en booleans
 5. **Controlestructuren** - `if/else`, ternary operator, null coalescing (`??`), `switch` vs `match`, loops
 6. **Arrays & Objecten** - Geïndexeerd, associatief, multidimensionaal, `stdClass` en debugging
-7. **Functies & Typering** - Return types, default values, references, nullable types en arrow functions
+7. **Functies & Typering** - Return types, type hinting, arrow functies en built-in functies
 8. **Formulieren Verwerken** - `$_GET` vs `$_POST`, `isset()` vs `empty()` en single page processing
 9. **Klassen & OOP** - Properties, mutators, namespaces, constructors, method chaining en statische methoden
 
@@ -1413,6 +1413,293 @@ include_once '../shared/functions.php'; // Laadt het bestand eenmalig in
 
 *Gebruik altijd relatieve paden of `$_SERVER['DOCUMENT_ROOT'] . '/shared/...'`. Een pad dat start met `/` verwijst in PHP immers naar de root van het serversysteem, niet naar je projectmap!*
 
+</div>
+
+---
+
+## 7. Built-in Functies: Array Functies (Zoeken & Sorteren)
+
+PHP biedt krachtige ingebouwde functies voor het doorzoeken en sorteren van arrays:
+
+<div class="grid-2">
+<div class="card">
+
+#### Zoeken met `in_array()`
+
+Controleert of een specifieke waarde voorkomt in een array:
+
+```php
+$students = [
+    'Doe, John' => 'r0662335',
+    'Doe, Jane' => 'r0715283'
+];
+
+$found = in_array('r0715283', $students); // true
+```
+
+- Geeft een boolean `true` of `false` terug
+- Zoekt standaard op **waarde**, niet op key
+
+</div>
+<div class="card">
+
+#### Sorteren: Waarde vs. Sleutel
+
+Behoud van indexassociatie bij associatieve arrays:
+
+```php
+// Sorteren op WAARDE (oplopend / aflopend)
+asort($students);  // Waarde A-Z (index blijft)
+arsort($students); // Waarde Z-A
+
+// Sorteren op KEY (oplopend / aflopend)
+ksort($students);  // Sleutel A-Z
+krsort($students); // Sleutel Z-A
+```
+
+- `asort` / `arsort`: sorteert op waarden
+- `ksort` / `krsort`: sorteert op sleutels
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functies: Array Functies (Manipulatie & `compact`)
+
+Elementen toevoegen, samenvoegen en variabelen snel bundelen in een array:
+
+<div class="grid-2">
+<div class="card">
+
+#### Elementen Toevoegen & Samenvoegen
+
+Elementen manipuleren en omzetten naar tekst:
+
+```php
+$colors = ['rood', 'groen'];
+
+$colors[] = 'blauw';            // Sneller voor 1 element
+array_push($colors, 'paars');   // Of meerdere tegelijk
+array_unshift($colors, 'geel'); // Vooraan toevoegen
+
+$list = implode(', ', $colors); // "geel, rood, ..."
+```
+
+- `$arr[] = ...`: sneller en moderner dan `array_push()` voor 1 item
+- `array_push()`: handig om meerdere waarden tegelijk toe te voegen
+- `implode($sep, $arr)`: voegt array-items samen tot een string
+
+</div>
+<div class="card card-accent">
+
+#### De `compact()` Functie <span class="badge">Veel in Laravel</span>
+
+Bouwt een associatieve array van bestaande variabelen:
+
+```php
+$name  = 'John Doe';
+$email = 'john@example.com';
+
+// Maakt: ['name' => $name, 'email' => $email]
+$user = compact('name', 'email');
+```
+
+- Variabelenamen worden de keys van de array
+- Onbekende of ontbrekende variabelen worden overgeslagen
+- Veelvuldig gebruikt in Laravel en Livewire om data naar een view te sturen
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functies: String Functies (Basisbewerkingen)
+
+Tekstmanipulatie is een van de meest voorkomende taken in webapplicaties:
+
+<div class="grid-2">
+<div class="card">
+
+#### Lengte, Zoeken & Deelstrings
+
+Posities en deelstrings bepalen in PHP:
+
+```php
+$text = 'Toegepaste Informatica';
+
+$length = strlen($text);          // 22 tekens
+$pos    = strpos($text, 'Info');  // Positie 11
+$sub    = substr($text, $pos, 4); // "Info"
+```
+
+- `strlen($str)`: telt het aantal karakters
+- `strpos($haystack, $needle)`: eerste positie (0-based)
+- `substr($str, $start, $length)`: haalt deeltekst op
+
+</div>
+<div class="card">
+
+#### Vervangen, Hoofdletters & Splitsen
+
+Veelgebruikte transformaties op strings:
+
+```php
+$title = 'web development';
+
+$capital = ucfirst($title);       // "Web development"
+$upper   = strtoupper($title);    // "WEB DEVELOPMENT"
+$clean   = str_replace('web', 'PHP', $title);
+
+// Tekst splitsen naar array op scheidingsteken
+$words   = explode(' ', $title);  // ['web', 'development']
+```
+
+- `explode()`: zet string om naar array (tegenhanger `implode`)
+- `str_replace()`: vervangt alle instanties van zoekterm
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functies: String Functies (PHP 8 Helpers & Cijfers)
+
+Moderne helpers voor string-inspectie en getalformattering voor nette output:
+
+<div class="grid-2">
+<div class="card card-cyan">
+
+#### Moderne PHP 8 String Helpers
+
+Leesbare alternatieven voor verouderde `strpos() !== false` checks:
+
+```php
+$url = 'https://itf-webdev.netlify.app/php';
+
+// Geeft telkens een duidelijke boolean terug:
+str_starts_with($url, 'https://'); // true
+str_contains($url, 'webdev');       // true
+str_ends_with($url, '.php');        // false
+```
+
+- Retourneren direct `true` of `false`
+- Hoofdlettergevoelig (case-sensitive)
+- Geen verwarring meer tussen positie `0` en `false`
+
+</div>
+<div class="card">
+
+#### Getallen Formatteren: `number_format()`
+
+Bedragen of percentages netjes presenteren:
+
+```php
+$price = 1499.95;
+
+// number_format($num, $dec, $decPoint, $thousandsSep)
+$formatted = number_format($price, 2, ',', '.');
+// Resultaat: "1.499,95"
+
+$score = number_format(18.756, 1); 
+// Resultaat: "18.8" (afgerond)
+```
+
+- Bepaalt aantal decimalen en afronding
+- Configureerbaar decimaal- en duizendtallen-scheidingsteken
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functies: Datum & Tijd (Timestamps & `date()`)
+
+PHP meet tijd via de **Unix timestamp**: seconden sinds 1 januari 1970 00:00:00 GMT:
+
+<div class="grid-2">
+<div class="card">
+
+#### Timestamps Genereren
+
+De huidige tijd ophalen of een specifiek tijdstip berekenen:
+
+```php
+// Huidige Unix timestamp (bijv. 1774785600)
+$now = time(); 
+
+// mktime($hour, $min, $sec, $month, $day, $year)
+$kerstmis = mktime(0, 0, 0, 12, 25, 2026);
+
+// Datum rekenen: 4 weken in de toekomst
+$later = mktime(0, 0, 0, date('m'), date('d') + 28, date('Y'));
+```
+
+- `time()`: actuele tijdstempel in seconden
+- `mktime()`: berekent timestamp voor een opgegeven datum
+
+</div>
+<div class="card">
+
+#### Datum Weergeven met `date()`
+
+Zet een timestamp om naar een leesbare tekst:
+
+```php
+// Zonder timestamp: gebruikt actuele servertijd
+echo date('d/m/Y');           // "28/09/2026"
+echo date('H:i:s');           // "13:30:00"
+
+// Met expliciete timestamp:
+echo date('l d F Y', $kerstmis); 
+// "Friday 25 December 2026"
+```
+
+- Eerste parameter: formatteerstring
+- Tweede parameter (optioneel): Unix timestamp
+
+</div>
+</div>
+
+---
+
+## 7. Built-in Functies: Datum & Tijd (Formattering & Tijdzones)
+
+Overzicht van de belangrijkste formatteercodes en het correct instellen van de tijdzone:
+
+<div class="grid-2">
+<div class="card">
+
+#### Veelgebruikte Formatteercodes
+
+| Code | Betekenis | Waarde / Voorbeeld |
+| :--- | :--- | :--- |
+| `d` / `j` | Dag van de maand | `01` - `31` / `1` - `31` |
+| `D` / `l` | Dag van de week (tekst) | `Mon` - `Sun` / `Monday` |
+| `m` / `n` | Maandnummer | `01` - `12` / `1` - `12` |
+| `F` / `M` | Maandnaam (tekst) | `January` / `Jan` |
+| `Y` / `y` | Jaartal (4 / 2 cijfers) | `2026` / `26` |
+| `H` / `h` | Uur (24u / 12u formaat) | `00` - `23` / `01` - `12` |
+| `i` / `s` | Minuten / seconden | `00` - `59` / `00` - `59` |
+
+</div>
+<div class="card card-accent">
+
+#### Server Tijdzone Instellen
+
+De weergegeven tijd kan afwijken als de serverklok op UTC staat:
+
+```php
+// Stel de juiste tijdzone in voor België:
+date_default_timezone_set('Europe/Brussels');
+
+echo date('H:i:s'); // Correcte lokale tijd
+```
+
+- Roep dit eenmalig aan bovenaan een gedeeld bestand (bijv. `shared/meta.php`)
+- Zorgt ervoor dat alle `date()` aanroepen uniform de Belgische tijdzone hanteren
+
+</div>
 </div>
 
 ---
