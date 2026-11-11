@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" width="380" height="420">
+  <rect width="380" height="420" rx="14" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="190" y="34" fill="#ffffff" font-family="Outfit, sans-serif" font-size="16" font-weight="700" text-anchor="middle">3D Coordinate Axes (X, Y, Z)</text>
+
+  <rect x="24" y="54" width="332" height="270" rx="10" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+
+  <!-- Origin -->
+  <circle cx="190" cy="184" r="5" fill="#ffffff"/>
+
+  <!-- Y axis -->
+  <line x1="190" y1="84" x2="190" y2="288" stroke="#38d9e7" stroke-width="2.5"/>
+  <polygon points="190,76 185,88 195,88" fill="#38d9e7"/>
+  <polygon points="190,296 185,284 195,284" fill="#38d9e7"/>
+  <text x="202" y="88" fill="#38d9e7" font-family="Fira Code, monospace" font-size="13" font-weight="700">-Y (up)</text>
+  <text x="202" y="294" fill="#38d9e7" font-family="Fira Code, monospace" font-size="13" font-weight="700">+Y (down)</text>
+
+  <!-- X axis -->
+  <line x1="68" y1="184" x2="312" y2="184" stroke="#ff753a" stroke-width="2.5"/>
+  <polygon points="58,184 70,179 70,189" fill="#ff753a"/>
+  <polygon points="322,184 310,179 310,189" fill="#ff753a"/>
+  <text x="42" y="172" fill="#ff753a" font-family="Fira Code, monospace" font-size="13" font-weight="700">-X</text>
+  <text x="308" y="172" fill="#ff753a" font-family="Fira Code, monospace" font-size="13" font-weight="700">+X</text>
+
+  <!-- Z axis -->
+  <line x1="256" y1="118" x2="124" y2="250" stroke="#e6edf3" stroke-width="2.5"/>
+  <polygon points="264,110 251,116 258,123" fill="#e6edf3"/>
+  <polygon points="116,258 129,252 122,245" fill="#e6edf3"/>
+  <text x="242" y="106" fill="#94a3b8" font-family="Fira Code, monospace" font-size="12" font-weight="700">-Z (into screen)</text>
+  <text x="58" y="276" fill="#ffffff" font-family="Fira Code, monospace" font-size="12" font-weight="700">+Z (toward viewer)</text>
+
+  <!-- Summary strip -->
+  <rect x="24" y="338" width="332" height="64" rx="10" fill="#0f141c" stroke="#2c3647"/>
+  <text x="40" y="364" fill="#38d9e7" font-family="Fira Code, monospace" font-size="12" font-weight="700">+Z: closer / larger</text>
+  <text x="40" y="386" fill="#ff753a" font-family="Fira Code, monospace" font-size="12" font-weight="700">-Z: deeper / smaller</text>
+</svg>
+

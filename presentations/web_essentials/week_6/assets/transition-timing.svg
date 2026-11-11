@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" width="380" height="420">
+  <rect width="380" height="420" rx="14" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="190" y="34" fill="#ffffff" font-family="Outfit, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Timing Functions (0% -> 100%)</text>
+
+  <!-- linear -->
+  <rect x="24" y="54" width="156" height="106" rx="8" fill="#0f141c" stroke="#2c3647"/>
+  <text x="102" y="75" fill="#38d9e7" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">linear</text>
+  <path d="M 46 144 L 158 88" fill="none" stroke="#38d9e7" stroke-width="3"/>
+
+  <!-- ease -->
+  <rect x="200" y="54" width="156" height="106" rx="8" fill="#0f141c" stroke="#2c3647"/>
+  <text x="278" y="75" fill="#ff753a" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">ease</text>
+  <path d="M 222 144 C 250 144, 244 88, 334 88" fill="none" stroke="#ff753a" stroke-width="3"/>
+
+  <!-- ease-in -->
+  <rect x="24" y="176" width="156" height="106" rx="8" fill="#0f141c" stroke="#2c3647"/>
+  <text x="102" y="197" fill="#38d9e7" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">ease-in</text>
+  <path d="M 46 266 C 95 266, 158 240, 158 210" fill="none" stroke="#38d9e7" stroke-width="3"/>
+
+  <!-- ease-out -->
+  <rect x="200" y="176" width="156" height="106" rx="8" fill="#0f141c" stroke="#2c3647"/>
+  <text x="278" y="197" fill="#ff753a" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">ease-out</text>
+  <path d="M 222 266 C 222 232, 275 210, 334 210" fill="none" stroke="#ff753a" stroke-width="3"/>
+
+  <!-- ease-in-out -->
+  <rect x="24" y="298" width="156" height="106" rx="8" fill="#0f141c" stroke="#2c3647"/>
+  <text x="102" y="319" fill="#38d9e7" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">ease-in-out</text>
+  <path d="M 46 388 C 94 388, 110 332, 158 332" fill="none" stroke="#38d9e7" stroke-width="3"/>
+
+  <!-- steps(4) -->
+  <rect x="200" y="298" width="156" height="106" rx="8" fill="#0f141c" stroke="#2c3647"/>
+  <text x="278" y="319" fill="#ff753a" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">steps(4)</text>
+  <path d="M 222 388 L 250 388 L 250 374 L 278 374 L 278 360 L 306 360 L 306 346 L 334 346 L 334 332" fill="none" stroke="#ff753a" stroke-width="2.5"/>
+</svg>
+

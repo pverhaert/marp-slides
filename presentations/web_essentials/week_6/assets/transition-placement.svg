@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" width="380" height="420">
+  <rect width="380" height="420" rx="14" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="190" y="34" fill="#ffffff" font-family="Outfit, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Base vs. :hover Placement</text>
+
+  <!-- Wrong: only on :hover -->
+  <rect x="22" y="54" width="336" height="162" rx="10" fill="#0f141c" stroke="#e84e10" stroke-width="1.5"/>
+  <text x="38" y="78" fill="#ff753a" font-family="Fira Code, monospace" font-size="12" font-weight="700">WRONG: transition inside :hover</text>
+
+  <rect x="38" y="96" width="70" height="30" rx="6" fill="#009cab"/>
+  <text x="73" y="115" fill="#ffffff" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Normal</text>
+
+  <line x1="114" y1="111" x2="250" y2="111" stroke="#38d9e7" stroke-width="3"/>
+  <text x="182" y="102" fill="#38d9e7" font-family="Fira Code, monospace" font-size="11" text-anchor="middle">hover: 300ms (smooth)</text>
+
+  <rect x="256" y="96" width="84" height="30" rx="6" fill="#e84e10"/>
+  <text x="298" y="115" fill="#ffffff" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">:hover</text>
+
+  <path d="M 256 156 L 114 156" stroke="#ff753a" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <polygon points="114,156 124,151 124,161" fill="#ff753a"/>
+  <text x="186" y="148" fill="#ff753a" font-family="Fira Code, monospace" font-size="11" font-weight="700" text-anchor="middle">leave: 0ms (SNAP!)</text>
+  <text x="186" y="192" fill="#94a3b8" font-family="Outfit, sans-serif" font-size="12" text-anchor="middle">:hover disappears -> transition disappears</text>
+
+  <!-- Right: on base class -->
+  <rect x="22" y="234" width="336" height="166" rx="10" fill="#0f141c" stroke="#009cab" stroke-width="1.5"/>
+  <text x="38" y="258" fill="#38d9e7" font-family="Fira Code, monospace" font-size="12" font-weight="700">RIGHT: transition on .btn (base)</text>
+
+  <rect x="38" y="276" width="70" height="30" rx="6" fill="#009cab"/>
+  <text x="73" y="295" fill="#ffffff" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Normal</text>
+
+  <line x1="114" y1="291" x2="250" y2="291" stroke="#38d9e7" stroke-width="3"/>
+  <text x="182" y="282" fill="#38d9e7" font-family="Fira Code, monospace" font-size="11" text-anchor="middle">hover: 300ms (smooth)</text>
+
+  <rect x="256" y="276" width="84" height="30" rx="6" fill="#e84e10"/>
+  <text x="298" y="295" fill="#ffffff" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">:hover</text>
+
+  <line x1="250" y1="338" x2="114" y2="338" stroke="#38d9e7" stroke-width="3"/>
+  <polygon points="114,338 124,333 124,343" fill="#38d9e7"/>
+  <text x="182" y="330" fill="#38d9e7" font-family="Fira Code, monospace" font-size="11" font-weight="700" text-anchor="middle">leave: 300ms (smooth)</text>
+  <text x="186" y="374" fill="#94a3b8" font-family="Outfit, sans-serif" font-size="12" text-anchor="middle">Base selector always stays active</text>
+</svg>
+

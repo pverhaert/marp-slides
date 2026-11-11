@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 280" width="460" height="280">
+  <rect width="460" height="280" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+
+  <text x="24" y="34" fill="#ff753a" font-family="monospace" font-size="14" font-weight="700">flex-wrap: nowrap (default - shrinks)</text>
+  <rect x="24" y="44" width="412" height="58" rx="8" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="36" y="56" width="70" height="34" rx="4" fill="#e84e10"/>
+  <rect x="114" y="56" width="70" height="34" rx="4" fill="#e84e10"/>
+  <rect x="192" y="56" width="70" height="34" rx="4" fill="#e84e10"/>
+  <rect x="270" y="56" width="70" height="34" rx="4" fill="#e84e10"/>
+  <rect x="348" y="56" width="76" height="34" rx="4" fill="#e84e10" fill-opacity="0.65"/>
+
+  <text x="24" y="138" fill="#38d9e7" font-family="monospace" font-size="14" font-weight="700">flex-wrap: wrap + gap (new rows)</text>
+  <rect x="24" y="148" width="412" height="114" rx="8" fill="#0f141c" stroke="#009cab" stroke-width="1.5"/>
+  <rect x="36" y="160" width="116" height="38" rx="5" fill="#009cab"/>
+  <text x="72" y="184" fill="#fff" font-family="monospace" font-size="12" font-weight="700">Card 1</text>
+  <rect x="166" y="160" width="116" height="38" rx="5" fill="#009cab"/>
+  <text x="202" y="184" fill="#fff" font-family="monospace" font-size="12" font-weight="700">Card 2</text>
+  <rect x="296" y="160" width="116" height="38" rx="5" fill="#009cab"/>
+  <text x="332" y="184" fill="#fff" font-family="monospace" font-size="12" font-weight="700">Card 3</text>
+  <rect x="36" y="210" width="116" height="38" rx="5" fill="#009cab" fill-opacity="0.8"/>
+  <text x="72" y="234" fill="#fff" font-family="monospace" font-size="12" font-weight="700">Card 4</text>
+  <rect x="166" y="210" width="116" height="38" rx="5" fill="#009cab" fill-opacity="0.8"/>
+  <text x="202" y="234" fill="#fff" font-family="monospace" font-size="12" font-weight="700">Card 5</text>
+</svg>
+

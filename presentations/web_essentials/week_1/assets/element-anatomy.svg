@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 220" width="460" height="220">
+  <rect width="460" height="220" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <rect x="20" y="64" width="420" height="58" rx="8" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <text x="34" y="100" font-family="monospace" font-size="20" font-weight="700">
+    <tspan fill="#58a6ff">&lt;p</tspan>
+    <tspan fill="#7ee787"> title=</tspan><tspan fill="#ffab70">"info"</tspan><tspan fill="#58a6ff">&gt;</tspan>
+    <tspan fill="#e6edf3">Web</tspan>
+    <tspan fill="#58a6ff">&lt;/p&gt;</tspan>
+  </text>
+  <line x1="48" y1="64" x2="48" y2="42" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="26" y="34" fill="#58a6ff" font-family="monospace" font-size="12" font-weight="700">open tag</text>
+  <line x1="145" y1="122" x2="145" y2="152" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="86" y="168" fill="#7ee787" font-family="monospace" font-size="12" font-weight="700">attribute="value"</text>
+  <line x1="262" y1="64" x2="262" y2="42" stroke="#e6edf3" stroke-width="1.5"/>
+  <text x="234" y="34" fill="#e6edf3" font-family="monospace" font-size="12" font-weight="700">content</text>
+  <line x1="322" y1="64" x2="322" y2="42" stroke="#ff753a" stroke-width="1.5"/>
+  <text x="300" y="34" fill="#ff753a" font-family="monospace" font-size="12" font-weight="700">close tag</text>
+  <rect x="20" y="182" width="420" height="26" rx="6" fill="#e84e10" fill-opacity="0.16" stroke="#e84e10" stroke-width="1"/>
+  <text x="155" y="200" fill="#ff753a" font-family="monospace" font-size="13" font-weight="700">= 1 HTML element</text>
+</svg>
+

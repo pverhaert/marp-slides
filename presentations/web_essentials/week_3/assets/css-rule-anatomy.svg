@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" width="460" height="210">
+  <rect width="460" height="210" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <rect x="24" y="62" width="412" height="60" rx="8" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <text x="42" y="100" font-family="monospace" font-size="22" font-weight="700">
+    <tspan fill="#ff753a">h2</tspan>
+    <tspan fill="#e6edf3"> { </tspan>
+    <tspan fill="#79c0ff">color</tspan><tspan fill="#e6edf3">: </tspan><tspan fill="#ffab70">#e87722</tspan><tspan fill="#e6edf3">; }</tspan>
+  </text>
+  <line x1="56" y1="62" x2="56" y2="38" stroke="#ff753a" stroke-width="1.5"/>
+  <text x="24" y="30" fill="#ff753a" font-family="monospace" font-size="13" font-weight="700">selector</text>
+  <line x1="158" y1="122" x2="158" y2="150" stroke="#79c0ff" stroke-width="1.5"/>
+  <text x="122" y="166" fill="#79c0ff" font-family="monospace" font-size="13" font-weight="700">property</text>
+  <line x1="274" y1="62" x2="274" y2="38" stroke="#ffab70" stroke-width="1.5"/>
+  <text x="252" y="30" fill="#ffab70" font-family="monospace" font-size="13" font-weight="700">value</text>
+  <line x1="336" y1="122" x2="336" y2="150" stroke="#38d9e7" stroke-width="1.5"/>
+  <text x="296" y="166" fill="#38d9e7" font-family="monospace" font-size="13" font-weight="700">semicolon ;</text>
+  <rect x="24" y="178" width="412" height="22" rx="4" fill="#009cab" fill-opacity="0.16"/>
+  <text x="148" y="193" fill="#38d9e7" font-family="monospace" font-size="12" font-weight="700">{ ... } = declaration block</text>
+</svg>
+

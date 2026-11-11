@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" width="380" height="420">
+  <rect width="380" height="420" rx="14" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="190" y="34" fill="#ffffff" font-family="Outfit, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Effect of perspective on rotateY(45deg)</text>
+
+  <!-- 1: No perspective -->
+  <rect x="24" y="54" width="332" height="106" rx="10" fill="#0f141c" stroke="#2c3647"/>
+  <text x="40" y="78" fill="#94a3b8" font-family="Fira Code, monospace" font-size="12" font-weight="700">No perspective (flat 2D shrink)</text>
+  <rect x="78" y="92" width="104" height="52" rx="4" fill="none" stroke="#64748b" stroke-dasharray="4 3"/>
+  <rect x="102" y="92" width="56" height="52" rx="4" fill="#2c3647" stroke="#94a3b8" stroke-width="2"/>
+  <text x="204" y="122" fill="#94a3b8" font-family="Outfit, sans-serif" font-size="12">No depth cue</text>
+
+  <!-- 2: perspective: 300px -->
+  <rect x="24" y="174" width="332" height="106" rx="10" fill="#0f141c" stroke="#e84e10"/>
+  <text x="40" y="198" fill="#ff753a" font-family="Fira Code, monospace" font-size="12" font-weight="700">perspective: 300px; (close camera)</text>
+  <polygon points="84,210 166,224 166,254 84,268" fill="#e84e10" fill-opacity="0.88" stroke="#ff753a" stroke-width="2"/>
+  <text x="200" y="242" fill="#e6edf3" font-family="Outfit, sans-serif" font-size="12">Strong distortion</text>
+
+  <!-- 3: perspective: 800px -->
+  <rect x="24" y="294" width="332" height="106" rx="10" fill="#0f141c" stroke="#009cab"/>
+  <text x="40" y="318" fill="#38d9e7" font-family="Fira Code, monospace" font-size="12" font-weight="700">perspective: 800px; (natural UI)</text>
+  <polygon points="84,334 166,341 166,377 84,384" fill="#009cab" fill-opacity="0.88" stroke="#38d9e7" stroke-width="2"/>
+  <text x="200" y="362" fill="#38d9e7" font-family="Outfit, sans-serif" font-size="12" font-weight="700">Realistic 3D depth</text>
+</svg>
+

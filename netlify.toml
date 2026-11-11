@@ -10,23 +10,73 @@
 
 # Clean short URLs
 [[redirects]]
-  from = "/basic_html"
-  to = "/web_essentials/basic_html/dutch.html"
+  from = "/week_1"
+  to = "/web_essentials/week_1/dutch.html"
   status = 200
 
 [[redirects]]
-  from = "/basic_html_en"
-  to = "/web_essentials/basic_html/english.html"
+  from = "/week_1_en"
+  to = "/web_essentials/week_1/english.html"
   status = 200
 
 [[redirects]]
-  from = "/basic_css"
-  to = "/web_essentials/basic_css/dutch.html"
+  from = "/week_2"
+  to = "/web_essentials/week_2/dutch.html"
   status = 200
 
 [[redirects]]
-  from = "/basic_css_en"
-  to = "/web_essentials/basic_css/english.html"
+  from = "/week_2_en"
+  to = "/web_essentials/week_2/english.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_3"
+  to = "/web_essentials/week_3/dutch.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_3_en"
+  to = "/web_essentials/week_3/english.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_4"
+  to = "/web_essentials/week_4/dutch.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_4_en"
+  to = "/web_essentials/week_4/english.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_5"
+  to = "/web_essentials/week_5/dutch.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_5_en"
+  to = "/web_essentials/week_5/english.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_6"
+  to = "/web_essentials/week_6/dutch.html"
+  status = 200
+
+[[redirects]]
+  from = "/week_6_en"
+  to = "/web_essentials/week_6/english.html"
+  status = 200
+
+[[redirects]]
+  from = "/3d_transforms"
+  to = "/web_essentials/3d_transforms/dutch.html"
+  status = 200
+
+[[redirects]]
+  from = "/3d_transforms_en"
+  to = "/web_essentials/3d_transforms/english.html"
   status = 200
 
 [[redirects]]

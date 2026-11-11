@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 250" width="460" height="250">
+  <rect width="460" height="250" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="24" y="34" fill="#ff753a" font-family="monospace" font-size="15" font-weight="700">Box 2: display: none (0 x 0px)</text>
+  <rect x="24" y="48" width="412" height="64" rx="8" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <rect x="38" y="60" width="110" height="40" rx="6" fill="#e84e10"/>
+  <text x="72" y="85" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700">Box 1</text>
+  <rect x="160" y="60" width="110" height="40" rx="6" fill="#009cab"/>
+  <text x="194" y="85" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700">Box 3</text>
+  <text x="288" y="85" fill="#8b949e" font-family="monospace" font-size="12">&lt;- shifts left</text>
+
+  <text x="24" y="148" fill="#38d9e7" font-family="monospace" font-size="15" font-weight="700">Box 2: visibility: hidden</text>
+  <rect x="24" y="162" width="412" height="64" rx="8" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <rect x="38" y="174" width="110" height="40" rx="6" fill="#e84e10"/>
+  <text x="72" y="199" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700">Box 1</text>
+  <rect x="168" y="174" width="110" height="40" rx="6" fill="none" stroke="#38d9e7" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="194" y="199" fill="#38d9e7" font-family="monospace" font-size="12">empty</text>
+  <rect x="298" y="174" width="110" height="40" rx="6" fill="#009cab"/>
+  <text x="332" y="199" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700">Box 3</text>
+</svg>
+

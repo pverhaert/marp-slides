@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" width="380" height="420">
+  <rect width="380" height="420" rx="14" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="190" y="34" fill="#ffffff" font-family="Outfit, sans-serif" font-size="16" font-weight="700" text-anchor="middle">transform-origin: Pivot Point</text>
+
+  <!-- Default 50% 50% -->
+  <rect x="24" y="54" width="332" height="162" rx="10" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <text x="40" y="78" fill="#38d9e7" font-family="Fira Code, monospace" font-size="13" font-weight="700">transform-origin: 50% 50%; (default)</text>
+  <rect x="115" y="102" width="150" height="84" rx="8" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g transform="rotate(18 190 144)">
+    <rect x="115" y="102" width="150" height="84" rx="8" fill="#009cab" fill-opacity="0.78" stroke="#38d9e7" stroke-width="2"/>
+    <text x="190" y="149" fill="#ffffff" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">rotate(18deg)</text>
+  </g>
+  <circle cx="190" cy="144" r="6" fill="#ff753a" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- top left -->
+  <rect x="24" y="232" width="332" height="170" rx="10" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <text x="40" y="256" fill="#ff753a" font-family="Fira Code, monospace" font-size="13" font-weight="700">transform-origin: top left;</text>
+  <rect x="115" y="276" width="150" height="84" rx="8" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g transform="rotate(18 115 276)">
+    <rect x="115" y="276" width="150" height="84" rx="8" fill="#e84e10" fill-opacity="0.78" stroke="#ff753a" stroke-width="2"/>
+    <text x="190" y="323" fill="#ffffff" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">rotate(18deg)</text>
+  </g>
+  <circle cx="115" cy="276" r="6" fill="#38d9e7" stroke="#ffffff" stroke-width="1.5"/>
+</svg>
+

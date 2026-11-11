@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 280" width="460" height="280">
+  <rect width="460" height="280" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <rect x="30" y="48" width="380" height="186" rx="10" fill="#0f141c" stroke="#2c3647" stroke-width="2"/>
+
+  <line x1="20" y1="30" x2="416" y2="30" stroke="#e84e10" stroke-width="3"/>
+  <polygon points="416,24 430,30 416,36" fill="#e84e10"/>
+  <text x="110" y="22" fill="#ff753a" font-family="monospace" font-size="13" font-weight="700">MAIN AXIS (justify-content)</text>
+
+  <line x1="430" y1="52" x2="430" y2="226" stroke="#009cab" stroke-width="3"/>
+  <polygon points="424,226 430,240 436,226" fill="#009cab"/>
+  <text x="276" y="262" fill="#38d9e7" font-family="monospace" font-size="13" font-weight="700">CROSS AXIS (align-items)</text>
+
+  <rect x="52" y="96" width="96" height="90" rx="8" fill="#e84e10"/>
+  <text x="76" y="146" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700">Item 1</text>
+
+  <rect x="170" y="96" width="96" height="90" rx="8" fill="#009cab"/>
+  <text x="194" y="146" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700">Item 2</text>
+
+  <rect x="288" y="96" width="96" height="90" rx="8" fill="#2c3647" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="312" y="146" fill="#e6edf3" font-family="monospace" font-size="14" font-weight="700">Item 3</text>
+</svg>
+

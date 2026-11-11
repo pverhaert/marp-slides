@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 270" width="420" height="270">
+  <rect width="420" height="270" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <rect x="28" y="24" width="364" height="200" rx="10" fill="#0f141c" stroke="#009cab" stroke-width="2"/>
+  <text x="42" y="50" fill="#38d9e7" font-family="monospace" font-size="14" font-weight="700">.card { position: relative; }</text>
+
+  <rect x="44" y="68" width="240" height="96" rx="8" fill="#2c3647"/>
+  <text x="64" y="122" fill="#e6edf3" font-family="monospace" font-size="13">Card content</text>
+
+  <rect x="260" y="38" width="116" height="34" rx="6" fill="#e84e10"/>
+  <text x="274" y="60" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">top:12 right:12</text>
+
+  <rect x="44" y="176" width="332" height="32" rx="6" fill="#1c2331"/>
+  <text x="58" y="197" fill="#ff753a" font-family="monospace" font-size="12" font-weight="700">.badge { position: absolute; } -> out of flow</text>
+  <text x="42" y="250" fill="#8b949e" font-family="monospace" font-size="12">Positioned relative to nearest positioned parent</text>
+</svg>
+

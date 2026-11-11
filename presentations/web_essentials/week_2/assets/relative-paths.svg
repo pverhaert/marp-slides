@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" width="420" height="260">
+  <rect width="420" height="260" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="24" y="34" fill="#ff753a" font-family="monospace" font-size="15" font-weight="700">website/</text>
+  <line x1="34" y1="46" x2="34" y2="220" stroke="#2c3647" stroke-width="2"/>
+  <line x1="34" y1="68" x2="60" y2="68" stroke="#2c3647" stroke-width="2"/>
+  <rect x="62" y="52" width="130" height="30" rx="6" fill="#0f141c" stroke="#009cab" stroke-width="1.5"/>
+  <text x="76" y="72" fill="#38d9e7" font-family="monospace" font-size="13" font-weight="700">index.html</text>
+  <text x="204" y="72" fill="#8b949e" font-family="monospace" font-size="12">images/campus.webp</text>
+
+  <line x1="34" y1="112" x2="60" y2="112" stroke="#2c3647" stroke-width="2"/>
+  <text x="64" y="117" fill="#e6edf3" font-family="monospace" font-size="14" font-weight="700">images/</text>
+  <line x1="76" y1="126" x2="76" y2="152" stroke="#2c3647" stroke-width="2"/>
+  <line x1="76" y1="152" x2="98" y2="152" stroke="#2c3647" stroke-width="2"/>
+  <rect x="100" y="136" width="134" height="30" rx="6" fill="#0f141c" stroke="#e84e10" stroke-width="1.5"/>
+  <text x="114" y="156" fill="#ff753a" font-family="monospace" font-size="13" font-weight="700">campus.webp</text>
+
+  <line x1="34" y1="190" x2="60" y2="190" stroke="#2c3647" stroke-width="2"/>
+  <text x="64" y="195" fill="#e6edf3" font-family="monospace" font-size="14" font-weight="700">pages/</text>
+  <line x1="76" y1="204" x2="76" y2="230" stroke="#2c3647" stroke-width="2"/>
+  <line x1="76" y1="230" x2="98" y2="230" stroke="#2c3647" stroke-width="2"/>
+  <rect x="100" y="214" width="114" height="30" rx="6" fill="#0f141c" stroke="#009cab" stroke-width="1.5"/>
+  <text x="114" y="234" fill="#38d9e7" font-family="monospace" font-size="13" font-weight="700">info.html</text>
+  <text x="224" y="234" fill="#ffab70" font-family="monospace" font-size="12">../images/campus.webp</text>
+</svg>
+

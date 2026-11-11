@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" width="380" height="420">
+  <rect width="380" height="420" rx="14" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+  <text x="190" y="34" fill="#ffffff" font-family="Outfit, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Document Flow vs. transform</text>
+
+  <!-- Case 1: margin-top -->
+  <rect x="24" y="54" width="332" height="162" rx="10" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <text x="40" y="78" fill="#ff753a" font-family="Fira Code, monospace" font-size="13" font-weight="700">margin-top: 28px;</text>
+  <rect x="40" y="92" width="120" height="32" rx="6" fill="#2c3647"/>
+  <text x="100" y="113" fill="#e6edf3" font-family="Fira Code, monospace" font-size="12" text-anchor="middle">.box-1</text>
+
+  <!-- pushed box-2 -->
+  <rect x="40" y="144" width="120" height="32" rx="6" fill="#e84e10"/>
+  <text x="100" y="165" fill="#ffffff" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">.box-2</text>
+
+  <!-- pushed box-3 -->
+  <rect x="40" y="182" width="120" height="24" rx="5" fill="#2c3647"/>
+  <text x="100" y="198" fill="#e6edf3" font-family="Fira Code, monospace" font-size="11" text-anchor="middle">.box-3 (pushed!)</text>
+
+  <path d="M 178 138 L 178 194" stroke="#ff753a" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="192" y="166" fill="#ff753a" font-family="Outfit, sans-serif" font-size="13" font-weight="600">Reflow: neighbors</text>
+  <text x="192" y="184" fill="#94a3b8" font-family="Outfit, sans-serif" font-size="12">shift downward</text>
+
+  <!-- Case 2: transform -->
+  <rect x="24" y="232" width="332" height="170" rx="10" fill="#0f141c" stroke="#2c3647" stroke-width="1.5"/>
+  <text x="40" y="256" fill="#38d9e7" font-family="Fira Code, monospace" font-size="13" font-weight="700">transform: translate(26px, 22px);</text>
+
+  <rect x="40" y="272" width="120" height="30" rx="6" fill="#2c3647"/>
+  <text x="100" y="291" fill="#e6edf3" font-family="Fira Code, monospace" font-size="12" text-anchor="middle">.box-1</text>
+
+  <!-- ghost original slot -->
+  <rect x="40" y="310" width="120" height="32" rx="6" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="100" y="330" fill="#94a3b8" font-family="Fira Code, monospace" font-size="11" text-anchor="middle">ghost slot</text>
+
+  <!-- box-3 unmoved -->
+  <rect x="40" y="350" width="120" height="30" rx="6" fill="#2c3647"/>
+  <text x="100" y="369" fill="#e6edf3" font-family="Fira Code, monospace" font-size="12" text-anchor="middle">.box-3 (fixed)</text>
+
+  <!-- visual GPU layer -->
+  <rect x="66" y="332" width="120" height="32" rx="6" fill="#009cab" fill-opacity="0.92" stroke="#38d9e7" stroke-width="2"/>
+  <text x="126" y="353" fill="#ffffff" font-family="Fira Code, monospace" font-size="12" font-weight="700" text-anchor="middle">.box-2 (GPU)</text>
+
+  <text x="202" y="318" fill="#38d9e7" font-family="Outfit, sans-serif" font-size="13" font-weight="600">Flow intact:</text>
+  <text x="202" y="336" fill="#94a3b8" font-family="Outfit, sans-serif" font-size="12">.box-3 stays put,</text>
+  <text x="202" y="352" fill="#94a3b8" font-family="Outfit, sans-serif" font-size="12">GPU visual layer</text>
+</svg>
+

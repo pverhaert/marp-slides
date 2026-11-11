@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 280" width="460" height="280">
+  <rect width="460" height="280" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+
+  <text x="20" y="30" fill="#ff753a" font-family="monospace" font-size="13" font-weight="700">stretch (default)</text>
+  <rect x="20" y="40" width="200" height="82" rx="6" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="32" y="48" width="50" height="66" rx="4" fill="#e84e10"/>
+  <rect x="94" y="48" width="50" height="66" rx="4" fill="#e84e10" fill-opacity="0.8"/>
+  <rect x="156" y="48" width="50" height="66" rx="4" fill="#e84e10" fill-opacity="0.6"/>
+
+  <text x="240" y="30" fill="#38d9e7" font-family="monospace" font-size="13" font-weight="700">center</text>
+  <rect x="240" y="40" width="200" height="82" rx="6" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="252" y="64" width="50" height="34" rx="4" fill="#009cab"/>
+  <rect x="314" y="56" width="50" height="50" rx="4" fill="#009cab" fill-opacity="0.8"/>
+  <rect x="376" y="68" width="50" height="26" rx="4" fill="#009cab" fill-opacity="0.6"/>
+
+  <text x="20" y="156" fill="#38d9e7" font-family="monospace" font-size="13" font-weight="700">flex-start</text>
+  <rect x="20" y="166" width="200" height="82" rx="6" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="32" y="174" width="50" height="32" rx="4" fill="#009cab"/>
+  <rect x="94" y="174" width="50" height="48" rx="4" fill="#009cab" fill-opacity="0.8"/>
+  <rect x="156" y="174" width="50" height="26" rx="4" fill="#009cab" fill-opacity="0.6"/>
+
+  <text x="240" y="156" fill="#ff753a" font-family="monospace" font-size="13" font-weight="700">flex-end</text>
+  <rect x="240" y="166" width="200" height="82" rx="6" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="252" y="208" width="50" height="32" rx="4" fill="#e84e10"/>
+  <rect x="314" y="192" width="50" height="48" rx="4" fill="#e84e10" fill-opacity="0.8"/>
+  <rect x="376" y="214" width="50" height="26" rx="4" fill="#e84e10" fill-opacity="0.6"/>
+</svg>
+

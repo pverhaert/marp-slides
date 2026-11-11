@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 310" width="460" height="310">
+  <rect width="460" height="310" rx="12" fill="#181f2a" stroke="#2c3647" stroke-width="2"/>
+
+  <text x="20" y="28" fill="#ff753a" font-family="monospace" font-size="12" font-weight="700">flex-start</text>
+  <rect x="135" y="12" width="305" height="30" rx="5" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="141" y="17" width="44" height="20" rx="3" fill="#e84e10"/>
+  <rect x="191" y="17" width="44" height="20" rx="3" fill="#e84e10"/>
+  <rect x="241" y="17" width="44" height="20" rx="3" fill="#e84e10"/>
+
+  <text x="20" y="76" fill="#38d9e7" font-family="monospace" font-size="12" font-weight="700">center</text>
+  <rect x="135" y="60" width="305" height="30" rx="5" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="215" y="65" width="44" height="20" rx="3" fill="#009cab"/>
+  <rect x="265" y="65" width="44" height="20" rx="3" fill="#009cab"/>
+  <rect x="315" y="65" width="44" height="20" rx="3" fill="#009cab"/>
+
+  <text x="20" y="124" fill="#ff753a" font-family="monospace" font-size="12" font-weight="700">flex-end</text>
+  <rect x="135" y="108" width="305" height="30" rx="5" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="290" y="113" width="44" height="20" rx="3" fill="#e84e10"/>
+  <rect x="340" y="113" width="44" height="20" rx="3" fill="#e84e10"/>
+  <rect x="390" y="113" width="44" height="20" rx="3" fill="#e84e10"/>
+
+  <text x="20" y="172" fill="#38d9e7" font-family="monospace" font-size="12" font-weight="700">space-between</text>
+  <rect x="135" y="156" width="305" height="30" rx="5" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="141" y="161" width="44" height="20" rx="3" fill="#009cab"/>
+  <rect x="265" y="161" width="44" height="20" rx="3" fill="#009cab"/>
+  <rect x="390" y="161" width="44" height="20" rx="3" fill="#009cab"/>
+
+  <text x="20" y="220" fill="#ff753a" font-family="monospace" font-size="12" font-weight="700">space-around</text>
+  <rect x="135" y="204" width="305" height="30" rx="5" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="165" y="209" width="44" height="20" rx="3" fill="#e84e10"/>
+  <rect x="265" y="209" width="44" height="20" rx="3" fill="#e84e10"/>
+  <rect x="366" y="209" width="44" height="20" rx="3" fill="#e84e10"/>
+
+  <text x="20" y="268" fill="#38d9e7" font-family="monospace" font-size="12" font-weight="700">space-evenly</text>
+  <rect x="135" y="252" width="305" height="30" rx="5" fill="#0f141c" stroke="#2c3647"/>
+  <rect x="178" y="257" width="44" height="20" rx="3" fill="#009cab"/>
+  <rect x="265" y="257" width="44" height="20" rx="3" fill="#009cab"/>
+  <rect x="353" y="257" width="44" height="20" rx="3" fill="#009cab"/>
+</svg>
+
